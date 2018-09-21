@@ -18,6 +18,20 @@
 			$("#mylist").slideToggle('fast');
 		});
 	});
+	/* $(function(){
+		$("").click(function(e){
+			x=e.pageX;
+			y=e.pageY;
+			title=$(this).attr("newstitle");
+			content=$(this).attr("newscontent");
+			//alert(x+","+y+","+title);
+			
+			$("#result").empty();
+			$("#result").append(title+"<hr>");
+			$("#result").append(content);
+			$("#result").show();					
+		});
+	}); */
 	</script>
 </head>
 <body>
