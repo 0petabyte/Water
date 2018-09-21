@@ -45,7 +45,9 @@
 				<li class="menulist"><a href="#">오류신고게시판</a></li>
 				<li class="menulist"><a href="#">미정</a></li>
 			</ul>
+
 			<ul class="nav navbar-nav navbar-right">
+
 				<li><a href="#" id="playlist">PlayList</a></li>
 				<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 				<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

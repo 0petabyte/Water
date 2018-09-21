@@ -5,28 +5,46 @@
 <head>
 	<title>Barker Music</title>
 	<meta charset="utf-8">
+	<c:set var="root" value="<%=request.getContextPath()%>" />
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+	<script type="text/javascript">
+	$(function(){
+		$('input[name=_selected_all_]').on('change', function(){
+			$('input[name=_selected_]').prop('checked', this.checked);
+		});
+	});
+	</script>
+	<style>
+		#icon {
+			float: right;
+			margin-left:10px;
+		}
+	</style>
 </head>
 <body>
 <div class="container">
 	<h2>시대의 명곡 리스트</h2>
 	<p>타이틀을 누르면 자동으로 음원이 재생됩니다(음원출처:youtube)</p>
+	<a href="#" id="icon"><img src="${root}/images/music.png" height="40"></a>
+	<a href="#" id="icon"><img src="${root}/images/likes.png" height="40"></a>
 	<table class="table table-hover">
 		<thead>
 			<tr>
+			<th><input type="checkbox" name="_selected_all_"></th>
 				<th style="text-align: center;">No</th>
 				<th style="text-align: center;">타이틀</th>
 				<th style="text-align: center;">가수명</th>
-				<th style="text-align: center;">Rank</th>
+				<th style="text-align: center;">RANK</th>
 				<th style="text-align: center;">앨범명</th>
 			</tr>
 		</thead>
     	<tbody>
     		<c:forEach var="musicdata" begin="${startNum}" end="${endNum}" items="${list}" >
     		<tr>
+    		<td><input type="checkbox" name="_selected_"/></td>
 				<td align="center">${no}</td>	
 				<c:set var="no" value="${no-1}"/>
 				<td align="center">
@@ -34,44 +52,34 @@
     			<td align="center">${musicdata.artlist}</td>
     			<td align="center">${musicdata.sunwhi}</td>
     			<td align="center">
-    				<a href="${musicdata.musicidurl}" > ${musicdata.album}</a></td>
+    			<a href="${musicdata.musicidurl}" > ${musicdata.album}</a></td>
     		</tr>
     		</c:forEach>
     	</tbody>
     </table>
-    
-    
-				   <!-- 페이징 -->   
-
-	   <table style="margin: 0 auto;">
-	   	<tr>
-	   		<td align="center">
-
-	   			<ul class="pagination">
-
-	   			   			<c:if test="${startPage>1}">
-	   				 <li><a href="main.do?pageNum=${startPage-1}">Previous</a></li>   				 
-	   			</c:if>
-	   			<c:forEach var="pg" begin="${startPage}" end="${endPage}">
-	   				<c:if test="${currentPage==pg}">
-	   					<li><a href="main.do?pageNum=${pg}" style="color:red;">${pg}</a></li>
-	   				</c:if>
-	   				<c:if test="${currentPage!=pg}">
-	   					<li><a href="main.do?pageNum=${pg}" style="color:black;">${pg}</a></li>
-	   				</c:if>
-	   			</c:forEach>
-	   			<c:if test="${endPage<totalPage}">
-	   				<li><a href="main.do?pageNum=${endPage+1}">Next</a></li>   
-	   			</c:if>
-	   			</ul>
-
-	   			
-	   			
-	   			  
-
-	   		</td>
+    <!-- 페이징 -->
+    <table style="margin: 0 auto;">
+    	<tr>
+    	<td align="center">
+    	<ul class="pagination">
+    	<c:if test="${startPage>1}">
+    		<li><a href="main.do?pageNum=${startPage-1}">Previous</a></li>   				 
+	   	</c:if>
+	   	<c:forEach var="pg" begin="${startPage}" end="${endPage}">
+	   		<c:if test="${currentPage==pg}">
+	   			<li><a href="main.do?pageNum=${pg}" style="color:red;">${pg}</a></li>
+	   		</c:if>
+	   		<c:if test="${currentPage!=pg}">
+	   			<li><a href="main.do?pageNum=${pg}" style="color:black;">${pg}</a></li>
+	   		</c:if>
+	   	</c:forEach>
+	   	<c:if test="${endPage<totalPage}">
+	   		<li><a href="main.do?pageNum=${endPage+1}">Next</a></li>   
+	   	</c:if>
+	   	</ul>
+	   	</td>
 	   	</tr>
-	   </table>		
+	</table>		
 </div>
 </body>
 </html>
