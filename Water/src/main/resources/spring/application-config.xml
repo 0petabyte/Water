@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.5.xsd">
+    
+    <!-- Uncomment and add your base-package here:
+         <context:component-scan
+            base-package="org.springframework.samples.service"/>  -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	  <property name="locations">
+	  	<value>WEB-INF/db.properties</value>
+	  </property>
+	</bean>
+ 
+	 <bean id="dataSource"
+      class="org.apache.commons.dbcp.BasicDataSource">
+      	<property name="driverClassName" value="${driver}"/>
+      	<property name="url" value="${url}"/>
+      	<property name="username" value="${username}"/>
+      	<property name="password" value="${password}"/>
+    </bean> 
+
+	 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		  <property name="dataSource" ref="dataSource" />  
+		  <property name="configLocation" 
+value="classpath:spring/SqlMapConfig.xml"/>
+	 </bean>
+ 
+	 <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+	  <constructor-arg ref="sqlSessionFactory"/>
+	 </bean>    
+	 
+	<!-- Mongo DB 서버 셋팅 -->
+	
+		<mongo:mongo id="mongo" host="jiung.net" port="27999">
+		<mongo:options
+			threads-allowed-to-block-for-connection-multiplier="4"
+			connect-timeout="1000" 
+			max-wait-time="1500"
+			auto-connect-retry="true"
+			socket-keep-alive="true"
+			socket-timeout="1500"
+			write-number="1"
+			write-timeout="0"
+			write-fsync="true"
+	/>
+	</mongo:mongo>
+	
+		<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+		<constructor-arg name="databaseName" value="music2"/>
+		<constructor-arg name="mongo" ref="mongo"/>
+		
+		<!-- 보안설정 -->
+		<constructor-arg name="userCredentials">
+			<bean class="org.springframework.data.authentication.UserCredentials">
+				<constructor-arg name="username" value="admin"/>
+				<constructor-arg name="password" value=""/>
+			</bean>
+		</constructor-arg>
+		<property name="writeConcern" value="SAFE"/>
+	</bean>
+	<!-- test.* 으로해도됨 -->
+	<mongo:repositories base-package="test.mongodb"/>
+</beans>
