@@ -52,7 +52,7 @@ value="classpath:spring/SqlMapConfig.xml"/>
 	</mongo:mongo>
 	
 		<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
-		<constructor-arg name="databaseName" value="music2"/>
+		<constructor-arg name="databaseName" value="music"/>
 		<constructor-arg name="mongo" ref="mongo"/>
 		
 		<!-- 보안설정 -->

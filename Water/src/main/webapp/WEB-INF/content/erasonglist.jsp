@@ -17,19 +17,20 @@
 	<table class="table table-hover">
 		<thead>
 			<tr>
-				<th>No</th>
-				<th>타이틀</th>
-				<th>가수명</th>
-				<th>당시순위</th>
-				<th>앨범명</th>
+				<th style="text-align: center;">No</th>
+				<th style="text-align: center;">타이틀</th>
+				<th style="text-align: center;">가수명</th>
+				<th style="text-align: center;">당시순위</th>
+				<th style="text-align: center;">앨범명</th>
 			</tr>
 		</thead>
     	<tbody>
-    		<c:forEach var="musicdata" items="${list}" varStatus="i">
+    		<c:forEach var="musicdata" begin="${startNum}" end="${endNum}" items="${list}" >
     		<tr>
-    			<td align="center">${i.count}</td>
-    			<td align="center">
-    				<a href ="https://www.youtube.com${musicdata.youtubeurl}">${musicdata.title}</td>
+				<td align="center">${no}</td>	
+				<c:set var="no" value="${no-1}"/>
+				<td align="center">
+				<a href="https://www.youtube.com/watch?v=${musicdata.yourll}">${musicdata.title}</a></td>		
     			<td align="center">${musicdata.artlist}</td>
     			<td align="center">${musicdata.sunwhi}</td>
     			<td align="center">
@@ -38,6 +39,39 @@
     		</c:forEach>
     	</tbody>
     </table>
+    
+    
+				   <!-- 페이징 -->   
+
+	   <table style="margin: 0 auto;">
+	   	<tr>
+	   		<td align="center">
+
+	   			<ul class="pagination">
+
+	   			   			<c:if test="${startPage>1}">
+	   				 <li><a href="main.do?pageNum=${startPage-1}">Previous</a></li>   				 
+	   			</c:if>
+	   			<c:forEach var="pg" begin="${startPage}" end="${endPage}">
+	   				<c:if test="${currentPage==pg}">
+	   					<li><a href="main.do?pageNum=${pg}" style="color:red;">${pg}</a></li>
+	   				</c:if>
+	   				<c:if test="${currentPage!=pg}">
+	   					<li><a href="main.do?pageNum=${pg}" style="color:black;">${pg}</a></li>
+	   				</c:if>
+	   			</c:forEach>
+	   			<c:if test="${endPage<totalPage}">
+	   				<li><a href="main.do?pageNum=${endPage+1}">Next</a></li>   
+	   			</c:if>
+	   			</ul>
+
+	   			
+	   			
+	   			  
+
+	   		</td>
+	   	</tr>
+	   </table>		
 </div>
 </body>
 </html>
