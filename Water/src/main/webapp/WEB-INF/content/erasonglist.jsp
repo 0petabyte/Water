@@ -20,7 +20,7 @@
 				<th style="text-align: center;">No</th>
 				<th style="text-align: center;">타이틀</th>
 				<th style="text-align: center;">가수명</th>
-				<th style="text-align: center;">당시순위</th>
+				<th style="text-align: center;">Rank</th>
 				<th style="text-align: center;">앨범명</th>
 			</tr>
 		</thead>
