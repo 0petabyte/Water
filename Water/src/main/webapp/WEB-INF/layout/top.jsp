@@ -102,36 +102,19 @@
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
-<<<<<<< HEAD
 				<li class="menulist"><a href="${root}/main.do" style="color:#191a1a;">시대별명곡</a></li>
-				<li class="menulist"><a href="#" style="color: #191a1a;">음원방송정보</a></li>
-				<li class="menulist"><a href="#" style="color: #191a1a;">실시간음원순위</a></li>
-				<li class="menulist"><a href="${root}/sns.do" style="color: #191a1a;">실시간음원SNS반응</a></li>
-				<li class="menulist"><a href="#" style="color: #191a1a;">추천곡게시판</a></li>
-				<li class="menulist"><a href="#" style="color: #191a1a;">오류신고게시판</a></li>
-				<li class="menulist"><a href="#" style="color: #191a1a;">미정</a></li>
-=======
-				<li class="menulist"><a href="${root}/main.do">시대별명곡</a></li>
-				<li class="menulist"><a href="#">음원방송정보</a></li>
-				<li class="menulist"><a href="#">실시간음원순위</a></li>
-				<li class="menulist"><a href="${root}/sns.do">실시간음원SNS반응</a></li>
-				<li class="menulist"><a href="${root}/chucheon.do">추천곡게시판</a></li>
-				<li class="menulist"><a href="#">오류신고게시판</a></li>
-				<li class="menulist"><a href="#">미정</a></li>
->>>>>>> branch 'master' of https://github.com/0petabyte/Water.git
+				<li class="menulist"><a href="#" style="color:#191a1a;">음원방송정보</a></li>
+				<li class="menulist"><a href="#" style="color:#191a1a;">실시간음원순위</a></li>
+				<li class="menulist"><a href="${root}/sns.do" style="color:#191a1a;">실시간음원SNS반응</a></li>
+				<li class="menulist"><a href="${root}/chucheon.do" style="color:#191a1a;">추천곡게시판</a></li>
+				<li class="menulist"><a href="#" style="color:#191a1a;">오류신고게시판</a></li>
+				<li class="menulist"><a href="#" style="color:#191a1a;">미정</a></li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-<<<<<<< HEAD
 				<li class="menulist"><a href="#" id="playlist" style="color: #191a1a;">PlayList</a></li>
 				<li class="menulist"><a href="#" style="color: #191a1a;"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 				<li class="menulist"><a href="#" style="color: #191a1a;"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-=======
-
-				<li><a href="#" id="playlist">PlayList</a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
->>>>>>> branch 'master' of https://github.com/0petabyte/Water.git
 			</ul>
 		</div>
 	</div>
