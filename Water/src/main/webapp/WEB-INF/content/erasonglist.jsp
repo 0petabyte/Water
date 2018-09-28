@@ -23,11 +23,74 @@
 			margin-left:10px;
 		}
 	</style>
+		    <link rel="stylesheet" href="dist/css/bootstrap-multiselect.css" type="text/css">
+        <script type="text/javascript" src="dist/js/bootstrap-multiselect.js"></script>
+	
+	
 </head>
 <body>
 <div class="container">
 	<h2>시대의 명곡 리스트</h2>
 	<p>타이틀을 누르면 자동으로 음원이 재생됩니다(음원출처:youtube)</p>
+	
+	                                    <div class="example">
+                                        <script type="text/javascript">
+                                            $(document).ready(function() {
+                                                $('#example-enableCollapsibleOptGroups-enableClickableOptGroups-enableFiltering-includeSelectAllOption').multiselect({
+                                                    enableClickableOptGroups: true,
+                                                    enableCollapsibleOptGroups: true,
+                                                    enableFiltering: true,
+                                                    includeSelectAllOption: true,
+                                                    collapseOptGroupsByDefault: true,
+                                                    buttonWidth: '400px',
+                               
+                                                    
+                                                });
+                                            });
+                                        </script>
+                                        <select id="example-enableCollapsibleOptGroups-enableClickableOptGroups-enableFiltering-includeSelectAllOption" multiple="multiple" weight="300">
+<!--                                             <optgroup label="1960" value="g1960">
+                                                <option value="1964" name="1964">1964</option>
+                                                <option value="1965" id="1965">1965</option>
+                                                <option value="1966" id="1966">1966</option>
+                                                <option value="1967" id="1967">1967</option>
+                                                <option value="1968" id="1968">1968</option>
+                                                <option value="1969" id="1969">1969</option>
+                                            </optgroup> -->
+                                            <optgroup label="1960">
+										     <%for(int i=1964; i<=1969; i++){ %>
+										     <option value="<%=i%>"><%=i%></option>
+										     <%} %>
+                                            </optgroup>
+                                            <optgroup label="1970">
+										     <%for(int i=1970; i<=1979; i++){ %>
+										     <option value="<%=i%>"><%=i%></option>
+										     <%} %>
+                                            </optgroup>
+                                            <optgroup label="1980">
+										     <%for(int i=1980; i<=1989; i++){ %>
+										     <option value="<%=i%>"><%=i%></option>
+										     <%} %>
+                                            </optgroup>
+                                            <optgroup label="1990">
+										     <%for(int i=1990; i<=1999; i++){ %>
+										     <option value="<%=i%>"><%=i%></option>
+										     <%} %>
+                                            </optgroup>
+                                            <optgroup label="2000">
+										     <%for(int i=2000; i<=2009; i++){ %>
+										     <option value="<%=i%>"><%=i%></option>
+										     <%} %>
+                                            </optgroup>
+                                            <optgroup label="2010">
+										     <%for(int i=2010; i<=2017; i++){ %>
+										     <option value="<%=i%>"><%=i%></option>
+										     <%} %>
+                                            </optgroup>
+                                        </select>
+                                    </div>           
+	
+	
 	<a href="#" id="listicon"><img src="${root}/images/music.png" height="40"></a>
 	<a href="#" id="icon"><img src="${root}/images/likes.png" height="40"></a>
 	<table class="table table-hover">
@@ -49,7 +112,11 @@
 				<td align="center">${no}</td>	
 				<c:set var="no" value="${no-1}"/>
 				<td align="center">
-				<a href="https://www.youtube.com/watch?v=${musicdata.yourll}">${musicdata.title}</a></td>		
+				<a href="https://www.youtube.com/watch?v=${musicdata.yourll}">${musicdata.title}</a>
+				<br>
+				<br>
+				<iframe width="280" height="157" src="https://www.youtube.com/embed/${musicdata.yourll}" frameborder="0" allowfullscreen></iframe>
+				</td>		
     			<td align="center">${musicdata.artlist}</td>
     			<td align="center">${musicdata.sunwhi}</td>
     			<td align="center">
