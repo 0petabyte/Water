@@ -17,11 +17,25 @@ public class UserDto {
 	private String musicidurl;
 	private String youtubeurl;
 	private String yourll;
+	private String jangre;
+	private String sunwhiyear;
 	//몽고디비 Dto 09.19 16:00 지웅 --까지
 
 	
 	public String getYoutubeurl() {
 		return youtubeurl;
+	}
+	public String getSunwhiyear() {
+		return sunwhiyear;
+	}
+	public void setSunwhiyear(String sunwhiyear) {
+		this.sunwhiyear = sunwhiyear;
+	}
+	public String getJangre() {
+		return jangre;
+	}
+	public void setJangre(String jangre) {
+		this.jangre = jangre;
 	}
 	public String getYourll() {
 		return yourll;
