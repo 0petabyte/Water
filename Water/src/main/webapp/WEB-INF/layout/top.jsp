@@ -41,7 +41,7 @@
 				<li class="menulist"><a href="#">음원방송정보</a></li>
 				<li class="menulist"><a href="#">실시간음원순위</a></li>
 				<li class="menulist"><a href="${root}/sns.do">실시간음원SNS반응</a></li>
-				<li class="menulist"><a href="#">추천곡게시판</a></li>
+				<li class="menulist"><a href="${root}/chucheon.do">추천곡게시판</a></li>
 				<li class="menulist"><a href="#">오류신고게시판</a></li>
 				<li class="menulist"><a href="#">미정</a></li>
 			</ul>
