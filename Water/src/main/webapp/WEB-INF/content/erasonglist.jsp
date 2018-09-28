@@ -18,7 +18,7 @@
 	});
 	</script>
 	<style>
-		#icon {
+		#listicon, #icon {
 			float: right;
 			margin-left:10px;
 		}
@@ -28,7 +28,7 @@
 <div class="container">
 	<h2>시대의 명곡 리스트</h2>
 	<p>타이틀을 누르면 자동으로 음원이 재생됩니다(음원출처:youtube)</p>
-	<a href="#" id="icon"><img src="${root}/images/music.png" height="40"></a>
+	<a href="#" id="listicon"><img src="${root}/images/music.png" height="40"></a>
 	<a href="#" id="icon"><img src="${root}/images/likes.png" height="40"></a>
 	<table class="table table-hover">
 		<thead>
@@ -44,7 +44,8 @@
     	<tbody>
     		<c:forEach var="musicdata" begin="${startNum}" end="${endNum}" items="${list}" >
     		<tr>
-    		<td><input type="checkbox" name="_selected_"/></td>
+    			<td><input type="checkbox" name="_selected_" id="music" 
+    			  value="${musicdata.title}"/></td>
 				<td align="center">${no}</td>	
 				<c:set var="no" value="${no-1}"/>
 				<td align="center">

@@ -85,11 +85,6 @@ public class ListController {
 		
 	}
 	
-	@RequestMapping("/sns.do")
-	public String test1() {
-		return "/1/content/realtimesns";
-	}
-	
 }
 
 /*package com.project;

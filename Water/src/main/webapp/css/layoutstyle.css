@@ -6,6 +6,7 @@ div#top {
 	position: absolute;
 	top: 0px;
 	left: 0;
+	height: 120px;
 	width: 100%;
 	text-align: center;
 	position: fixed;
@@ -14,7 +15,7 @@ div#top {
 
 div#body {
 	position: absolute;
-	top: 300px;
+	/* top: 300px; */
 	left: 0px;
 	width: 100%;
 	text-align: center;
