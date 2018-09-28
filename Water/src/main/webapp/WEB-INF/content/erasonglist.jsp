@@ -91,12 +91,12 @@
                                     </div>           
 	
 	
-	<a href="#" id="listicon"><img src="${root}/images/music.png" height="40"></a>
-	<a href="#" id="icon"><img src="${root}/images/likes.png" height="40"></a>
+	<a href="#" id="listicon"><img src="${root}/images/music.png" height="40" title="재생목록에 추가"></a>
+	<a href="#" id="icon"><img src="${root}/images/likes.png" height="40" title="추천게시판으로 보내기"></a>
 	<table class="table table-hover">
 		<thead>
 			<tr>
-			<th><input type="checkbox" name="_selected_all_"></th>
+				<td><input type="checkbox" name="_selected_all_"></td>
 				<th style="text-align: center;">No</th>
 				<th style="text-align: center;">타이틀</th>
 				<th style="text-align: center;">가수명</th>
