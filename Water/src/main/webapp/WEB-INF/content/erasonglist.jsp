@@ -91,18 +91,18 @@
      </div>           
 	
 	
-	<a href="#" id="listicon"><img src="${root}/images/music.png" height="40" title="재생목록에 추가"></a>
-	<a href="#" id="icon"><img src="${root}/images/likes.png" height="40" title="추천게시판으로 보내기"></a>
+	<a href="#" id="listicon"><img src="${root}/images/music.png" height="40"></a>
+	<a href="#" id="icon"><img src="${root}/images/likes.png" height="40"></a>
 	<table class="table table-hover">
 		<thead>
 			<tr>
-				<td><input type="checkbox" name="_selected_all_"></td>
+			<th><input type="checkbox" name="_selected_all_"></th>
 				<th style="text-align: center;">No</th>
 				<th style="text-align: center;">타이틀</th>
 				<th style="text-align: center;">가수명</th>
 				<th style="text-align: center;">장르</th>
-				<th style="text-align: center;">명곡년도</th>
-				<th style="text-align: center;">당시순위</th>
+				<th style="text-align: center;">Rank</th>
+				
 				<th style="text-align: center;">앨범명</th>
 			</tr>
 		</thead>
@@ -121,11 +121,7 @@
 				</td>		
     			<td align="center">${musicdata.artlist}</td>
     			<td align="center">${musicdata.jangre}</td>
-    			
-
-
-    			<td align="center">${musicdata.sunwhiyear.substring(0,4)}</td>
-    			<td align="center">${musicdata.sunwhi}</td>
+       			<td align="center">${musicdata.sunwhiyear.substring(0,4)}년${musicdata.sunwhi}위</td>    			
     			<td align="center">
     			<a href="${musicdata.musicidurl}" > ${musicdata.album}</a></td>
     		</tr>
