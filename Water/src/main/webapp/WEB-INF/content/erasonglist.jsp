@@ -89,10 +89,65 @@
      </optgroup>
      </select>
      </div>           
+     
+     <br>
+     
+
+     
+     	<div class="container">
+     	
+     	<form name = "search" method = "get" action ="main.do" onsubmit="return check()">
+
+     	
+    <div class="row">    
+        <div class="col-xs-8 col-xs-offset-2">
+		    <div class="input-group">
+		    
+		    <div class="form-group">
+		  <select class="form-control" id="keyField" name="keyField" >
+		  <option value="title">제목</option>
+		  <option value="artlist">가수명</option>
+		  </select>
+		  		</div>
+                <div class="input-group-btn search-panel">
+                    
+
+<!--      	<div class="form-group">
+		  <select class="form-control" id="keyField" name="keyField">
+		  <option value="title">제목</option>
+		  <option value="artlist">가수명</option>
+		  </select>
+		</div> -->
+                </div>
+                <input type="hidden" name="search_param" value="all" id="search_param">         
+                <input type="text" class="form-control" name="keyWord" placeholder="검색어를 입력해주세요.">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+            </div>
+            	<script>
+	$(document).ready(function(e){
+	    $('.search-panel .dropdown-menu').find('a').click(function(e) {
+			e.preventDefault();
+			var param = $(this).attr("href").replace("#","");
+			var concept = $(this).text();
+			$('.search-panel span#search_concept').text(concept);
+			$('.input-group #search_param').val(param);
+		});
+	});
+	
+	</script>
+        </div>
+	</div>
+	</form>
+
+	
+	
 	
 	
 	<a href="#" id="listicon"><img src="${root}/images/music.png" height="40"></a>
 	<a href="#" id="icon"><img src="${root}/images/likes.png" height="40"></a>
+	</div>
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -107,7 +162,9 @@
 			</tr>
 		</thead>
     	<tbody>
+
     		<c:forEach var="musicdata" begin="${startNum}" end="${endNum}" items="${list}" >
+
     		<tr>
     			<td><input type="checkbox" name="_selected_" id="music" 
     			  value="${musicdata.title}"/></td>
