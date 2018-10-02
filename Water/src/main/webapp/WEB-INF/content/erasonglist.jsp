@@ -6,10 +6,8 @@
 	<title>Barker Music</title>
 	<meta charset="utf-8">
 	<c:set var="root" value="<%=request.getContextPath()%>" />
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+	<link rel="stylesheet" href="dist/css/bootstrap-multiselect.css" type="text/css">
+    <script type="text/javascript" src="dist/js/bootstrap-multiselect.js"></script>
 	<script type="text/javascript">
 	$(function(){
 		$('input[name=_selected_all_]').on('change', function(){
@@ -23,10 +21,6 @@
 			margin-left:10px;
 		}
 	</style>
-		<link rel="stylesheet" href="dist/css/bootstrap-multiselect.css" type="text/css">
-        <script type="text/javascript" src="dist/js/bootstrap-multiselect.js"></script>
-	
-	
 </head>
 <body>
 <div class="container">
@@ -91,15 +85,9 @@
      </div>           
      
      <br>
-     
-
-     
-     	<div class="container">
-     	
-     	<form name = "search" method = "get" action ="main.do" onsubmit="return check()">
-
-     	
-    <div class="row">    
+     <div class="container">
+     <form name = "search" method = "get" action ="main.do" onsubmit="return check()">
+     <div class="row">    
         <div class="col-xs-8 col-xs-offset-2">
 		    <div class="input-group">
 		    
@@ -140,14 +128,9 @@
         </div>
 	</div>
 	</form>
-
-	
-	
-	
-	
-	<a href="#" id="listicon"><img src="${root}/images/music.png" height="40"></a>
-	<a href="#" id="icon"><img src="${root}/images/likes.png" height="40"></a>
 	</div>
+	<a href="#" id="listicon"><img src="${root}/images/music.png" height="40" title="재생목록에 추가"></a>
+	<a href="#" id="icon"><img src="${root}/images/likes.png" height="40" title="추천게시판으로 보내기"></a>
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -157,17 +140,14 @@
 				<th style="text-align: center;">가수명</th>
 				<th style="text-align: center;">장르</th>
 				<th style="text-align: center;">Rank</th>
-				
 				<th style="text-align: center;">앨범명</th>
 			</tr>
 		</thead>
     	<tbody>
-
     		<c:forEach var="musicdata" begin="${startNum}" end="${endNum}" items="${list}" >
-
     		<tr>
     			<td><input type="checkbox" name="_selected_" id="music" 
-    			  value="${musicdata.title}"/></td>
+    			  value="${musicdata.title}" val1="${musicdata.title}" val2="${musicdata.artlist}" val3="${musicdata.yourll}"/></td>
 				<td align="center">${no}</td>	
 				<c:set var="no" value="${no-1}"/>
 				<td align="center">
@@ -179,8 +159,7 @@
     			<td align="center">${musicdata.artlist}</td>
     			<td align="center">${musicdata.jangre}</td>
        			<td align="center">${musicdata.sunwhiyear.substring(0,4)}년${musicdata.sunwhi}위</td>    			
-    			<td align="center">
-    			<a href="${musicdata.musicidurl}" > ${musicdata.album}</a></td>
+    			<td align="center"><a href="${musicdata.musicidurl}" > ${musicdata.album}</a></td>
     		</tr>
     		</c:forEach>
     	</tbody>

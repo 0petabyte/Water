@@ -54,11 +54,11 @@
 		        }
 		    });
 		        // When the carousel slides, auto update the text
-		        $('#myCarousel').on('slid.bs.carousel', function (e) {
+		        /* $('#myCarousel').on('slid.bs.carousel', function (e) {
 		        	$('.frame', parent.document).get(0).contentDocument.location.reload();
 		                 var id = $('.item.active').data('slide-number');
 		                $('#carousel-text').html($('#slide-content-'+id).html());
-		        });
+		        }); */
 		});
 		</script>
 	</head> 

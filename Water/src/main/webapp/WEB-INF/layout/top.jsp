@@ -5,11 +5,6 @@
 <head>
 	<title>Barker Music</title>
 	<meta charset="utf-8">
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	 -->
 	<c:set var="root" value="<%=request.getContextPath()%>" />
 	<link rel="stylesheet" type="text/css" href="${root}/css/topstyle.css">
 	<!-- <script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script> -->
@@ -26,13 +21,30 @@
 			var selnum=document.getElementsByName("_selected_");
 			//alert(selnum.length);
 			var cnt=0;
-			for(i=0;i<selnum.length;i++){
+			/* for(i=0;i<selnum.length;i++){
 				if (selnum[i].checked){
 					cnt++;
 					var title=$(selnum[i]).val();
 					//alert("재생목록에 "+title+" 이(가) 추가되었습니다.");
 					//$("#mylist ul").append("<li>"+title+"</li>");
 					$("#tbl_tbody").append("<tr><td><input type='checkbox' name='selected'/></td><td>"+title+"</td></tr>");
+				}
+				
+			} */
+			for(i=0;i<selnum.length;i++){
+				if (selnum[i].checked){
+					cnt++;
+					var title=$(selnum[i]).attr('val1');
+					var artist=$(selnum[i]).attr('val2');
+					var youurl=$(selnum[i]).attr('val3');
+					var str1="<tr><td><input type='checkbox' name='selected'/></td><td class='songlst'>"+artist
+						+" - "+title+"<br><iframe width='100' height='56' src='https://www.youtube.com/embed/"
+						+youurl+"' frameborder='0' allowfullscreen></iframe></td></tr>";
+					$("#tbl_tbody").append(str1);
+					
+					/* $("#tbl_tbody").append("<tr><td><input type='checkbox' name='selected'/></td><td>"+artist+" - "+title+"</td></tr>");
+					$("#tbl_tbody").append("<br><iframe width='100' height='56' src='https://www.youtube.com/embed/"+youurl+"' frameborder='0' allowfullscreen></iframe>"); */
+					
 				}
 				
 			}
@@ -78,20 +90,23 @@
 		background: #acb6e5;  /* fallback for old browsers */
 		background: -webkit-linear-gradient(to right, #86fde8, #acb6e5);  /* Chrome 10-25, Safari 5.1-6 */
 		background: linear-gradient(to right, #86fde8, #acb6e5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		
 		/*가운데정렬*/
 		display: flex;
 		align-items: center;
 		justify-content: center;
 	}
-	/* @media(min-width: 500px) { #headerr { height: 300px; } } */
 	@media(min-width: 750px) { 
 		#headerbox { height: 100px; }
 		#logo {	height: 60px; }
 	}
-	#logo {	height: 50px; }
-	/* #lst tr {
-		border-bottom: 2px dotted #324560;
-	} */
+	#logo {	height: 60px; }
+	#lst tr { border-bottom: 1px dotted gray; }
+	.songlst {
+		text-align: left;
+		padding-left: 15px; }
+	#tbl_thead { border-bottom: 1px solid black; }
+	table { margin: 0 auto; }
 	</style>
 </head>
 <body>
@@ -131,15 +146,13 @@
 </nav>
 	<div id="mylist" style="display: none; position: absolute; ">
 		<h4><b>재생목록</b></h4>
-    	<ul>
-		</ul>
 		<div style="height: 550px; overflow-y: auto;">
 			<table id="lst">
       			<colgroup><col width="20px"><col width="300px"></colgroup>
       			<thead id="tbl_thead">
       				<tr>
       					<td><input type="checkbox" name="selected_all"></td>
-      					<td><input type="button" value="삭제"></td>
+      					<td class="songlst"><input type="button" value="삭제"></td>
       				</tr>
       			</thead>
       			<tbody id="tbl_tbody" style="overflow-y:auto;">
