@@ -9,4 +9,12 @@
 	<mappers>
 		<mapper resource="com/project/MemoSql.xml"/>
 	</mappers> -->
+	<typeAliases>
+		<typeAlias type="com.project.err.ErrDto" alias="edto"/>
+		<typeAlias type="com.project.err.AnswerDto" alias="adto"/>
+	</typeAliases>
+	<mappers>
+		<mapper resource="com/project/err/ErrSql.xml"/>
+	</mappers>
+	
 </configuration>

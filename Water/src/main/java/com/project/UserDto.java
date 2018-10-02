@@ -19,11 +19,25 @@ public class UserDto {
 	private String yourll;
 	private String jangre;
 	private String sunwhiyear;
+	private String keyWord;
+	private String keyField;
 	//몽고디비 Dto 09.19 16:00 지웅 --까지
 
 	
 	public String getYoutubeurl() {
 		return youtubeurl;
+	}
+	public String getKeyWord() {
+		return keyWord;
+	}
+	public void setKeyWord(String keyWord) {
+		this.keyWord = keyWord;
+	}
+	public String getKeyField() {
+		return keyField;
+	}
+	public void setKeyField(String keyField) {
+		this.keyField = keyField;
 	}
 	public String getSunwhiyear() {
 		return sunwhiyear;

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="error">
+	<select id="selectAllOferror" resultType="edto">
+		select * from error order by e_num desc
+	</select>
+	<insert id="insertBoard" parameterType="edto">
+		insert into error values (seq_error.nextval,#{ewriter},#{etitle},
+		#{econtent},sysdate,#{imgname})
+	</insert>
+	<select id="totalcountoferror" resultType="int">
+		select count(*) from error
+	</select>
+	<select id="selectpagingoferror" parameterType="HashMap" resultType="edto">
+		<![CDATA[
+			select a.* from (select ROWNUM as RNUM,b.* from 
+			(select * from error order by e_num desc)b)a 
+			where a.RNUM>=#{start} and a.RNUM<=#{end}
+		]]>
+	</select>
+	<select id="selectOneoferror" parameterType="int" resultType="edto">
+		select * from error where e_num=#{e_num}
+	</select>
+	<delete id="delete" parameterType="int">
+		DELETE FROM error WHERE e_num = #{e_num}	
+	</delete>
+	<select id="updateForm" resultType="edto" parameterType="int">
+		SELECT * FROM error WHERE e_num = #{e_num}
+	</select>
+	<update id="update" parameterType="edto">
+		UPDATE error SET etitle=#{etitle}, econtent=#{econtent} WHERE e_num=#{e_num}
+	</update>
+	<!-- 댓글 -->
+	<insert id="insertanswer" parameterType="adto">
+		insert into e_answer values (seq_error.nextval,#{e_num},#{awriter},#{acontent},sysdate)
+	</insert>
+	<select id="answerlistByNum" parameterType="int" resultType="adto">
+		select * from e_answer where e_num=#{e_num} order by a_num desc
+	</select>
+</mapper>

@@ -89,25 +89,82 @@
      </optgroup>
      </select>
      </div>           
+     
+     <br>
+     
+
+     
+     	<div class="container">
+     	
+     	<form name = "search" method = "get" action ="main.do" onsubmit="return check()">
+
+     	
+    <div class="row">    
+        <div class="col-xs-8 col-xs-offset-2">
+		    <div class="input-group">
+		    
+		    <div class="form-group">
+		  <select class="form-control" id="keyField" name="keyField" >
+		  <option value="title">제목</option>
+		  <option value="artlist">가수명</option>
+		  </select>
+		  		</div>
+                <div class="input-group-btn search-panel">
+                    
+
+<!--      	<div class="form-group">
+		  <select class="form-control" id="keyField" name="keyField">
+		  <option value="title">제목</option>
+		  <option value="artlist">가수명</option>
+		  </select>
+		</div> -->
+                </div>
+                <input type="hidden" name="search_param" value="all" id="search_param">         
+                <input type="text" class="form-control" name="keyWord" placeholder="검색어를 입력해주세요.">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+            </div>
+            	<script>
+	$(document).ready(function(e){
+	    $('.search-panel .dropdown-menu').find('a').click(function(e) {
+			e.preventDefault();
+			var param = $(this).attr("href").replace("#","");
+			var concept = $(this).text();
+			$('.search-panel span#search_concept').text(concept);
+			$('.input-group #search_param').val(param);
+		});
+	});
+	
+	</script>
+        </div>
+	</div>
+	</form>
+
 	
 	
-	<a href="#" id="listicon"><img src="${root}/images/music.png" height="40" title="재생목록에 추가"></a>
-	<a href="#" id="icon"><img src="${root}/images/likes.png" height="40" title="추천게시판으로 보내기"></a>
+	
+	
+	<a href="#" id="listicon"><img src="${root}/images/music.png" height="40"></a>
+	<a href="#" id="icon"><img src="${root}/images/likes.png" height="40"></a>
+	</div>
 	<table class="table table-hover">
 		<thead>
 			<tr>
-				<td><input type="checkbox" name="_selected_all_"></td>
+			<th><input type="checkbox" name="_selected_all_"></th>
 				<th style="text-align: center;">No</th>
 				<th style="text-align: center;">타이틀</th>
 				<th style="text-align: center;">가수명</th>
 				<th style="text-align: center;">장르</th>
-				<th style="text-align: center;">명곡년도</th>
-				<th style="text-align: center;">당시순위</th>
+				<th style="text-align: center;">Rank</th>
+				
 				<th style="text-align: center;">앨범명</th>
 			</tr>
 		</thead>
     	<tbody>
+
     		<c:forEach var="musicdata" begin="${startNum}" end="${endNum}" items="${list}" >
+
     		<tr>
     			<td><input type="checkbox" name="_selected_" id="music" 
     			  value="${musicdata.title}" val1="${musicdata.title}" val2="${musicdata.artlist}" val3="${musicdata.yourll}"/></td>
@@ -121,11 +178,7 @@
 				</td>		
     			<td align="center">${musicdata.artlist}</td>
     			<td align="center">${musicdata.jangre}</td>
-    			
-
-
-    			<td align="center">${musicdata.sunwhiyear.substring(0,4)}</td>
-    			<td align="center">${musicdata.sunwhi}</td>
+       			<td align="center">${musicdata.sunwhiyear.substring(0,4)}년${musicdata.sunwhi}위</td>    			
     			<td align="center">
     			<a href="${musicdata.musicidurl}" > ${musicdata.album}</a></td>
     		</tr>

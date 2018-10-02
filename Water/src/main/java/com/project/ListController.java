@@ -23,10 +23,10 @@ public class ListController {
 	
 	//ModelAndView erasonglist : jiung 0919.16:00//
 	@RequestMapping("/main.do")
-	public ModelAndView list(@RequestParam(value="pageNum",defaultValue="1") int currentPage)
+	public ModelAndView list(@RequestParam(value="pageNum",defaultValue="1") int currentPage, String keyWord, String keyField)
 	{
 		ModelAndView model=new ModelAndView();
-		List<UserDto> list=dao.findList();
+		List<UserDto> list=dao.findList(keyWord, keyField);
 		
 		
 		//페이징처리
@@ -54,6 +54,8 @@ public class ListController {
 		//endPage는 totalPage를 넘지않도록 한다
 		if(endPage>totalPage)
 			endPage=totalPage;
+		
+
 
 		//각페이지당 불러올 글의 번호
 		//1페이지:1~10 2페이지:11~20 3페이지:31-40
@@ -62,6 +64,9 @@ public class ListController {
 
 		if(endNum>totalCount)
 			endNum=totalCount-1;
+		
+		if(endNum<0)
+			endNum=1;
 
 		//각 페이지의 시작 번호
 		int no=totalCount-(currentPage-1)*perPage;
@@ -77,9 +82,15 @@ public class ListController {
 		model.addObject("startNum",startNum);		
 		model.addObject("endNum",endNum);
 		
-		model.addObject("list",list);
+		
+		
+		model.addObject("listd",list);
 		model.addObject("count",list.size());
+		
 		model.setViewName("/1/content/erasonglist");
+		
+		
+
 		
 		return model;
 		
