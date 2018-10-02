@@ -117,7 +117,7 @@
 				<li class="menulist"><a href="#" style="color:#191a1a;">실시간음원순위</a></li>
 				<li class="menulist"><a href="${root}/sns.do" style="color:#191a1a;">실시간음원SNS반응</a></li>
 				<li class="menulist"><a href="${root}/chucheon.do" style="color:#191a1a;">추천곡게시판</a></li>
-				<li class="menulist"><a href="#" style="color:#191a1a;">오류신고게시판</a></li>
+				<li class="menulist"><a href="${root}/error.do" style="color:#191a1a;">오류신고게시판</a></li>
 				<li class="menulist"><a href="#" style="color:#191a1a;">미정</a></li>
 			</ul>
 
