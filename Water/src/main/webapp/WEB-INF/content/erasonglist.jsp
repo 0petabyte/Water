@@ -110,7 +110,7 @@
     		<c:forEach var="musicdata" begin="${startNum}" end="${endNum}" items="${list}" >
     		<tr>
     			<td><input type="checkbox" name="_selected_" id="music" 
-    			  value="${musicdata.title}"/></td>
+    			  value="${musicdata.title}" val1="${musicdata.title}" val2="${musicdata.artlist}" val3="${musicdata.yourll}"/></td>
 				<td align="center">${no}</td>	
 				<c:set var="no" value="${no-1}"/>
 				<td align="center">

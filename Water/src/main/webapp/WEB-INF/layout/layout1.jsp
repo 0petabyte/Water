@@ -17,7 +17,7 @@
 		<style>
 		div#body { top: 100px; }
 		@media(min-width: 750px) {
-			div#body { top: 140px; }
+			div#body { top: 150px; }
 		}
 		</style>
 	</head>
