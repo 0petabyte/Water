@@ -134,7 +134,7 @@
 	<table class="table table-hover">
 		<thead>
 			<tr>
-			<th><input type="checkbox" name="_selected_all_"></th>
+				<td><input type="checkbox" name="_selected_all_"></td>
 				<th style="text-align: center;">No</th>
 				<th style="text-align: center;">타이틀</th>
 				<th style="text-align: center;">가수명</th>
