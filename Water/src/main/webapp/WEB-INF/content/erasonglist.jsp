@@ -167,7 +167,7 @@
 
     		<tr>
     			<td><input type="checkbox" name="_selected_" id="music" 
-    			  value="${musicdata.title}" val1="${musicdata.title}" val2="${musicdata.artlist}" val3="${musicdata.yourll}"/></td>
+    			  value="${musicdata.title}"/></td>
 				<td align="center">${no}</td>	
 				<c:set var="no" value="${no-1}"/>
 				<td align="center">
