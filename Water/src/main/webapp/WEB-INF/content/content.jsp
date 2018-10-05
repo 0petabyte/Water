@@ -11,7 +11,7 @@
 		<meta charset="utf-8">
 		<title>Welcome</title>
 		<style type="text/css">
-			#heart{width: 50px; position: fixed; left: 50px;top: 50px;}
+			
 		</style>
 		<script type="text/javascript">
 			$(function(){
@@ -23,7 +23,7 @@
 	</head> 
 	<body>
 	<br><br>
-		<table class="table table-hover" style="width: 500px; margin: 0 auto;">
+		<table class="table table-hover" style="width: 700px; margin: 0 auto;">
 			<caption><b>게시글확인</b></caption>
 			<tr>
 				<td>
@@ -46,7 +46,7 @@
 							<c:if test="${flist[i.index]=='yes'}">
 								<img src="${root}/save/${myimg}" style="max-width: 400px;">
 							</c:if>
-							${myimg}<br>
+							<br>
 						</c:forTokens>
 					</c:if>
 					<br>
@@ -69,9 +69,9 @@
 				<td align="left">
 					<form action="answer.do" method="post" class="form-inline">
 						<div class="form-group">
-							<input type="text" name="awriter" style="width: 70px;"
+							<input type="text" name="awriter" style="width: 130px;"
 								placeholder="작성자">
-							<input type="text" name="acontent" style="width: 350px;"
+							<input type="text" name="acontent" style="width: 500px;"
 								placeholder="댓글쓰기">
 							<!-- 댓글은 원글번호,페이지번호를 히든으로 같이줘야함 -->
 							<input type="hidden" name="e_num" value="${dto.e_num}">

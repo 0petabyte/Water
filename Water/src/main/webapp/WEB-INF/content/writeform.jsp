@@ -39,20 +39,20 @@
 				</tr>
 				<tr>					
 					<td style="width: 200px;" colspan="2">
-						<textarea style="width:350px; height: 150px;" 
+						<textarea style="width:700px; height: 400px;" 
 						name="econtent" class="form-control" required="required"></textarea>					
 					</td>
 				</tr>
 				<tr>
 					<th style="width: 100px;">사진업로드</th>
 					<td style="width: 200px;">
-						<input type="button" id="btnadd" value="사진추가">
+						<input type="button" id="btnadd" value="사진추가" class="btn btn-sm">
 						<div id="imgarea"></div>											
 					</td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center">
-						<input type="submit" value="게시글저장" class="form-control" style="background-color: #a2f5f2">
+						<input type="submit" value="게시글저장" class="form-control btn-info">
 					</td>
 				</tr>
 			</table>    

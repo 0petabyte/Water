@@ -11,9 +11,10 @@
 		<title>Welcome</title>
 	</head> 
 	<body>
-	<br><br>
+	<br>
 	<div class="container">
 	<b>총 <span style="color: red;">${totalCount}</span>개의 게시글이 있습니다</b>
+	<br>
 		<table class="table table-hover">
 			<thead>
 			<tr>

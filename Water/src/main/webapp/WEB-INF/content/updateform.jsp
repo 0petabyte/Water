@@ -35,13 +35,13 @@
 				</tr>
 				<tr>					
 					<td style="width: 200px;" colspan="2">
-						<textarea style="width:350px; height: 150px;" 
+						<textarea style="width:700px; height: 400px;" 
 						name="econtent" class="form-control" required="required">${dto.econtent}</textarea>					
 					</td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center">
-						<input type="submit" value="수정글저장" class="form-control" style="background-color: #a2f5f2">
+						<input type="submit" value="수정글저장" class="form-control btn-success">
 					</td>
 				</tr>
 			</table>    
