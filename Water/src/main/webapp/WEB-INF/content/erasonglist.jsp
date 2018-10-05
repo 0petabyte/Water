@@ -131,7 +131,7 @@
 	</div>
 	<a href="#" id="listicon"><img src="${root}/images/music.png" height="40" title="재생목록에 추가"></a>
 	<a href="#" id="icon"><img src="${root}/images/likes.png" height="40" title="추천게시판으로 보내기"></a>
-	<table class="table table-responsive">
+	<table class="table table-hover">
 		<thead>
 			<tr>
 				<td><input type="checkbox" name="_selected_all_"></td>
@@ -154,7 +154,7 @@
 				<a href="https://www.youtube.com/watch?v=${musicdata.yourll}">${musicdata.title}</a>
 				<br>
 				<br>
-				<iframe  src="https://www.youtube.com/embed/${musicdata.yourll}" frameborder="0" allowfullscreen></iframe>
+				<iframe width="280" height="157" src="https://www.youtube.com/embed/${musicdata.yourll}" frameborder="0" allowfullscreen></iframe>
 				</td>		
     			<td align="center">${musicdata.artlist}</td>
     			<td align="center">${musicdata.jangre}</td>

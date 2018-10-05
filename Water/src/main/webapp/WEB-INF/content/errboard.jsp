@@ -14,7 +14,7 @@
 	<br><br>
 	<div class="container">
 	<b>총 <span style="color: red;">${totalCount}</span>개의 게시글이 있습니다</b>
-		<table class="table table-responsive">
+		<table class="table table-hover">
 			<thead>
 			<tr>
 				<th style="text-align: center;">No</th>
