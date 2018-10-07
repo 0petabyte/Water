@@ -6,7 +6,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Welcome</title>
+		<title>Time Music</title>
 		<style>
 			.frame { 
 				border:none;
@@ -27,6 +27,11 @@
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
     width: 100%;
 }
+
+.carousel-control { background: none !important;
+          filter: none !important; progid:none !important;
+}
+
 		</style>
 		<script>
 		$(function(){
@@ -44,15 +49,18 @@
 		        //Handles the carousel thumbnails
 		        $('[id^=carousel-selector-]').click(function () {
 		        	$('.frame', parent.document).get(0).contentDocument.location.reload();
-		        var id_selector = $(this).attr("id");
-		        try {
-		            var id = /-(\d+)$/.exec(id_selector)[1];
-		            console.log(id_selector, id);
-		            jQuery('#myCarousel').carousel(parseInt(id));
-		        } catch (e) {
-		            console.log('Regex failed!', e);
-		        }
-		    });
+			        var id_selector = $(this).attr("id");
+			        alert(id_selector);
+			        
+			        try {
+			            var id = /-(\d+)$/.exec(id_selector)[1];
+			            console.log(id_selector, id);
+			            jQuery('#myCarousel').carousel(parseInt(id));
+			            alert($('#img1').attr('src').toString());
+			        } catch (e) {
+			            console.log('Regex failed!', e);
+			        }
+			    });
 		        // When the carousel slides, auto update the text
 		        /* $('#myCarousel').on('slid.bs.carousel', function (e) {
 		        	$('.frame', parent.document).get(0).contentDocument.location.reload();
@@ -116,7 +124,7 @@
                                 <!-- Carousel items -->
                                 <div class="carousel-inner">
                                     <div class="active item" data-slide-number="0">
-                                        <iframe src="http://localhost:8080/Water/myword1.html" class="frame" id="frame2" ></iframe></div>
+                                        <iframe src="http://localhost:8080/Water/myword1.html" class="frame" id="frame1" ></iframe></div>
 
                                     <div class="item" data-slide-number="1">
                                         <iframe src="https://www.youtube.com/embed/wEQpfil0IYA" ></iframe></div>
@@ -128,16 +136,16 @@
                                         <iframe src="http://localhost:8080/Water/test1122.htm" class="frame" id="frame1" ></iframe></div>
 
                                     <div class="item" data-slide-number="4">
-                                        <img src="http://placehold.it/470x480&text=4"></div>
+                                        <img src="http://placehold.it/470x480&text=4" id="img1"></div>
 
                                     <div class="item" data-slide-number="5">
-                                        <img src="http://placehold.it/470x480&text=5"></div>
+                                        <img src="http://placehold.it/470x480&text=5" id="img1"></div>
                                     
                                     <div class="item" data-slide-number="6">
-                                        <img src="http://placehold.it/470x480&text=6"></div>
+                                        <img src="http://placehold.it/470x480&text=6" id="img1"></div>
                                     
                                     <div class="item" data-slide-number="7">
-                                        <img src="http://placehold.it/470x480&text=7"></div>
+                                        <img src="http://placehold.it/470x480&text=7" id="img1"></div>
                                     
                                     <div class="item" data-slide-number="8">
                                         <img src="http://placehold.it/470x480&text=8"></div>

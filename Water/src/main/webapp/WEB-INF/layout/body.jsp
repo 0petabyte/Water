@@ -6,7 +6,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Welcome</title>
+		<title>Time Music</title>
 		<c:set var="root" value="<%=request.getContextPath()%>"/>
 	</head> 
 	<body>

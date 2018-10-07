@@ -3,10 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <head>
-	<title>Barker Music</title>
+	<title>Time Music</title>
 	<meta charset="utf-8">
 	<c:set var="root" value="<%=request.getContextPath()%>" />
-	<link rel="stylesheet" href="dist/css/bootstrap-multiselect.css" type="text/css">
+	<link rel="stylesheet" href="${root}/dist/css/bootstrap-multiselect.css" type="text/css">
     <script type="text/javascript" src="dist/js/bootstrap-multiselect.js"></script>
 	<script type="text/javascript">
 	$(function(){
@@ -16,10 +16,44 @@
 	});
 	</script>
 	<style>
-		#listicon, #icon {
-			float: right;
-			margin-left:10px;
-		}
+	.myButton {
+	float: right;
+	margin-left: 10px;
+	
+	-moz-box-shadow:inset 0px 0px 0px -50px #535961;
+	-webkit-box-shadow:inset 0px 0px 0px -50px #535961;
+	box-shadow:inset 0px 0px 0px -50px #535961;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #615c61), color-stop(1, #3b323b));
+	background:-moz-linear-gradient(top, #615c61 5%, #3b323b 100%);
+	background:-webkit-linear-gradient(top, #615c61 5%, #3b323b 100%);
+	background:-o-linear-gradient(top, #615c61 5%, #3b323b 100%);
+	background:-ms-linear-gradient(top, #615c61 5%, #3b323b 100%);
+	background:linear-gradient(to bottom, #615c61 5%, #3b323b 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#615c61', endColorstr='#3b323b',GradientType=0);
+	background-color:#615c61;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:13px;
+	padding:10px 12px;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #3b323b), color-stop(1, #615c61));
+	background:-moz-linear-gradient(top, #3b323b 5%, #615c61 100%);
+	background:-webkit-linear-gradient(top, #3b323b 5%, #615c61 100%);
+	background:-o-linear-gradient(top, #3b323b 5%, #615c61 100%);
+	background:-ms-linear-gradient(top, #3b323b 5%, #615c61 100%);
+	background:linear-gradient(to bottom, #3b323b 5%, #615c61 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3b323b', endColorstr='#615c61',GradientType=0);
+	background-color:#3b323b;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
 	</style>
 </head>
 <body>
@@ -129,18 +163,20 @@
 	</div>
 	</form>
 	</div>
-	<a href="#" id="listicon"><img src="${root}/images/music.png" height="40" title="재생목록에 추가"></a>
-	<a href="#" id="icon"><img src="${root}/images/likes.png" height="40" title="추천게시판으로 보내기"></a>
+	<%-- <a href="#" id="listicon"><img src="${root}/images/music.png" height="40" title="재생목록에 추가"></a>
+	<a href="#" id="icon"><img src="${root}/images/likes.png" height="40" title="추천게시판으로 보내기"></a> --%>
+	<button type="button" id="icon" class="myButton" title="추천게시판으로 보내기">추천하기</button>
+	<button type="button" id="listicon" class="myButton" title="재생목록에 추가">리스트담기</button>
 	<table class="table table-hover">
 		<thead>
 			<tr>
 				<td><input type="checkbox" name="_selected_all_"></td>
 				<th style="text-align: center;">No</th>
-				<th style="text-align: center;">타이틀</th>
-				<th style="text-align: center;">가수명</th>
-				<th style="text-align: center;">장르</th>
-				<th style="text-align: center;">Rank</th>
-				<th style="text-align: center;">앨범명</th>
+				<th style="text-align: center;">Title</th>
+				<th style="text-align: center;">Singer</th>
+				<th style="text-align: center;">Genre</th>
+				<th style="text-align: center;">Ranking</th>
+				<th style="text-align: center;">Album</th>
 			</tr>
 		</thead>
     	<tbody>

@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <head>
-	<title>Barker Music</title>
+	<title>Time Music</title>
 	<meta charset="utf-8">
 	<c:set var="root" value="<%=request.getContextPath()%>" />
 	<link rel="stylesheet" type="text/css" href="${root}/css/topstyle.css">
@@ -34,9 +34,9 @@
 			for(i=0;i<selnum.length;i++){
 				if (selnum[i].checked){
 					cnt++;
-					var title=$(selnum[i]).attr('val1');
-					var artist=$(selnum[i]).attr('val2');
-					var youurl=$(selnum[i]).attr('val3');
+					title=$(selnum[i]).attr('val1');
+					artist=$(selnum[i]).attr('val2');
+					youurl=$(selnum[i]).attr('val3');
 					var str1="<tr><td><input type='checkbox' name='selected'/></td><td class='songlst'>"+artist
 						+" - "+title+"<br><iframe width='100' height='56' src='https://www.youtube.com/embed/"
 						+youurl+"' frameborder='0' allowfullscreen></iframe></td></tr>";
@@ -53,7 +53,6 @@
 				alert("선택된 노래가 없습니다.");
 			}else {
 				alert("재생목록에 "+cnt+" 곡이 추가되었습니다.");
-				
 			}
 			/* if($("#music").is(":checked"))
 				$("#mylist ul").append("<li>list</li>"); */
@@ -86,10 +85,11 @@
 	</script>
 	<style>
 	#headerbox { 
-		height: 60px;
-		background: #acb6e5;  /* fallback for old browsers */
-		background: -webkit-linear-gradient(to right, #86fde8, #acb6e5);  /* Chrome 10-25, Safari 5.1-6 */
-		background: linear-gradient(to right, #86fde8, #acb6e5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		/* height: 60px;
+		background: #acb6e5;
+		background: -webkit-linear-gradient(to right, #86fde8, #acb6e5);
+		background: linear-gradient(to right, #86fde8, #acb6e5); */
+		background: #1e2022;
 		
 		/*가운데정렬*/
 		display: flex;
@@ -111,7 +111,7 @@
 </head>
 <body>
 <div style="margin-bottom:0" id="headerbox">
-	<img src="${root}/images/logo.png" id="logo">
+	<img src="${root}/images/logo2.png" id="logo">
 	<!-- <p id="tit">Barker Music</p>
 	<p id="subtit">시대의명곡을 무료로즐기자!</p>  -->
 </div>
@@ -127,19 +127,18 @@
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
-				<li class="menulist"><a href="${root}/main.do" style="color:#191a1a;">시대별명곡</a></li>
-				<li class="menulist"><a href="#" style="color:#191a1a;">음원방송정보</a></li>
-				<li class="menulist"><a href="#" style="color:#191a1a;">실시간음원순위</a></li>
-				<li class="menulist"><a href="${root}/sns.do" style="color:#191a1a;">실시간음원SNS반응</a></li>
-				<li class="menulist"><a href="${root}/chucheon.do" style="color:#191a1a;">추천곡게시판</a></li>
-				<li class="menulist"><a href="${root}/error.do" style="color:#191a1a;">오류신고게시판</a></li>
-				<li class="menulist"><a href="#" style="color:#191a1a;">미정</a></li>
+				<li class="menulist"><a href="${root}/main.do" style="color:#52616a;">시대별차트</a></li>
+				<li class="menulist"><a href="#" style="color:#52616a;">실시간차트</a></li>
+				<li class="menulist"><a href="${root}/halloffame.do" style="color:#52616a;">명예의전당</a></li>
+				<li class="menulist"><a href="${root}/sns.do" style="color:#52616a;">실시간음원SNS반응</a></li>
+				<li class="menulist"><a href="${root}/chucheon.do" style="color:#52616a;">추천노래</a></li>
+				<li class="menulist"><a href="${root}/error.do" style="color:#52616a;">오류신고</a></li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li class="menulist"><a href="#" id="playlist" style="color: #191a1a;">PlayList</a></li>
-				<li class="menulist"><a href="#" style="color: #191a1a;"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-				<li class="menulist"><a href="#" style="color: #191a1a;"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				<li class="menulist"><a href="#" id="playlist" style="color: #52616a;">PlayList</a></li>
+				<li class="menulist"><a href="#" style="color: #52616a;"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+				<li class="menulist"><a href="#" style="color: #52616a;"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 			</ul>
 		</div>
 	</div>
