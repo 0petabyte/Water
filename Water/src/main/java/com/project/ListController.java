@@ -23,10 +23,10 @@ public class ListController {
 	
 	//ModelAndView erasonglist : jiung 0919.16:00//
 	@RequestMapping("/main.do")
-	public ModelAndView list(@RequestParam(value="pageNum",defaultValue="1") int currentPage, String keyWord, String keyField)
+	public ModelAndView list(@RequestParam(value="pageNum",defaultValue="1") int currentPage, String keyWord, String keyField, String yearchose, String sunwhiyear)
 	{
 		ModelAndView model=new ModelAndView();
-		List<UserDto> list=dao.findList(keyWord, keyField);
+		List<UserDto> list=dao.findList(keyWord, keyField, yearchose, sunwhiyear);
 		
 		
 		//페이징처리

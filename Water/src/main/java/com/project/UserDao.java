@@ -27,7 +27,7 @@ public class UserDao {
 		mongoTemp.dropCollection(UserDao.class);
 	}
 	
-	public List<UserDto> findList(String keyWord, String keyField)
+	public List<UserDto> findList(String keyWord, String keyField, String yearchose, String sunwhiyear)
 	{
 		//방법 1 : 전체데이타를 목록으로 얻고자 할경우
 		//List<UserDto> list=mongoTemp.findAll(UserDto.class,"musicdata");
@@ -50,7 +50,13 @@ public class UserDao {
 	    else
 	    	query=new Query(Criteria.where(keyField).regex(keyWord,"i"));
 	    
+	    if (yearchose == null)
+	    	query.with(new Sort(new Sort.Order[] { new Sort.Order(Sort.Direction.DESC, "_id") }));
 	    
+	    else
+	    	query=new Query(Criteria.where(sunwhiyear).regex(yearchose,"i"));
+	    	
+	    	
 	    
 	    List<UserDto> list = this.mongoTemp.find(query, UserDto.class);
 

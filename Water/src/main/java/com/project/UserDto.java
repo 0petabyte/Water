@@ -21,11 +21,28 @@ public class UserDto {
 	private String sunwhiyear;
 	private String keyWord;
 	private String keyField;
+	private String gasa;
+	private String yearchose;
+	
+	
+	
 	//몽고디비 Dto 09.19 16:00 지웅 --까지
 
 	
+	public String getYearchose() {
+		return yearchose;
+	}
+	public void setYearchose(String yearchose) {
+		this.yearchose = yearchose;
+	}
 	public String getYoutubeurl() {
 		return youtubeurl;
+	}
+	public String getGasa() {
+		return gasa;
+	}
+	public void setGasa(String gasa) {
+		this.gasa = gasa;
 	}
 	public String getKeyWord() {
 		return keyWord;

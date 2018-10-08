@@ -57,6 +57,13 @@ public class ErrController {
 		return "redirect:error.do";
 	}
 	
+	@RequestMapping("/writeform2.do")
+	public String test()
+	{
+		return "/1/content/errwriteform";
+	} 
+	
+	
 
 	@RequestMapping("/error.do")
 	public ModelAndView list(
@@ -196,4 +203,7 @@ public class ErrController {
 		edao.insertAnswer(adto);
 		return "redirect:read.do?e_num="+adto.getE_num()+"&pageNum="+pageNum;
 	}
+	
+
+	
 }

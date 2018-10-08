@@ -1,19 +1,12 @@
-<<<<<<< HEAD
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=branch 'master' of https\://github.com/0petabyte/Water.git
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
 encoding//src/main/resources=UTF-8
 encoding//src/main/webapp/WEB-INF/content/erasonglist.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/content/realtimelist.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/layout/layout1.jsp=UTF-8
 encoding//src/main/webapp/css/topstyle.css=UTF-8
 encoding//src/test/java=UTF-8
 encoding/<project>=UTF-8
-=======
-eclipse.preferences.version=1
-encoding//src/main/java=UTF-8
-encoding//src/main/resources=UTF-8
-encoding//src/main/webapp/WEB-INF/content/erasonglist.jsp=UTF-8
-encoding//src/main/webapp/WEB-INF/layout/layout1.jsp=UTF-8
-encoding//src/main/webapp/css/topstyle.css=UTF-8
-encoding//src/test/java=UTF-8
-encoding/<project>=UTF-8
->>>>>>> branch 'master' of https://github.com/0petabyte/Water.git

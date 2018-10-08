@@ -15,6 +15,89 @@
 		});
 	});
 	</script>
+	
+	<script type="text/javascript">
+	$(function(){
+		$('input[id=_selected_all1_]').on('change', function(){
+			$('input[id=_selected1_]').prop('checked', this.checked);
+		});
+	});
+	</script>
+	
+	        
+
+   <script type="text/javascript">
+   	$(function(){
+   		$("td.timelist").click(function(){
+   			//alert("aaa");
+   			if($(this).parent().next().css("display")=="none"){
+   				$(this).parent().next().css("display","");
+   			}else{
+   				$(this).parent().next().css("display","none");
+   			}
+   		});
+   	});
+   	
+   </script>
+   
+   
+   <script type="text/javascript">
+   
+	$(function(){
+		$("#goicon").click(function(){
+			var selnum=document.getElementsByName("_selected1_");
+			//alert(selnum.length);
+			var cnt=0;
+			/* for(i=0;i<selnum.length;i++){
+				if (selnum[i].checked){
+					cnt++;
+					var title=$(selnum[i]).val();
+					//alert("재생목록에 "+title+" 이(가) 추가되었습니다.");
+					//$("#mylist ul").append("<li>"+title+"</li>");
+					$("#tbl_tbody").append("<tr><td><input type='checkbox' name='selected'/></td><td>"+title+"</td></tr>");
+				}
+				
+			} */
+			for(i=0;i<selnum.length;i++){
+				if (selnum[i].checked){
+					cnt++;
+					title=$(selnum[i]).attr('val1');
+					artist=$(selnum[i]).attr('val2');
+					youurl=$(selnum[i]).attr('val3');
+					var str1="<tr><td><input type='checkbox' name='selected'/></td><td class='songlst'>"+artist
+						+" - "+title+"<br><iframe width='100' height='56' src='https://www.youtube.com/embed/"
+						+youurl+"' frameborder='0' allowfullscreen></iframe></td></tr>";
+					$("#tbl_tbody").append(str1);
+					
+					/* $("#tbl_tbody").append("<tr><td><input type='checkbox' name='selected'/></td><td>"+artist+" - "+title+"</td></tr>");
+					$("#tbl_tbody").append("<br><iframe width='100' height='56' src='https://www.youtube.com/embed/"+youurl+"' frameborder='0' allowfullscreen></iframe>"); */
+					
+				}
+				
+			}
+			
+			if(cnt==0){
+				alert("선택된 년도가 없습니다.");
+			}else {
+				alert("재생목록에 "+cnt+" 곡이 추가되었습니다.");
+			}
+			/* if($("#music").is(":checked"))
+				$("#mylist ul").append("<li>list</li>"); */
+				
+			/* alert("재생목록에 1곡 추가되었습니다."); */
+		});
+	});
+	/*재생리스트 selectbox*/
+	$(function(){
+		$('input[name=selected_all]').on('change', function(){
+			$('input[name=selected]').prop('checked', this.checked);
+		});
+	});
+   
+   </script>
+   
+	
+	
 	<style>
 	.myButton {
 	float: right;
@@ -76,92 +159,95 @@
                   });
               });
           </script>
-          <select id="example-enableCollapsibleOptGroups-enableClickableOptGroups-enableFiltering-includeSelectAllOption" multiple="multiple" weight="300">
-<!--                                             <optgroup label="1960" value="g1960">
-                                                <option value="1964" name="1964">1964</option>
-                                                <option value="1965" id="1965">1965</option>
-                                                <option value="1966" id="1966">1966</option>
-                                                <option value="1967" id="1967">1967</option>
-                                                <option value="1968" id="1968">1968</option>
-                                                <option value="1969" id="1969">1969</option>
-                                            </optgroup> -->
-      <optgroup label="1960">
-     <%for(int i=1964; i<=1969; i++){ %>
-     <option value="<%=i%>"><%=i%></option>
-     <%} %>
-     </optgroup>
-     <optgroup label="1970">
-     <%for(int i=1970; i<=1979; i++){ %>
-     <option value="<%=i%>"><%=i%></option>
-     <%} %>
-     </optgroup>
-     <optgroup label="1980">
-     <%for(int i=1980; i<=1989; i++){ %>
-     <option value="<%=i%>"><%=i%></option>
-     <%} %>
-     </optgroup>
-     <optgroup label="1990">
-     <%for(int i=1990; i<=1999; i++){ %>
-     <option value="<%=i%>"><%=i%></option>
-     <%} %>
-     </optgroup>
-     <optgroup label="2000">
-     <%for(int i=2000; i<=2009; i++){ %>
-     <option value="<%=i%>"><%=i%></option>
-     <%} %>
-     </optgroup>
-     <optgroup label="2010">
-     <%for(int i=2010; i<=2017; i++){ %>
-     <option value="<%=i%>"><%=i%></option>
-     <%} %>
-     </optgroup>
-     </select>
-     </div>           
+          
+          
+          
+          
+          
+          <form name = "_selected_all1_" method = "get" action ="main.do" onsubmit="return check()">
+          <select name="_selected1_" id="example-enableCollapsibleOptGroups-enableClickableOptGroups-enableFiltering-includeSelectAllOption" multiple="multiple" >
+			
+			 
+		      <optgroup label="1960" id="_selected_all1_">
+		     <%for(int i=1964; i<=1969; i++){ %>
+		     <option id ="_selected1_" value="<%=i%>"><%=i%></option>
+		     <%} %>
+		     </optgroup>
+		     <optgroup label="1970">
+		     <%for(int i=1970; i<=1979; i++){ %>
+		     <option id ="_selected1_" value="<%=i%>"><%=i%></option>
+		     <%} %>
+		     </optgroup>
+		     <optgroup label="1980">
+		     <%for(int i=1980; i<=1989; i++){ %>
+		     <option id ="_selected1_" value="<%=i%>"><%=i%></option>
+		     <%} %>
+		     </optgroup>
+		     <optgroup label="1990">
+		     <%for(int i=1990; i<=1999; i++){ %>
+		     <option id ="_selected1_" value="<%=i%>"><%=i%></option>
+		     <%} %>
+		     </optgroup>
+		     <optgroup label="2000">
+		     <%for(int i=2000; i<=2009; i++){ %>
+		     <option id ="_selected1_" value="<%=i%>"><%=i%></option>
+		     <%} %>
+		     </optgroup>
+		     <optgroup label="2010" id ="_selected1_">
+		     <%for(int i=2010; i<=2017; i++){ %>
+		     <option id ="_selected1_" value="<%=i%>"><%=i%></option>
+		     <%} %>
+		     </optgroup>
+		     </select>
+		     <button type="button" id="goicon" class="myButton" title="옵션에맞는 목록만불러오기">Go!</button>
+		     </form>
+		     </div>           
+		     
      
      <br>
      <div class="container">
      <form name = "search" method = "get" action ="main.do" onsubmit="return check()">
      <div class="row">    
-        <div class="col-xs-8 col-xs-offset-2">
+        <div class="col-xs-6 col-xs-offset-2">
 		    <div class="input-group">
 		    
 		    <div class="form-group">
-		  <select class="form-control" id="keyField" name="keyField" >
-		  <option value="title">제목</option>
-		  <option value="artlist">가수명</option>
-		  </select>
+
 		  		</div>
                 <div class="input-group-btn search-panel">
-                    
-
-<!--      	<div class="form-group">
-		  <select class="form-control" id="keyField" name="keyField">
-		  <option value="title">제목</option>
+                <span>
+                <select style="width:150px;" class="form-control" id="keyField" name="keyField" >
+		  <option value="title" >제목</option>
 		  <option value="artlist">가수명</option>
+		  <option value="sunwhiyear">년도</option>
+		  <option value="gasa">가사</option>
 		  </select>
-		</div> -->
+                </span>
                 </div>
                 <input type="hidden" name="search_param" value="all" id="search_param">         
                 <input type="text" class="form-control" name="keyWord" placeholder="검색어를 입력해주세요.">
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                <button data-toggle="dropdown" id="a" class="btn btn-default" type="button"><span id="search_concept" class="glyphicon glyphicon-search"></span></button>
                 </span>
             </div>
             	<script>
 	$(document).ready(function(e){
-	    $('.search-panel .dropdown-menu').find('a').click(function(e) {
+	    $('.form-control .dropdown-menu').find('a').click(function(e) {
 			e.preventDefault();
 			var param = $(this).attr("href").replace("#","");
 			var concept = $(this).text();
 			$('.search-panel span#search_concept').text(concept);
 			$('.input-group #search_param').val(param);
+			alert(concept);
 		});
 	});
 	
 	</script>
         </div>
 	</div>
+
 	</form>
+
 	</div>
 	<%-- <a href="#" id="listicon"><img src="${root}/images/music.png" height="40" title="재생목록에 추가"></a>
 	<a href="#" id="icon"><img src="${root}/images/likes.png" height="40" title="추천게시판으로 보내기"></a> --%>
@@ -184,19 +270,24 @@
     		<tr>
     			<td><input type="checkbox" name="_selected_" id="music" 
     			  value="${musicdata.title}" val1="${musicdata.title}" val2="${musicdata.artlist}" val3="${musicdata.yourll}"/></td>
-				<td align="center">${no}</td>	
+				<td class ="timelist" align="center">${no}</td>	
 				<c:set var="no" value="${no-1}"/>
-				<td align="center">
+				<td class ="timelist" align="center">
 				<a href="https://www.youtube.com/watch?v=${musicdata.yourll}">${musicdata.title}</a>
-				<br>
-				<br>
+				</td>	
+    			<td class ="timelist" align="center">${musicdata.artlist}</td>
+    			<td class ="timelist" align="center">${musicdata.jangre}</td>
+       			<td class ="timelist" align="center">${musicdata.sunwhiyear.substring(0,4)}년${musicdata.sunwhi}위</td>    			
+    			<td class ="timelist" align="center"><a href="${musicdata.musicidurl}" > ${musicdata.album}</a></td>
+				</tr>
+				<tr style="display: none;" id="scontentsub" class="subshow" >
+          		<td colspan="4" align="center">
 				<iframe width="280" height="157" src="https://www.youtube.com/embed/${musicdata.yourll}" frameborder="0" allowfullscreen></iframe>
-				</td>		
-    			<td align="center">${musicdata.artlist}</td>
-    			<td align="center">${musicdata.jangre}</td>
-       			<td align="center">${musicdata.sunwhiyear.substring(0,4)}년${musicdata.sunwhi}위</td>    			
-    			<td align="center"><a href="${musicdata.musicidurl}" > ${musicdata.album}</a></td>
-    		</tr>
+				</td>
+				 
+				<td height="100" val colspan="4" align="center"><div style="overflow-y:scroll; height:100%; width:100%">
+				${musicdata.gasa}</div>
+			</td></tr>
     		</c:forEach>
     	</tbody>
     </table>
