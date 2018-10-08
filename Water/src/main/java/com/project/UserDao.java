@@ -27,7 +27,8 @@ public class UserDao {
 		mongoTemp.dropCollection(UserDao.class);
 	}
 	
-	public List<UserDto> findList(String keyWord, String keyField, String yearchose, String sunwhiyear)
+	public List<UserDto> findList(String keyWord, String keyField, String yearchose, String sunwhiyear, 
+			String rankchose, String sunwhi, String jangre, String jangrechose)
 	{
 		//방법 1 : 전체데이타를 목록으로 얻고자 할경우
 		//List<UserDto> list=mongoTemp.findAll(UserDto.class,"musicdata");
@@ -37,24 +38,66 @@ public class UserDao {
 /*		Query query=new Query(Criteria.where("_id").in("a1","a2","a3"));
 		List<UserDto> list=mongoTemp.find(query, UserDto.class);
 		*/
-	   
+		
+		
+		sunwhiyear="sunwhiyear";
+		sunwhi="sunwhi";
+		jangre="jangre";
+	
 	    Query query = new Query();
 	    
 /*	    query.with(new Sort(new Sort.Order[] { new Sort.Order(Sort.Direction.DESC, "_id") }));*/
 /*	    Query query2=new Query(Criteria.where("artlist").in(keyWord));*/
 	    
 	    
-	    if (keyWord == null)
+	    if (keyWord == null && rankchose == null && jangrechose == null && jangrechose == null )
 	    	query.with(new Sort(new Sort.Order[] { new Sort.Order(Sort.Direction.DESC, "_id") }));
+	    
+	    
+
 	    
 	    else
 	    	query=new Query(Criteria.where(keyField).regex(keyWord,"i"));
 	    
-	    if (yearchose == null)
+	    if (yearchose != null && rankchose == null && jangrechose == null)
+	    	query=new Query(new Criteria().andOperator(		
+			Criteria.where(sunwhiyear).is(yearchose).regex(yearchose.replaceAll(",", "|"),"i")
+			));
+	    
+	    System.out.println(yearchose);
+	    
+	    if (rankchose != null && jangrechose == null && yearchose == null)
+	    	query=new Query(new Criteria().andOperator(		
+			Criteria.where(sunwhi).is(rankchose.replaceAll(",", "|"))
+			));
+	    
+	    System.out.println(rankchose);
+	    
+	    if (jangrechose != null && rankchose == null && yearchose == null )
+	    	query=new Query(new Criteria().andOperator(		
+			Criteria.where(jangre).is(jangrechose).regex(jangrechose.replaceAll(",", "|"),"i")
+			));
+	    
+	    System.out.println(jangrechose);
+	    
+	    if (jangrechose != null && rankchose != null && yearchose == null)
+	    	query=new Query(new Criteria().andOperator(		
+			Criteria.where(jangre).is(jangrechose).regex(jangrechose.replaceAll(",", "|"),"i"),
+	    	Criteria.where(sunwhi).is(rankchose.replaceAll(",", "|"))));
+	    
+	    if (jangrechose != null && rankchose != null && yearchose != null)
+	    	query=new Query(new Criteria().andOperator(		
+			Criteria.where(jangre).is(jangrechose).regex(jangrechose.replaceAll(",", "|"),"i"),
+	    	Criteria.where(sunwhi).is(rankchose.replaceAll(",", "|")),
+	    	Criteria.where(sunwhiyear).is(yearchose).regex(yearchose.replaceAll(",", "|"),"i")));
+	    
+	    
+	    
+/*	    if (yearchose == null)
 	    	query.with(new Sort(new Sort.Order[] { new Sort.Order(Sort.Direction.DESC, "_id") }));
 	    
 	    else
-	    	query=new Query(Criteria.where(sunwhiyear).regex(yearchose,"i"));
+	    	query=new Query(Criteria.where(sunwhiyear).regex(yearchose,"i"));*/
 	    	
 	    	
 	    

@@ -23,15 +23,16 @@ public class ListController {
 	
 	//ModelAndView erasonglist : jiung 0919.16:00//
 	@RequestMapping("/main.do")
-	public ModelAndView list(@RequestParam(value="pageNum",defaultValue="1") int currentPage, String keyWord, String keyField, String yearchose, String sunwhiyear)
+	public ModelAndView list(@RequestParam(value="pageNum",defaultValue="1") int currentPage, String keyWord, String keyField, 
+			String yearchose, String sunwhiyear,String rankchose, String sunwhi, String jangre, String jangrechose)
 	{
 		ModelAndView model=new ModelAndView();
-		List<UserDto> list=dao.findList(keyWord, keyField, yearchose, sunwhiyear);
+		List<UserDto> list=dao.findList(keyWord, keyField, yearchose, sunwhiyear, rankchose, sunwhi, jangre, jangrechose);
 		
 		
 		//페이징처리
 		//페이징에 처리에 필요한 변수들
-		int perPage=15; //한페이지당 보여지는 게시글의 갯수
+		int perPage=20; //한페이지당 보여지는 게시글의 갯수
 		int totalCount=0; //총 개시글의 개수
 		int totalPage;//총페이지수
 		int startNum;//각페이지당 보여지는 글의 시작번호
@@ -39,6 +40,8 @@ public class ListController {
 		int perBlock=5; //한블럭당 보여지는 페이지의 개수
 		int startPage; //각블럭당 보여지는 페이지의 시작번호
 		int endPage;
+/*		int currentShowPageNo;*/
+		
 
 		//총갯수
 		totalCount=list.size();
@@ -89,8 +92,16 @@ public class ListController {
 		
 		model.setViewName("/1/content/erasonglist");
 		
-		
-
+/*		 if(pageNo == null) {
+	    	  currentShowPageNo = 1;
+	    	  
+	      }
+	      else {
+	    	  currentShowPageNo = Integer.parseInt(pageNo);
+	    	  // GET 방식으로 파라미터 pageNo 에 넘어온 값을
+	    	  // 현재 보여주고자 하는 페이지로 설정한다.
+	      }
+*/
 		
 		return model;
 		

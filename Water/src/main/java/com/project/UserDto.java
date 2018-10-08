@@ -23,12 +23,38 @@ public class UserDto {
 	private String keyField;
 	private String gasa;
 	private String yearchose;
+	private String yearcheck;
+	private String rankchose;
+	private String jangrechose;
+	
+	
+	
+
+	
 	
 	
 	
 	//몽고디비 Dto 09.19 16:00 지웅 --까지
 
 	
+	public String getJangrechose() {
+		return jangrechose;
+	}
+	public void setJangrechose(String jangrechose) {
+		this.jangrechose = jangrechose;
+	}
+	public String getRankchose() {
+		return rankchose;
+	}
+	public void setRankchose(String rankchose) {
+		this.rankchose = rankchose;
+	}
+	public String getYearcheck() {
+		return yearcheck;
+	}
+	public void setYearcheck(String yearcheck) {
+		this.yearcheck = yearcheck;
+	}
 	public String getYearchose() {
 		return yearchose;
 	}
