@@ -15,6 +15,7 @@ public class ListController {
 	private UserDao dao;
 	
 	
+	
 /*	@RequestMapping("/main.do")
 	public String test1() {
 	
@@ -22,14 +23,20 @@ public class ListController {
 	}*/
 	
 	//ModelAndView erasonglist : jiung 0919.16:00//
-	@RequestMapping("/main.do")
+	@RequestMapping(value="/main.do")
 	public ModelAndView list(@RequestParam(value="pageNum",defaultValue="1") int currentPage, String keyWord, String keyField, 
-			String yearchose, String sunwhiyear,String rankchose, String sunwhi, String jangre, String jangrechose)
+			String yearchose, String sunwhiyear,String rankchose, String sunwhi, String jangre, String jangrechose) 
+
 	{
 		ModelAndView model=new ModelAndView();
 		List<UserDto> list=dao.findList(keyWord, keyField, yearchose, sunwhiyear, rankchose, sunwhi, jangre, jangrechose);
 		
+
+
+
+
 		
+
 		//페이징처리
 		//페이징에 처리에 필요한 변수들
 		int perPage=20; //한페이지당 보여지는 게시글의 갯수

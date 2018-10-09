@@ -16,9 +16,16 @@ public class RealtimeDto {
 	private String tubeurl;
 	private String yourll;
 	private String musicid;
+	private String artcnt;
 	
 	
 	
+	public String getArtcnt() {
+		return artcnt;
+	}
+	public void setArtcnt(String artcnt) {
+		this.artcnt = artcnt;
+	}
 	public String getMusicid() {
 		return musicid;
 	}

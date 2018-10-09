@@ -278,7 +278,7 @@
                                             <div class="col-sm-3 col-xs-12">
                                                 <div class="single_counter_item">
                                                     <i class="icon icon-people-32"></i>
-                                                    <h2 class="statistic-counter">5</h2>
+                                                    <h2 class="statistic-counter">${musicdata_realtime.artcnt}</h2>
                                                     <h4 class="">시대의 명곡</h4>  
                                                 </div>
 

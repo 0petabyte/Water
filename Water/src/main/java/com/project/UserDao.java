@@ -91,6 +91,12 @@ public class UserDao {
 	    	Criteria.where(sunwhi).is(rankchose.replaceAll(",", "|")),
 	    	Criteria.where(sunwhiyear).is(yearchose).regex(yearchose.replaceAll(",", "|"),"i")));
 	    
+	    if (jangrechose != null && yearchose != null)
+	    	query=new Query(new Criteria().andOperator(		
+			Criteria.where(jangre).is(jangrechose).regex(jangrechose.replaceAll(",", "|"),"i"),
+	    	Criteria.where(sunwhiyear).is(yearchose).regex(yearchose.replaceAll(",", "|"),"i")));
+	    
+	    
 	    
 	    
 /*	    if (yearchose == null)

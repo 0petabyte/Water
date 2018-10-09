@@ -174,15 +174,10 @@ function searchbutton_click() {
 
 
 
-</head>
-
-
-
-
-
-
-
 <body>
+
+
+
 
 
 
@@ -190,7 +185,8 @@ function searchbutton_click() {
 
 	<div class="container">
 		<h2>시대의 명곡 리스트</h2>
-		<p>타이틀을 누르면 자동으로 음원이 재생됩니다(음원출처:youtube)</p>
+		<p>원하시는 곡 라인을 클릭시 Youtube 영상이 보이게 됩니다(음원출처:youtube)<br>
+		검색어를 입력하지않을시 선택메뉴의 조건으로 전체곡대상 검색됩니다.</p>
 
 		<div class="example">
 			<script type="text/javascript">
@@ -536,6 +532,7 @@ function searchbutton_click() {
 				<td align="center">
 					<ul class="pagination">
 						<c:if test="${startPage>1}">
+						
 							<li><a href="main.do?pageNum=${startPage-1}">Previous</a></li>
 						</c:if>
 						<c:forEach var="pg" begin="${startPage}" end="${endPage}">

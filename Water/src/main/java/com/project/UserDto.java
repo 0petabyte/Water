@@ -26,6 +26,9 @@ public class UserDto {
 	private String yearcheck;
 	private String rankchose;
 	private String jangrechose;
+	private String artcnt;
+	
+	
 	
 	
 	
@@ -37,6 +40,12 @@ public class UserDto {
 	//몽고디비 Dto 09.19 16:00 지웅 --까지
 
 	
+	public String getArtcnt() {
+		return artcnt;
+	}
+	public void setArtcnt(String artcnt) {
+		this.artcnt = artcnt;
+	}
 	public String getJangrechose() {
 		return jangrechose;
 	}
