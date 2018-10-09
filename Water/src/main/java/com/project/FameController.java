@@ -9,4 +9,9 @@ public class FameController {
 	public String test1() {
 		return "/1/content/halloffame";
 	}
+	
+	@RequestMapping("/test.do")
+	public String test2() {
+		return "/1/content/test";
+	}
 }

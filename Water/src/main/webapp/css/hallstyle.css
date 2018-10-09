@@ -1,126 +1,132 @@
-@import url(http://fonts.googleapis.com/css?family=Anaheim);
+.swiper-slide img {
+	max-height: 100%
+}
 
-* {
-	margin: 0;
-	padding: 0;
-	outline: none;
+.swiper-container {
+	width: 70%;
+	height: 400px;
+}
+
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+	/* Center slide text vertically */
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	/*width:90%;*/
+}
+
+/*ÀüÃ¼1À§*/
+/* Global */
+iframe {
 	border: none;
-	box-sizing: border-box;
 }
 
-*:before, *:after {
-	box-sizing: border-box;
+a {
+	-webkit-transition: all 150ms ease;
+	-moz-transition: all 150ms ease;
+	-ms-transition: all 150ms ease;
+	-o-transition: all 150ms ease;
+	transition: all 150ms ease;
 }
 
-html, body {
-	min-height: 100%;
+a:hover {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	/* IE 8 */
+	filter: alpha(opacity = 50); /* IE7 */
+	opacity: 0.6;
+	text-decoration: none;
 }
-/* body{
-	background-image: radial-gradient(mintcream 0%, lightgray 100%);
-} */
-h1 {
-	display: table;
-	margin: 5% auto 0;
+
+.thumbnails li>.fff .caption {
+	background: #fff !important;
+	padding: 10px
+}
+
+/* Page Header */
+.page-header {
+	background: #f9f9f9;
+	margin: -30px -40px 40px;
+	padding: 20px 40px;
+	border-top: 4px solid #ccc;
+	color: #999;
 	text-transform: uppercase;
-	font-family: 'Anaheim', sans-serif;
-
-	font-weight: 400;
-	text-shadow: 0 1px white, 0 2px black;
 }
 
-h5 {
-	font-size: 14pt;
+.page-header h3 {
+	line-height: 0.88rem;
+	color: #000;
 }
 
-.container {
-	margin: 4% auto;
-	width: 210px;
-	height: 140px;
-	position: relative;
-	perspective: 1000px;
+ul.thumbnails {
+	margin-bottom: 0px;
 }
 
-#carousel {
+/* Thumbnail Box */
+.caption h4 {
+	color: #444;
+}
+
+.caption p {
+	color: #999;
+}
+
+/* Carousel Control */
+.control-box {
+	text-align: right;
 	width: 100%;
-	height: 100%;
-	position: absolute;
-	direction: left;
-	transform-style: preserve-3d;
-	animation: rotation 20s infinite linear;
 }
 
-#carousel:hover {
-	animation-play-state: paused;
+.carousel-control {
+	background: #666;
+	border: 0px;
+	border-radius: 0px;
+	display: inline-block;
+	font-size: 34px;
+	font-weight: 200;
+	line-height: 18px;
+	opacity: 0.5;
+	padding: 4px 10px 0px;
+	position: static;
+	height: 30px;
+	width: 15px;
 }
 
-#carousel figure {
-	position: absolute;
-	width: 90%;
-	height: 50% px;
-	left: 10px;
-	top: 10px;
-	background: white;
-	overflow: hidden;
-	border: inset 1px white;
+/* Mobile Only */
+@media ( max-width : 767px) {
+	.page-header, .control-box {
+		text-align: center;
+	}
 }
 
-#carousel figure:nth-child(1) {
-	transform: rotateY(0deg) translateZ(288px);
+@media ( max-width : 479px) {
+	.caption {
+		word-break: break-all;
+	}
 }
 
-#carousel figure:nth-child(2) {
-	transform: rotateY(36deg) translateZ(288px);
+li {
+	list-style-type: none;
 }
 
-#carousel figure:nth-child(3) {
-	transform: rotateY(72deg) translateZ(288px);
+::selection {
+	background: #ff5e99;
+	color: #FFFFFF;
+	text-shadow: 0;
 }
 
-#carousel figure:nth-child(4) {
-	transform: rotateY(108deg) translateZ(288px);
-}
-
-#carousel figure:nth-child(5) {
-	transform: rotateY(144deg) translateZ(288px);
-}
-
-#carousel figure:nth-child(6) {
-	transform: rotateY(180deg) translateZ(288px);
-}
-
-#carousel figure:nth-child(7) {
-	transform: rotateY(216deg) translateZ(288px);
-}
-
-#carousel figure:nth-child(8) {
-	transform: rotateY(252deg) translateZ(288px);
-}
-
-#carousel figure:nth-child(9) {
-	transform: rotateY(288deg) translateZ(288px);
-}
-
-#carousel figure:nth-child(10) {
-	transform: rotateY(324deg) translateZ(288px);
-}
-
-figure img {
-	/* -webkit-filter: grayscale(1);*/
-	cursor: pointer;
-	transition: all .5s ease;
-}
-
-figure img:hover {
-	/* -webkit-filter: grayscale(0);*/
-	transform: scale(1.2, 1.2); 
-}
-
-@keyframes rotation {
-	from { transform:rotateY(0deg);
-	
-}
-
-to {
-	transform: rotateY(360deg);
-}
+::-moz-selection {
+	background: #ff5e99;
+	color: #FFFFFF;
 }
