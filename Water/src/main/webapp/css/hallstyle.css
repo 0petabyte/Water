@@ -23,7 +23,7 @@ h1 {
 	margin: 5% auto 0;
 	text-transform: uppercase;
 	font-family: 'Anaheim', sans-serif;
-	font-size: 4em;
+
 	font-weight: 400;
 	text-shadow: 0 1px white, 0 2px black;
 }
@@ -104,13 +104,13 @@ h5 {
 	transform: rotateY(324deg) translateZ(288px);
 }
 
-img {
+figure img {
 	/* -webkit-filter: grayscale(1);*/
 	cursor: pointer;
 	transition: all .5s ease;
 }
 
-img:hover {
+figure img:hover {
 	/* -webkit-filter: grayscale(0);*/
 	transform: scale(1.2, 1.2); 
 }

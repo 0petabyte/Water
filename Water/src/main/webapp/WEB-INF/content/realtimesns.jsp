@@ -69,6 +69,7 @@
 		        }); */
 		});
 		</script>
+		<c:set var="root" value="<%=request.getContextPath()%>" />
 	</head> 
 	<body>
 	<h2>실시간 반응</h2>
@@ -124,16 +125,16 @@
                                 <!-- Carousel items -->
                                 <div class="carousel-inner">
                                     <div class="active item" data-slide-number="0">
-                                        <iframe src="http://localhost:8080/Water/myword1.html" class="frame" id="frame1" ></iframe></div>
+                                        <iframe src="${root}/myword1.html" class="frame" id="frame1" ></iframe></div>
 
                                     <div class="item" data-slide-number="1">
                                         <iframe src="https://www.youtube.com/embed/wEQpfil0IYA" ></iframe></div>
 
                                     <div class="item" data-slide-number="2">
-                                        <iframe src="http://localhost:8080/Water/test1122.htm" class="frame" id="frame1" ></iframe></div>
+                                        <iframe src="${root}/test1122.htm" class="frame" id="frame1" ></iframe></div>
 
                                     <div class="item" data-slide-number="3">
-                                        <iframe src="http://localhost:8080/Water/test1122.htm" class="frame" id="frame1" ></iframe></div>
+                                        <iframe src="${root}/test1122.htm" class="frame" id="frame1" ></iframe></div>
 
                                     <div class="item" data-slide-number="4">
                                         <img src="http://placehold.it/470x480&text=4" id="img1"></div>
