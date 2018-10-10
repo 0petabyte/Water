@@ -9,7 +9,7 @@
    <head>
       <meta charset="utf-8">
       <title>Welcome</title>
-      <script type="text/javascript">
+      <!-- <script type="text/javascript">
       /*재생리스트*/
   	$(function(){
   		$("#listicon").click(function(){
@@ -47,10 +47,14 @@
   			/* alert("재생목록에 1곡 추가되었습니다."); */
   		});
   	});
-      </script>
+      </script> -->
    </head> 
    <body>
-      <form action="chucheon.do" method="post">
+   
+   ${_selected_}
+   
+   	
+      <%-- <form action="chucheon.do" method="post">
          <table class="table table-bordered" style="width: 300px; margin: 0 auto;">
          <caption>추천하기</caption>
             <tr>
@@ -90,6 +94,6 @@
                </td>
             </tr>
          </table>
-      </form>
+      </form> --%>
    </body>
 </html>

@@ -2,6 +2,8 @@ package com.project;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,10 +32,12 @@ public class ChuCheonController {
    }*/
    
    @RequestMapping("/chucheonform.do")
-   public ModelAndView chucheon()
+   public ModelAndView chucheon(HttpServletRequest request)
    {
       ModelAndView model = new ModelAndView();
-          
+      
+      request.getParameterValues("_selected_");
+      
       
       model.setViewName("/1/content/chucheonform");
       
