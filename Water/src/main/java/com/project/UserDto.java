@@ -27,6 +27,10 @@ public class UserDto {
 	private String rankchose;
 	private String jangrechose;
 	private String artcnt;
+	private String nowurl;
+	
+	
+	
 	
 	
 	
@@ -40,6 +44,12 @@ public class UserDto {
 	//몽고디비 Dto 09.19 16:00 지웅 --까지
 
 	
+	public String getNowurl() {
+		return nowurl;
+	}
+	public void setNowurl(String nowurl) {
+		this.nowurl = nowurl;
+	}
 	public String getArtcnt() {
 		return artcnt;
 	}
