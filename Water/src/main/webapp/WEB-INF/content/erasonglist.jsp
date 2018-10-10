@@ -78,6 +78,19 @@
 	position: relative;
 	top: 1px;
 }
+a {	text-decoration: none; color: black;}
+
+a:link {
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+}
+
+a:hover {
+	text-decoration: none;
+	color: red;
+}
+
 </style>
 
 
