@@ -21,11 +21,12 @@
 			})
 		});
 		</script>
-		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-		<style>
+		<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		 --><style>
 		h1 {
 		display: table;
 		margin: 5% auto 0;
+		padding: 0;
 		text-transform: uppercase;
 		font-family: 'Do Hyeon', sans-serif;
 		font-size: 60pt;
@@ -158,7 +159,7 @@
 			<nav>
 				<ul class="control-box pager">
 					<li><a data-slide="prev" href="#myCarousel1" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
-					<li><a data-slide="next" href="#myCarousel1" class=""><i class="glyphicon glyphicon-chevron-right"></i></li>
+					<li><a data-slide="next" href="#myCarousel1" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
 				</ul>
 			</nav><!-- /.control-box -->                
 		</div><!-- /#myCarousel -->
@@ -273,7 +274,7 @@
 			<nav>
 				<ul class="control-box pager">
 					<li><a data-slide="prev" href="#myCarousel2" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
-					<li><a data-slide="next" href="#myCarousel2" class=""><i class="glyphicon glyphicon-chevron-right"></i></li>
+					<li><a data-slide="next" href="#myCarousel2" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
 				</ul>
 			</nav><!-- /.control-box -->                
 		</div><!-- /#myCarousel -->
@@ -388,7 +389,7 @@
 			<nav>
 				<ul class="control-box pager">
 					<li><a data-slide="prev" href="#myCarousel3" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
-					<li><a data-slide="next" href="#myCarousel3" class=""><i class="glyphicon glyphicon-chevron-right"></i></li>
+					<li><a data-slide="next" href="#myCarousel3" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
 				</ul>
 			</nav><!-- /.control-box -->                
 		</div><!-- /#myCarousel -->
@@ -503,7 +504,7 @@
 			<nav>
 				<ul class="control-box pager">
 					<li><a data-slide="prev" href="#myCarousel4" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
-					<li><a data-slide="next" href="#myCarousel4" class=""><i class="glyphicon glyphicon-chevron-right"></i></li>
+					<li><a data-slide="next" href="#myCarousel4" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
 				</ul>
 			</nav><!-- /.control-box -->                
 		</div><!-- /#myCarousel -->
@@ -618,7 +619,7 @@
 			<nav>
 				<ul class="control-box pager">
 					<li><a data-slide="prev" href="#myCarousel5" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
-					<li><a data-slide="next" href="#myCarousel5" class=""><i class="glyphicon glyphicon-chevron-right"></i></li>
+					<li><a data-slide="next" href="#myCarousel5" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
 				</ul>
 			</nav><!-- /.control-box -->                
 		</div><!-- /#myCarousel -->
@@ -693,7 +694,7 @@
 			<nav>
 				<ul class="control-box pager">
 					<li><a data-slide="prev" href="#myCarousel6" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
-					<li><a data-slide="next" href="#myCarousel6" class=""><i class="glyphicon glyphicon-chevron-right"></i></li>
+					<li><a data-slide="next" href="#myCarousel6" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
 				</ul>
 			</nav><!-- /.control-box -->                
 		</div><!-- /#myCarousel -->
@@ -701,5 +702,9 @@
 	</div><!-- /.col-xs-12 -->
 </div><!-- /.container -->
     
-	</body>
+    
+    <!-- 테스트 -->
+    		<c:forEach var="musicdata_rank1list" items="${list}" varStatus="i">
+    		<h5>${i.count}가수: ${musicdata_rank1list.artlist}제목:  ${musicdata_rank1list.title} 년도: ${musicdata_rank1list.sunwhiyear }
+    		</h5></c:forEach>
 </html>

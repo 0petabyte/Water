@@ -130,7 +130,7 @@
 				<li class="menulist"><a href="${root}/main.do" style="color:#52616a;">시대별차트</a></li>
 				<li class="menulist"><a href="${root}/reallist.do" style="color:#52616a;">실시간차트</a></li>
 				<li class="menulist"><a href="${root}/halloffame.do" style="color:#52616a;">명예의전당</a></li>
-				<li class="menulist"><a href="${root}/sns.do" style="color:#52616a;">실시간음원SNS반응</a></li>
+				<li class="menulist"><a href="${root}/response.do" style="color:#52616a;">실시간차트반응</a></li>
 				<li class="menulist"><a href="${root}/chucheon.do" style="color:#52616a;">추천노래</a></li>
 				<li class="menulist"><a href="${root}/error.do" style="color:#52616a;">오류신고</a></li>
 				<li class="menulist"><a href="${root}/test.do" style="color:#52616a;">test</a></li>
