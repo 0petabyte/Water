@@ -129,6 +129,7 @@ input[type="color"],
     -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     border-bottom: 2px solid #ddd;
+    nonSelectedText: '원하는 메뉴123를 선택해주세요';
 }
 /*.form-control:focus {
     border-color: #bcefeb;

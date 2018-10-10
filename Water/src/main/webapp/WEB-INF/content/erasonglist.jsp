@@ -137,16 +137,7 @@
 	top: 1px;
 }
 
-a:link {
-	text-decoration: none;
-	color: black;
-	cursor: pointer;
-}
 
-a:hover {
-	color: red;
-	font-weight: bold;
-}
 </style>
 
 
@@ -210,6 +201,7 @@ function searchbutton_click() {
                       includeSelectAllOption: true,
                       collapseOptGroupsByDefault: true,
                       buttonWidth: '300px',
+                      nonSelectedText : "원하는 년도를 선택해주세요",
  					  
                       
                   });
@@ -226,6 +218,7 @@ function searchbutton_click() {
                       includeSelectAllOption: true,
                       collapseOptGroupsByDefault: true,
                       buttonWidth: '300px',
+                      nonSelectedText : "원하는 랭킹을 선택해주세요",
  					  
                       
                   });
@@ -242,6 +235,7 @@ function searchbutton_click() {
                       includeSelectAllOption: true,
                       collapseOptGroupsByDefault: true,
                       buttonWidth: '300px',
+                      nonSelectedText : "원하는 장르를 선택해주세요",
  					  
                       
                   });
@@ -253,43 +247,6 @@ function searchbutton_click() {
 			<form name="_selected_all1_" method="get" action="main.do"
 				onsubmit="return check()">
 
-<%-- 				<select
-					id="example-enableCollapsibleOptGroups-enableClickableOptGroups-enableFiltering-includeSelectAllOption"
-					multiple="multiple" name="keyField" name="lang" >
-
-
-					<optgroup label="1960" id="_selected_all1_">
-
-						<%for(int i=1964; i<=1969; i++){ %>
-						<option id="_selected1_" value="<%=i%>"><%=i%></option>
-						<%} %>
-					</optgroup>
-					<optgroup label="1970">
-						<%for(int i=1970; i<=1979; i++){ %>
-						<option id="_selected1_" value="<%=i%>"><%=i%></option>
-						<%} %>
-					</optgroup>
-					<optgroup label="1980">
-						<%for(int i=1980; i<=1989; i++){ %>
-						<option id="_selected1_" value="<%=i%>"><%=i%></option>
-						<%} %>
-					</optgroup>
-					<optgroup label="1990">
-						<%for(int i=1990; i<=1999; i++){ %>
-						<option id="_selected1_" value="<%=i%>"><%=i%></option>
-						<%} %>
-					</optgroup>
-					<optgroup label="2000">
-						<%for(int i=2000; i<=2009; i++){ %>
-						<option id="_selected1_" value="<%=i%>"><%=i%></option>
-						<%} %>
-					</optgroup>
-					<optgroup label="2010" id="_selected1_">
-						<%for(int i=2010; i<=2017; i++){ %>
-						<option id="_selected1_" value="<%=i%>"><%=i%></option>
-						<%} %>
-					</optgroup>
-				</select> --%>
 
 			</form>
 		</div>
@@ -312,7 +269,7 @@ function searchbutton_click() {
 							<div class="form-group"></div>
 							<div class="input-group-btn search-panel">
 							
-					<select	id="yearchose" multiple="multiple" name="yearchose" class="form-control">
+					<select	id="yearchose" multiple="multiple" name="yearchose" class="form-control"  >
 					
 
 					<optgroup label="1960" >
@@ -417,6 +374,10 @@ function searchbutton_click() {
 					<option value="Rock">Rock</option>
 					<option value="Adult Contemporary">Adult Contemporary</option>
 					<option value="Folk">Folk</option>
+					<option value="Dance">Dance</option>
+					<option value="Hip-hop">Hip-hop</option>
+					<option value="Soul">Soul</option>
+					<option value="Korean Movie">KoreanMovie</option>
 				</select>
 				</span>
 				<br>
@@ -487,7 +448,7 @@ function searchbutton_click() {
 								
 		<%-- <a href="#" id="listicon"><img src="${root}/images/music.png" height="40" title="재생목록에 추가"></a>
 	<a href="#" id="icon"><img src="${root}/images/likes.png" height="40" title="추천게시판으로 보내기"></a> --%>
-		<a href="${root}/chucheonform.do"><button type="button" id="icon" class="myButton" title="추천게시판으로 보내기">추천하기</button></a>
+<a href="${root}/chucheonform.do"><button type="button" id="icon" class="myButton" title="추천게시판으로 보내기">추천하기</button></a>
 		<button type="button" id="listicon" class="myButton" title="재생목록에 추가">리스트담기</button>
 		<table class="table table-hover">
 			<thead>
@@ -508,7 +469,7 @@ function searchbutton_click() {
 						<td><input type="checkbox" name="_selected_" id="music"
 							value="${musicdata.title}" val1="${musicdata.title}"
 							val2="${musicdata.artlist}" val3="${musicdata.yourll}"
-							var4="${musicdata.musicid }" /></td>
+							var4="${musicdata.musicid }" /></td> /></td>
 						<td class="timelist" align="center">${no}</td>
 						<c:set var="no" value="${no-1}" />
 						<td class="timelist" align="center"><a
@@ -534,29 +495,30 @@ function searchbutton_click() {
 			</tbody>
 		</table>
 		<!-- 페이징 -->
-		<script type="text/javascript">
-		
-		var newURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname;
-		
-		</script>
+
 		<table style="margin: 0 auto;">
 			<tr>
 				<td align="center">
 					<ul class="pagination">
+					<%@ page import="com.project.*" %>
+
+		
+
+					
+			
 						<c:if test="${startPage>1}">
-						
-							<li><a href="main.do?pageNum=${startPage-1}">Previous</a></li>
+							<li><a href="main.do?${nowurl}&pageNum=${startPage-1}">Previous</a></li>
 						</c:if>
 						<c:forEach var="pg" begin="${startPage}" end="${endPage}">
 							<c:if test="${currentPage==pg}">
-								<li><a href="main.do?pageNum=${pg}" style="color: red;">${pg}</a></li>
+								<li><a href="main.do?${nowurl}&pageNum=${pg}" style="color: red;">${pg}</a></li>
 							</c:if>
 							<c:if test="${currentPage!=pg}">
-								<li><a href="main.do?pageNum=${pg}" style="color: black;">${pg}</a></li>
+								<li><a href="main.do?${nowurl}&pageNum=${pg}" style="color: black;">${pg}</a></li>
 							</c:if>
 						</c:forEach>
 						<c:if test="${endPage<totalPage}">
-							<li><a href="main.do?pageNum=${endPage+1}">Next</a></li>
+							<li><a href="main.do?${nowurl}&pageNum=${endPage+1}">Next</a></li>
 						</c:if>
 					</ul>
 				</td>

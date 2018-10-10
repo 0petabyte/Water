@@ -1,6 +1,10 @@
 package com.project;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +18,7 @@ public class ListController {
 	@Autowired
 	private UserDao dao;
 	
-	
+
 	
 /*	@RequestMapping("/main.do")
 	public String test1() {
@@ -25,14 +29,18 @@ public class ListController {
 	//ModelAndView erasonglist : jiung 0919.16:00//
 	@RequestMapping(value="/main.do")
 	public ModelAndView list(@RequestParam(value="pageNum",defaultValue="1") int currentPage, String keyWord, String keyField, 
-			String yearchose, String sunwhiyear,String rankchose, String sunwhi, String jangre, String jangrechose) 
+			String yearchose, String sunwhiyear,String rankchose, String sunwhi, String jangre, String jangrechose, String nowurl,
+			HttpServletRequest request) 
 
 	{
 		ModelAndView model=new ModelAndView();
-		List<UserDto> list=dao.findList(keyWord, keyField, yearchose, sunwhiyear, rankchose, sunwhi, jangre, jangrechose);
+		List<UserDto> list=dao.findList(keyWord, keyField, yearchose, sunwhiyear, rankchose, sunwhi, jangre, jangrechose, nowurl);
 		
 
 
+		
+		
+		
 
 
 		
@@ -52,6 +60,17 @@ public class ListController {
 
 		//총갯수
 		totalCount=list.size();
+		nowurl=request.getQueryString();
+		
+		if (nowurl != null ) {
+			for (int i=0; i<100;i++)
+			{
+		     nowurl = nowurl.replaceAll("pageNum="+i, "");
+
+			}
+			
+			
+		    }
 
 		//총페이지수,나머지가 있으면 무조건올림
 		//총게시글이 37-한페이지 3-12.3333....13페이지
@@ -91,6 +110,7 @@ public class ListController {
 		model.addObject("no",no);		
 		model.addObject("startNum",startNum);		
 		model.addObject("endNum",endNum);
+		model.addObject("nowurl",nowurl);
 		
 		
 		
