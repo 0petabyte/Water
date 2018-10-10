@@ -9,6 +9,45 @@
    <head>
       <meta charset="utf-8">
       <title>Welcome</title>
+      <script type="text/javascript">
+      /*재생리스트*/
+  	$(function(){
+  		$("#listicon").click(function(){
+  			var selnum=document.getElementsByName("_selected_");
+  			alert(selnum.length);
+  			var cnt=0;
+ 
+  			for(i=0;i<selnum.length;i++){
+  				if (selnum[i].checked){
+  					cnt++;
+  					title=$(selnum[i]).attr('val1');
+  					artist=$(selnum[i]).attr('val2');
+  					youurl=$(selnum[i]).attr('val3');
+  					musicid=$(selnum[i]).attr('val4');
+  					var str1="<tr><td><input type='checkbox' name='selected'/></td><td class='songlst'>"+artist
+  						+" - "+title+"<br><iframe width='100' height='56' src='https://www.youtube.com/embed/"
+  						+youurl+"' frameborder='0' allowfullscreen></iframe></td></tr>";
+  					$("#tbl_tbody").append(str1);
+  					
+  					/* $("#tbl_tbody").append("<tr><td><input type='checkbox' name='selected'/></td><td>"+artist+" - "+title+"</td></tr>");
+  					$("#tbl_tbody").append("<br><iframe width='100' height='56' src='https://www.youtube.com/embed/"+youurl+"' frameborder='0' allowfullscreen></iframe>"); */
+  					
+  				}
+  				
+  			}
+  			
+  			if(cnt==0){
+  				alert("선택된 노래가 없습니다.");
+  			}else {
+  				alert("재생목록에 "+cnt+" 곡이 추가되었습니다.");
+  			}
+  			/* if($("#music").is(":checked"))
+  				$("#mylist ul").append("<li>list</li>"); */
+  				
+  			/* alert("재생목록에 1곡 추가되었습니다."); */
+  		});
+  	});
+      </script>
    </head> 
    <body>
       <form action="chucheon.do" method="post">

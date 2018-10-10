@@ -6,15 +6,6 @@
 <head>
    <title>Barker Music</title>
    <meta charset="utf-8">
-   <!-- <script type="text/javascript">
-   function onoffdisplay(){
-	   if (scontentsub.style.display=='')
-		   scontentsub.style.display='none'
-	   else
-		   scontentsub.style.display=''
-	  }
-	 
-   </script> -->
    <script type="text/javascript">
    	$(function(){
    		$("td.chucheoneu").click(function(){

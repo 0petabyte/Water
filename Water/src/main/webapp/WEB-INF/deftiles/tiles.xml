@@ -15,5 +15,8 @@
   <definition name="/1/*/*" extends="tempLayout1">
     <put-attribute name="body"   value="/WEB-INF/{1}/{2}.jsp"/>
   </definition>
+  <definition name="/2/*/*" extends="tempLayout1">
+    <put-attribute name="header"   value="/WEB-INF/{1}/{2}.jsp"/>
+  </definition>
   
 </tiles-definitions>

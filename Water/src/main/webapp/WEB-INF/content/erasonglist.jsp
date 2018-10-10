@@ -487,7 +487,7 @@ function searchbutton_click() {
 								
 		<%-- <a href="#" id="listicon"><img src="${root}/images/music.png" height="40" title="재생목록에 추가"></a>
 	<a href="#" id="icon"><img src="${root}/images/likes.png" height="40" title="추천게시판으로 보내기"></a> --%>
-		<button type="button" id="icon" class="myButton" title="추천게시판으로 보내기">추천하기</button>
+		<a href="${root}/chucheonform.do"><button type="button" id="icon" class="myButton" title="추천게시판으로 보내기">추천하기</button></a>
 		<button type="button" id="listicon" class="myButton" title="재생목록에 추가">리스트담기</button>
 		<table class="table table-hover">
 			<thead>
@@ -507,7 +507,8 @@ function searchbutton_click() {
 					<tr>
 						<td><input type="checkbox" name="_selected_" id="music"
 							value="${musicdata.title}" val1="${musicdata.title}"
-							val2="${musicdata.artlist}" val3="${musicdata.yourll}" /></td>
+							val2="${musicdata.artlist}" val3="${musicdata.yourll}"
+							var4="${musicdata.musicid }" /></td>
 						<td class="timelist" align="center">${no}</td>
 						<c:set var="no" value="${no-1}" />
 						<td class="timelist" align="center"><a

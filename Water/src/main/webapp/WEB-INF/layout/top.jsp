@@ -137,9 +137,19 @@
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
+				<c:if test="${sessionScope.loginok=='yes'}">
+					<li class="menulist"><a href="${root}/logout.do" style="color: #52616a;">${sessionScope.UserName}님 어서오세욧</a></li>					
+				</c:if>
 				<li class="menulist"><a href="#" id="playlist" style="color: #52616a;">PlayList</a></li>
 				<li class="menulist"><a href="#" style="color: #52616a;"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-				<li class="menulist"><a href="#" style="color: #52616a;"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				
+				<c:if test="${sessionScope.loginok=='yes'}">
+					<li class="menulist"><a href="${root}/logout.do" style="color: #52616a;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+				</c:if>
+				
+				<c:if test="${sessionScope.loginok==null}">
+					<li class="menulist"><a href="${root}/join.do" style="color: #52616a;"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				</c:if>
 			</ul>
 		</div>
 	</div>

@@ -16,7 +16,7 @@ public class ChuCheonController {
    @Autowired
    private ChuDao dao;
    
-   @RequestMapping("/chucheonform.do")
+   /*@RequestMapping("/chucheonform.do")
    public ModelAndView chucheon(@RequestParam String musicid)
    {
       ModelAndView model = new ModelAndView();
@@ -24,6 +24,17 @@ public class ChuCheonController {
       
       
       model.addObject("dto",dto);
+      model.setViewName("/1/content/chucheonform");
+      
+      return model;
+   }*/
+   
+   @RequestMapping("/chucheonform.do")
+   public ModelAndView chucheon()
+   {
+      ModelAndView model = new ModelAndView();
+          
+      
       model.setViewName("/1/content/chucheonform");
       
       return model;
