@@ -41,8 +41,4 @@ public class FameController {
 		return "/1/content/halloffame";
 	}*/
 	
-	@RequestMapping("/test.do")
-	public String test2() {
-		return "/1/content/test";
-	}
 }

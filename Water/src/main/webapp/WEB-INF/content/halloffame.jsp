@@ -12,7 +12,6 @@
 		<c:set var="root" value="<%=request.getContextPath()%>" />
 		<link rel="stylesheet" type="text/css" href="${root}/css/hallstyle.css">
 		<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Jua" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Hi+Melody" rel="stylesheet">
 		<link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
 		<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css'>
 		<script>
