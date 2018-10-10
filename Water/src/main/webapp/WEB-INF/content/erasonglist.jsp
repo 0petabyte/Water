@@ -112,6 +112,8 @@
 
 	}
 </script>
+
+
 <body>
 
 
@@ -269,14 +271,14 @@
 											<%
 												for (int i = 1; i <= 10; i++) {
 											%>
-											<option value="<%=i%>"><%=i%></option>
+											<option value="<%="0"+i%>"><%=i%></option>
 											<%
 												}
 											%>
 										</optgroup>
 										<optgroup label="11~20">
 											<%
-												for (int i = 11; i <= 20; i++) {
+												for (int i = 10; i <= 20; i++) {
 											%>
 											<option value="<%=i%>"><%=i%></option>
 											<%
@@ -357,6 +359,7 @@
 										</optgroup>
 
 
+
 								</select>
 								</span> <span> <select id="jangrechose" multiple="multiple"
 									name="jangrechose" class="form-control">
@@ -386,6 +389,7 @@
 								<option value="artlist">가수명</option>
 								<option value="sunwhiyear">년도</option>
 								<option value="gasa">가사</option>
+								<option value="sunwhi">랭킹</option>
 						</select>
 						<td><input type="hidden" name="search_param" value="all"
 							id="search_param"> <input type="text"
@@ -441,7 +445,7 @@
 						</td>
 						<td class="timelist" align="center">${musicdata.artlist}</td>
 						<td class="timelist" align="center">${musicdata.jangre}</td>
-						<td class="timelist" align="center">${musicdata.sunwhiyear.substring(0,4)}년${musicdata.sunwhi}위</td>
+						<td class="timelist" align="center">${musicdata.sunwhiyear.substring(0,4)}년${musicdata.sunwhi}순위</td>
 						<td class="timelist" align="center"><a
 							href="${musicdata.musicidurl}"> ${musicdata.album}</a></td>
 					</tr>

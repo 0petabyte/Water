@@ -30,16 +30,11 @@ public class ListController {
 	@RequestMapping(value="/main.do")
 	public ModelAndView list(@RequestParam(value="pageNum",defaultValue="1") int currentPage, String keyWord, String keyField, 
 			String yearchose, String sunwhiyear,String rankchose, String sunwhi, String jangre, String jangrechose, String nowurl,
-			HttpServletRequest request) 
+			String sunwhire,HttpServletRequest request) 
 
 	{
 		ModelAndView model=new ModelAndView();
-		List<UserDto> list=dao.findList(keyWord, keyField, yearchose, sunwhiyear, rankchose, sunwhi, jangre, jangrechose, nowurl);
-		
-
-
-		
-		
+		List<UserDto> list=dao.findList(keyWord, keyField, yearchose, sunwhiyear, rankchose, sunwhi, jangre, jangrechose, nowurl,sunwhire);
 		
 
 
