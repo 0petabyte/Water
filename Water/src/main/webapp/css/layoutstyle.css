@@ -21,14 +21,3 @@ div#body {
 	text-align: center;
 	height: 100%;
 }
-
-a:link {
-	text-decoration: none;
-	color: black;
-	cursor: pointer;
-}
-
-a:hover {
-	color: red;
-	font-weight: bold;
-}
