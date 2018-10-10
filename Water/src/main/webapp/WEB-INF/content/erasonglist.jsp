@@ -136,6 +136,17 @@
 	position: relative;
 	top: 1px;
 }
+
+a:link {
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+}
+
+a:hover {
+	color: red;
+	font-weight: bold;
+}
 </style>
 
 
