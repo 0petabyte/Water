@@ -11,85 +11,27 @@
 	type="text/css">
 <script type="text/javascript" src="dist/js/bootstrap-multiselect.js"></script>
 <script type="text/javascript">
-	$(function(){
-		$('input[name=_selected_all_]').on('change', function(){
+	$(function() {
+		$('input[name=_selected_all_]').on('change', function() {
 			$('input[name=_selected_]').prop('checked', this.checked);
 		});
 	});
-	</script>
+</script>
 
 
 <!-- 게시글 클릭시 보이게 -->
 <script type="text/javascript">
-   	$(function(){
-   		$("td.timelist").click(function(){
-   			//alert("aaa");
-   			if($(this).parent().next().css("display")=="none"){
-   				$(this).parent().next().css("display","");
-   			}else{
-   				$(this).parent().next().css("display","none");
-   			}
-   		});
-   	});
-   </script>
-<!-- 게시글 클릭시 반응 끝 -->
-
-
-<!-- <script type="text/javascript">
-   
-	$(function(){
-		$("#goicon").click(function(){
-			var selnum=document.getElementsByName("_selected1_");
-			//alert(selnum.length);
-			var cnt=0;
-			/* for(i=0;i<selnum.length;i++){
-				if (selnum[i].checked){
-					cnt++;
-					var title=$(selnum[i]).val();
-					//alert("재생목록에 "+title+" 이(가) 추가되었습니다.");
-					//$("#mylist ul").append("<li>"+title+"</li>");
-					$("#tbl_tbody").append("<tr><td><input type='checkbox' name='selected'/></td><td>"+title+"</td></tr>");
-				}
-				
-			} */
-			for(i=0;i<selnum.length;i++){
-				if (selnum[i].checked){
-					cnt++;
-					title=$(selnum[i]).attr('val1');
-					artist=$(selnum[i]).attr('val2');
-					youurl=$(selnum[i]).attr('val3');
-					var str1="<tr><td><input type='checkbox' name='selected'/></td><td class='songlst'>"+artist
-						+" - "+title+"<br><iframe width='100' height='56' src='https://www.youtube.com/embed/"
-						+youurl+"' frameborder='0' allowfullscreen></iframe></td></tr>";
-					$("#tbl_tbody").append(str1);
-					
-					/* $("#tbl_tbody").append("<tr><td><input type='checkbox' name='selected'/></td><td>"+artist+" - "+title+"</td></tr>");
-					$("#tbl_tbody").append("<br><iframe width='100' height='56' src='https://www.youtube.com/embed/"+youurl+"' frameborder='0' allowfullscreen></iframe>"); */
-					
-				}
-				
+	$(function() {
+		$("td.timelist").click(function() {
+			//alert("aaa");
+			if ($(this).parent().next().css("display") == "none") {
+				$(this).parent().next().css("display", "");
+			} else {
+				$(this).parent().next().css("display", "none");
 			}
-			
-			if(cnt==0){
-				alert("선택된 년도가 없습니다.");
-			}else {
-				alert("재생목록에 "+cnt+" 곡이 추가되었습니다.");
-			}
-			/* if($("#music").is(":checked"))
-				$("#mylist ul").append("<li>list</li>"); */
-				
-			/* alert("재생목록에 1곡 추가되었습니다."); */
 		});
 	});
-	/*재생리스트 selectbox*/
-	$(function(){
-		$('input[name=selected_all]').on('change', function(){
-			$('input[name=selected]').prop('checked', this.checked);
-		});
-	});
-   
-   </script>
- -->
+</script>
 
 
 <style>
@@ -136,46 +78,40 @@
 	position: relative;
 	top: 1px;
 }
-
-
 </style>
 
 
 <script>
-function chageLangSelect(){
-    var langSelect = document.getElementById("example-enableCollapsibleOptGroups-enableClickableOptGroups-enableFiltering-includeSelectAllOption");
+	function chageLangSelect() {
+		var langSelect = document
+				.getElementById("example-enableCollapsibleOptGroups-enableClickableOptGroups-enableFiltering-includeSelectAllOption");
 
-    // select element에서 선택된 option의 value가 저장된다.
-    var selectValue = langSelect.options[langSelect.selectedIndex].value;
+		// select element에서 선택된 option의 value가 저장된다.
+		var selectValue = langSelect.options[langSelect.selectedIndex].value;
 
- 
-    // select element에서 선택된 option의 text가 저장된다.
-    var selectText = langSelect.options[langSelect.selectedIndex].text;
-    alert(selectValue)
-    
-}
+		// select element에서 선택된 option의 text가 저장된다.
+		var selectText = langSelect.options[langSelect.selectedIndex].text;
+		alert(selectValue)
+
+	}
 </script>
 <script type="text/javascript">
-function enterkey() {
-        if (window.event.keyCode == 13) {
- 
-        	document.search.submit();
-        }
-}
+	function enterkey() {
+		if (window.event.keyCode == 13) {
 
+			document.search.submit();
+		}
+	}
 </script>
 
 
 <script>
-function searchbutton_click() {
+	function searchbutton_click() {
 
-	document.search.submit();
-	
-}
+		document.search.submit();
+
+	}
 </script>
-
-
-
 <body>
 
 
@@ -187,268 +123,295 @@ function searchbutton_click() {
 
 	<div class="container">
 		<h2>시대의 명곡 리스트</h2>
-		<p>원하시는 곡 라인을 클릭시 Youtube 영상이 보이게 됩니다(음원출처:youtube)<br>
-		검색어를 입력하지않을시 선택메뉴의 조건으로 전체곡대상 검색됩니다.</p>
+		<p>
+			원하시는 곡 라인을 클릭시 Youtube 영상이 보이게 됩니다(음원출처:youtube)<br> 검색어를
+			입력하지않을시 선택메뉴의 조건으로 전체곡대상 검색됩니다.
+		</p>
 
 		<div class="example">
 			<script type="text/javascript">
-              $(document).ready(function() {
-                  $('#yearchose').multiselect({
-                      
-                	  enableClickableOptGroups: true,
-                      enableCollapsibleOptGroups: true,
-                      enableFiltering: true,
-                      includeSelectAllOption: true,
-                      collapseOptGroupsByDefault: true,
-                      buttonWidth: '300px',
-                      nonSelectedText : "원하는 년도를 선택해주세요",
- 					  
-                      
-                  });
-              });
-          </script>
-          
-          <script type="text/javascript">
-              $(document).ready(function() {
-                  $('#rankchose').multiselect({
-                      
-                	  enableClickableOptGroups: true,
-                      enableCollapsibleOptGroups: true,
-                      enableFiltering: true,
-                      includeSelectAllOption: true,
-                      collapseOptGroupsByDefault: true,
-                      buttonWidth: '300px',
-                      nonSelectedText : "원하는 랭킹을 선택해주세요",
- 					  
-                      
-                  });
-              });
-          </script>
-          
-          <script type="text/javascript">
-              $(document).ready(function() {
-                  $('#jangrechose').multiselect({
-                      
-                	  enableClickableOptGroups: true,
-                      enableCollapsibleOptGroups: true,
-                      enableFiltering: true,
-                      includeSelectAllOption: true,
-                      collapseOptGroupsByDefault: true,
-                      buttonWidth: '300px',
-                      nonSelectedText : "원하는 장르를 선택해주세요",
- 					  
-                      
-                  });
-              });
-          </script>
+				$(document).ready(function() {
+					$('#yearchose').multiselect({
+
+						enableClickableOptGroups : true,
+						enableCollapsibleOptGroups : true,
+						enableFiltering : true,
+						includeSelectAllOption : true,
+						collapseOptGroupsByDefault : true,
+						buttonWidth : '300px',
+						nonSelectedText : "원하는 년도를 선택해주세요",
+
+					});
+				});
+			</script>
+
+			<script type="text/javascript">
+				$(document).ready(function() {
+					$('#rankchose').multiselect({
+
+						enableClickableOptGroups : true,
+						enableCollapsibleOptGroups : true,
+						enableFiltering : true,
+						includeSelectAllOption : true,
+						collapseOptGroupsByDefault : true,
+						buttonWidth : '300px',
+						nonSelectedText : "원하는 랭킹을 선택해주세요",
+
+					});
+				});
+			</script>
+
+			<script type="text/javascript">
+				$(document).ready(function() {
+					$('#jangrechose').multiselect({
+
+						enableClickableOptGroups : true,
+						enableCollapsibleOptGroups : true,
+						enableFiltering : true,
+						includeSelectAllOption : true,
+						collapseOptGroupsByDefault : true,
+						buttonWidth : '300px',
+						nonSelectedText : "원하는 장르를 선택해주세요",
+
+					});
+				});
+			</script>
 
 
 
 			<form name="_selected_all1_" method="get" action="main.do"
-				onsubmit="return check()">
-
-
-			</form>
+				onsubmit="return check()"></form>
 		</div>
 
 
 		<br>
 		<div class="container">
 			<form name="search" method="get" action="main.do"
-				onsubmit="return check()" >
-				
-				
-								
+				onsubmit="return check()">
 
-				
-			
+
+
+
+
+
 				<div class="row">
 					<div class="col-xs-1 col-xs-offset-1">
 						<div class="input-group">
-							
+
 							<div class="form-group"></div>
 							<div class="input-group-btn search-panel">
-							
-					<select	id="yearchose" multiple="multiple" name="yearchose" class="form-control"  >
-					
 
-					<optgroup label="1960" >
-
-						<%for(int i=1964; i<=1969; i++){ %>
-						<option value="<%=i%>"><%=i%></option>
-						<%} %>
-					</optgroup>
-					<optgroup label="1970">
-						<%for(int i=1970; i<=1979; i++){ %>
-						<option value="<%=i%>"><%=i%></option>
-						<%} %>
-					</optgroup>
-					<optgroup label="1980">
-						<%for(int i=1980; i<=1989; i++){ %>
-						<option value="<%=i%>"><%=i%></option>
-						<%} %>
-					</optgroup>
-					<optgroup label="1990">
-						<%for(int i=1990; i<=1999; i++){ %>
-						<option value="<%=i%>"><%=i%></option>
-						<%} %>
-					</optgroup>
-					<optgroup label="2000">
-						<%for(int i=2000; i<=2009; i++){ %>
-						<option value="<%=i%>"><%=i%></option>
-						<%} %>
-					</optgroup>
-					<optgroup label="2010" >
-						<%for(int i=2010; i<=2017; i++){ %>
-						<option value="<%=i%>"><%=i%></option>
-						<%} %>
-					</optgroup>
-				</select>
-							
-							
-							
-							
-							
-							<span >
-					<select	id="rankchose" multiple="multiple" name="rankchose" class="form-control">
+								<select id="yearchose" multiple="multiple" name="yearchose"
+									class="form-control">
 
 
-					<optgroup label="1~10" >
+									<optgroup label="1960">
 
-						<%for(int i=1; i<=10; i++){ %>
-						<option value="<%=i%>"><%=i%></option>
-						<%} %>
-					</optgroup>
-					<optgroup label="11~20">
-						<%for(int i=11; i<=20; i++){ %>
-						<option value="<%=i%>"><%=i%></option>
-						<%} %>
-					</optgroup>
-					<optgroup label="21~30">
-						<%for(int i=21; i<=30; i++){ %>
-						<option value="<%=i%>"><%=i%></option>
-						<%} %>
-					</optgroup>
-					<optgroup label="31~40">
-						<%for(int i=31; i<=40; i++){ %>
-						<option value="<%=i%>"><%=i%></option>
-						<%} %>
-					</optgroup>
-					<optgroup label="41~50">
-						<%for(int i=41; i<=50; i++){ %>
-						<option value="<%=i%>"><%=i%></option>
-						<%} %>
-					</optgroup>
-					<optgroup label="51~60" >
-						<%for(int i=51; i<=60; i++){ %>
-						<option value="<%=i%>"><%=i%></option>
-						<%} %>
-					</optgroup>
-					<optgroup label="61~70" >
-						<%for(int i=61; i<=70; i++){ %>
-						<option value="<%=i%>"><%=i%></option>
-						<%} %>
-					</optgroup>
-					<optgroup label="71~80" >
-						<%for(int i=71; i<=80; i++){ %>
-						<option value="<%=i%>"><%=i%></option>
-						<%} %>
-					</optgroup>
-					<optgroup label="81~90" >
-						<%for(int i=81; i<=90; i++){ %>
-						<option value="<%=i%>"><%=i%></option>
-						<%} %>
-					</optgroup>
-					<optgroup label="91~100" >
-						<%for(int i=91; i<=100; i++){ %>
-						<option value="<%=i%>"><%=i%></option>
-						<%} %>
-					</optgroup>
-					
-					
-				</select>
-				</span>
-							 	<span>
-				<select	id="jangrechose" multiple="multiple" name="jangrechose" class="form-control">
-					<option value="Ballad">Ballad</option>
-					<option value="Rock">Rock</option>
-					<option value="Adult Contemporary">Adult Contemporary</option>
-					<option value="Folk">Folk</option>
-					<option value="Dance">Dance</option>
-					<option value="Hip-hop">Hip-hop</option>
-					<option value="Soul">Soul</option>
-					<option value="Korean Movie">KoreanMovie</option>
-				</select>
-				</span>
-				<br>
+										<%
+											for (int i = 1964; i <= 1969; i++) {
+										%>
+										<option value="<%=i%>"><%=i%></option>
+										<%
+											}
+										%>
+									</optgroup>
+									<optgroup label="1970">
+										<%
+											for (int i = 1970; i <= 1979; i++) {
+										%>
+										<option value="<%=i%>"><%=i%></option>
+										<%
+											}
+										%>
+									</optgroup>
+									<optgroup label="1980">
+										<%
+											for (int i = 1980; i <= 1989; i++) {
+										%>
+										<option value="<%=i%>"><%=i%></option>
+										<%
+											}
+										%>
+									</optgroup>
+									<optgroup label="1990">
+										<%
+											for (int i = 1990; i <= 1999; i++) {
+										%>
+										<option value="<%=i%>"><%=i%></option>
+										<%
+											}
+										%>
+									</optgroup>
+									<optgroup label="2000">
+										<%
+											for (int i = 2000; i <= 2009; i++) {
+										%>
+										<option value="<%=i%>"><%=i%></option>
+										<%
+											}
+										%>
+									</optgroup>
+									<optgroup label="2010">
+										<%
+											for (int i = 2010; i <= 2017; i++) {
+										%>
+										<option value="<%=i%>"><%=i%></option>
+										<%
+											}
+										%>
+									</optgroup>
+								</select> <span> <select id="rankchose" multiple="multiple"
+									name="rankchose" class="form-control">
+
+
+										<optgroup label="1~10">
+
+											<%
+												for (int i = 1; i <= 10; i++) {
+											%>
+											<option value="<%=i%>"><%=i%></option>
+											<%
+												}
+											%>
+										</optgroup>
+										<optgroup label="11~20">
+											<%
+												for (int i = 11; i <= 20; i++) {
+											%>
+											<option value="<%=i%>"><%=i%></option>
+											<%
+												}
+											%>
+										</optgroup>
+										<optgroup label="21~30">
+											<%
+												for (int i = 21; i <= 30; i++) {
+											%>
+											<option value="<%=i%>"><%=i%></option>
+											<%
+												}
+											%>
+										</optgroup>
+										<optgroup label="31~40">
+											<%
+												for (int i = 31; i <= 40; i++) {
+											%>
+											<option value="<%=i%>"><%=i%></option>
+											<%
+												}
+											%>
+										</optgroup>
+										<optgroup label="41~50">
+											<%
+												for (int i = 41; i <= 50; i++) {
+											%>
+											<option value="<%=i%>"><%=i%></option>
+											<%
+												}
+											%>
+										</optgroup>
+										<optgroup label="51~60">
+											<%
+												for (int i = 51; i <= 60; i++) {
+											%>
+											<option value="<%=i%>"><%=i%></option>
+											<%
+												}
+											%>
+										</optgroup>
+										<optgroup label="61~70">
+											<%
+												for (int i = 61; i <= 70; i++) {
+											%>
+											<option value="<%=i%>"><%=i%></option>
+											<%
+												}
+											%>
+										</optgroup>
+										<optgroup label="71~80">
+											<%
+												for (int i = 71; i <= 80; i++) {
+											%>
+											<option value="<%=i%>"><%=i%></option>
+											<%
+												}
+											%>
+										</optgroup>
+										<optgroup label="81~90">
+											<%
+												for (int i = 81; i <= 90; i++) {
+											%>
+											<option value="<%=i%>"><%=i%></option>
+											<%
+												}
+											%>
+										</optgroup>
+										<optgroup label="91~100">
+											<%
+												for (int i = 91; i <= 100; i++) {
+											%>
+											<option value="<%=i%>"><%=i%></option>
+											<%
+												}
+											%>
+										</optgroup>
+
+
+								</select>
+								</span> <span> <select id="jangrechose" multiple="multiple"
+									name="jangrechose" class="form-control">
+										<option value="Ballad">Ballad</option>
+										<option value="Rock">Rock</option>
+										<option value="Adult Contemporary">Adult Contemporary</option>
+										<option value="Folk">Folk</option>
+										<option value="Dance">Dance</option>
+										<option value="Hip-hop">Hip-hop</option>
+										<option value="Soul">Soul</option>
+										<option value="Korean Movie">KoreanMovie</option>
+								</select>
+								</span> <br>
 
 
 							</div>
 						</div>
-<!-- 						<script>
-	$(document).ready(function(e){
-	    $('.form-control .dropdown-menu').find('a').click(function(e) {
-			e.preventDefault();
-			var param = $(this).attr("href").replace("#","");
-			var concept = $(this).text();
-			$('.search-panel span#search_concept').text(concept);
-			$('.input-group #search_param').val(param);
-			alert(concept);
-		});
-	});
-	
-	</script> -->
+
 					</div>
 				</div>
 				<br>
 				<table>
-				<tr>
-				<td>
-				
-					<select class="form-control" id="keyField" name="keyField">
-					<option value="title">제목</option>
-					<option value="artlist">가수명</option>
-					<option value="sunwhiyear">년도</option>
-					<option value="gasa">가사</option>
+					<tr>
+						<td><select class="form-control" id="keyField"
+							name="keyField">
+								<option value="title">제목</option>
+								<option value="artlist">가수명</option>
+								<option value="sunwhiyear">년도</option>
+								<option value="gasa">가사</option>
 						</select>
-						
-
-
-								
+						<td><input type="hidden" name="search_param" value="all"
+							id="search_param"> <input type="text"
+							style="weight: 70%;" class="form-control" name="keyWord"
+							placeholder="검색어를 입력해주세요." onkeyup="enterkey()">
 						<td>
-							<input type="hidden" name="search_param" value="all"
-							id="search_param"> <input type="text" style="weight:70%;"
-							class="form-control" name="keyWord" placeholder="검색어를 입력해주세요." onkeyup="enterkey()">
-							<td>
-							
-							<button data-toggle="dropdown" id="searchbutton" class="btn btn-default"
-									type="button" onclick="searchbutton_click();">
-									<span id="search_concept" class="glyphicon glyphicon-search"></span>
-								</button>
-							
-							</td>
-							</tr>
-							</table>
-							
-						
-								
-						
-							
 
-							
-				
-		
-			</form>
+							<button data-toggle="dropdown" id="searchbutton"
+								class="btn btn-default" type="button"
+								onclick="searchbutton_click();">
+								<span id="search_concept" class="glyphicon glyphicon-search"></span>
+							</button>
 
-
+						</td>
+					</tr>
+				</table>
+		</form>
 		</div>
 
-							
 
-								
+
+
 		<%-- <a href="#" id="listicon"><img src="${root}/images/music.png" height="40" title="재생목록에 추가"></a>
 	<a href="#" id="icon"><img src="${root}/images/likes.png" height="40" title="추천게시판으로 보내기"></a> --%>
-<a href="${root}/chucheonform.do"><button type="button" id="icon" class="myButton" title="추천게시판으로 보내기">추천하기</button></a>
+		<a href="${root}/chucheonform.do"><button type="button" id="icon"
+				class="myButton" title="추천게시판으로 보내기">추천하기</button></a>
 		<button type="button" id="listicon" class="myButton" title="재생목록에 추가">리스트담기</button>
 		<table class="table table-hover">
 			<thead>
@@ -469,7 +432,8 @@ function searchbutton_click() {
 						<td><input type="checkbox" name="_selected_" id="music"
 							value="${musicdata.title}" val1="${musicdata.title}"
 							val2="${musicdata.artlist}" val3="${musicdata.yourll}"
-							var4="${musicdata.musicid }" /></td> /></td>
+							var4="${musicdata.musicid }" /></td> 
+						
 						<td class="timelist" align="center">${no}</td>
 						<c:set var="no" value="${no-1}" />
 						<td class="timelist" align="center"><a
@@ -500,21 +464,18 @@ function searchbutton_click() {
 			<tr>
 				<td align="center">
 					<ul class="pagination">
-					<%@ page import="com.project.*" %>
-
-		
-
-					
-			
-						<c:if test="${startPage>1}">
+						<%@ page import="com.project.*"%>
+ 						<c:if test="${startPage>1}">
 							<li><a href="main.do?${nowurl}&pageNum=${startPage-1}">Previous</a></li>
 						</c:if>
 						<c:forEach var="pg" begin="${startPage}" end="${endPage}">
 							<c:if test="${currentPage==pg}">
-								<li><a href="main.do?${nowurl}&pageNum=${pg}" style="color: red;">${pg}</a></li>
+								<li><a href="main.do?${nowurl}&pageNum=${pg}"
+									style="color: red;">${pg}</a></li>
 							</c:if>
 							<c:if test="${currentPage!=pg}">
-								<li><a href="main.do?${nowurl}&pageNum=${pg}" style="color: black;">${pg}</a></li>
+								<li><a href="main.do?${nowurl}&pageNum=${pg}"
+									style="color: black;">${pg}</a></li>
 							</c:if>
 						</c:forEach>
 						<c:if test="${endPage<totalPage}">
@@ -529,92 +490,4 @@ function searchbutton_click() {
 </html>
 
 
-<!-- 지웅 이전 수정데이터 백업 -->
 
-
-<%-- <div class="container" magin-top="10px">
-
-
-  <h2>원하는 음악종류를 선택하세요</h2>
-   <table class="table table-hover">
-   
-    <form role="form">
-    <label class="checkbox-inline">
-      <input type="checkbox" value="">2011
-    </label>
-    <label class="checkbox-inline">
-      <input type="checkbox" value="">2012
-    </label>
-    <label class="checkbox-inline">
-      <input type="checkbox" value="">2013
-    </label>
-  </form>
-
-  <form role="form">
-    <label class="checkbox-inline">
-      <input type="checkbox" value="">발라드
-    </label>
-    <label class="checkbox-inline">
-      <input type="checkbox" value="">댄스
-    </label>
-    <label class="checkbox-inline">
-      <input type="checkbox" value="">트로트
-    </label>
-  </form>
-
-
-		<c:if test="${count==0}">
-				<b>저장된 데이터가 없습니다.</b>
-		</c:if>
-		<c:if test="${count>0}">
-		<!-- 게시글의 갯수가 red 색상 -->
-		<b>총<span style="color:red;">${count}</span>개의 데이타가 있습니다.</b>
-		</c:if>
-<!-- 		<input type="button" class="btn btn-sm btn-success" value="멤버등록" 
-		onclick="location.href='writeform.do'" style="magin-left:50px;"> -->
-<!-- 		<table style="magin:0 auto;" class="table table-hover"> -->
-
-		<tr bgcolor="#919191">
-
-			<th style="text-align: center;">No</th>
-			<th style="text-align: center;">노래제목</th>
-			<th style="text-align: center;">가수명</th>
-			<th style="text-align: center;">당시순위</th>
-			<th style="text-align: center;">앨범명</th>
-
-<!-- 			<th style="text-align: center;">노래고유번호</th>
-			
-			<th style="text-align: center;">노래정보url</th>
-			<th style="text-align: center;">유투브url</th> -->
-		</tr>	
-		<c:forEach var="musicdata" items="${list}" varStatus="i">
-			<tr>
-				<td align="center">${i.count}</td>	
-				<td align="center">
-				<a href ="https://www.youtube.com${musicdata.youtubeurl}">${musicdata.title}</td>
-				<td align="center">${musicdata.artlist}</td>
-				<td align="center">${musicdata.sunwhi}</td>
-				
-
-				
-				<td align="center">
-				<a href="${musicdata.musicidurl}" > ${musicdata.album}</a></td>
-				<td align="center">${musicdata.musicid}</td>
-				
-				<td align="center">
-				<a href="${musicdata.musicidurl}" > ${musicdata.musicidurl} </a></td>
-				<td align="center">
-				<a href="${musicdata.musicidurl}" > ${musicdata.musicidurl} </a></td>
-
-				<td align="center">
-				
-				<!-- 버튼색 info:파랑 danger 빨강 -->
-				<input type="button" value="수정" class="btn btn-cs btn-info"
-				onclick="location.href='updateform.do?name=${dto.name}'">
-				<input type="button" value="삭제" class="btn btn-cs btn-danger"
-				onclick="location.href='delete.do?name=${dto.name}'">
-				</td>
-			</tr>
-		</c:forEach>
-	</table>
-	</div> --%>
