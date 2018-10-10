@@ -18,15 +18,16 @@
 			})
 		});
 		</script>
-		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-</head>
+		<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+ --></head>
 <body>
-
+<h1>ddddd</h1>
 <!------ Include the above in your HEAD tag ---------->
 <div class="container">
 <div class="col-xs-12">
 	<div class="carousel slide" id="myCarousel">
 		<div class="carousel-inner">
+
 			<div class="item active">
 				<ul class="thumbnails">
 					<li class="col-sm-3">
@@ -133,14 +134,19 @@
 		<nav>
 			<ul class="control-box pager">
 				<li><a data-slide="prev" href="#myCarousel" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
-				<li><a data-slide="next" href="#myCarousel" class=""><i class="glyphicon glyphicon-chevron-right"></i></li>
-				<li><a data-slide="next" href="#myCarousel" class=""><i class="glyphicon glyphicon-chevron-right"></i></li>
+				<li><a data-slide="next" href="#myCarousel" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
 			</ul>
 		</nav><!-- /.control-box -->                
 	</div><!-- /#myCarousel -->
+	</div><!-- /.col-xs-12 -->
+</div><!-- /.container -->
 
+<h1>ddddd</h1>
+<div class="container">
+<div class="col-xs-12">
 	<div class="carousel slide" id="myCarousel1">
 		<div class="carousel-inner">
+		
 			<div class="item active">
 				<ul class="thumbnails">
 					<li class="col-sm-3">
@@ -247,7 +253,7 @@
 		<nav>
 			<ul class="control-box pager">
 				<li><a data-slide="prev" href="#myCarousel1" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
-				<li><a data-slide="next" href="#myCarousel1" class=""><i class="glyphicon glyphicon-chevron-right"></i></li>
+				<li><a data-slide="next" href="#myCarousel1" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
 			</ul>
 		</nav><!-- /.control-box -->                
 	</div><!-- /#myCarousel -->
