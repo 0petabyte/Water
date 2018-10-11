@@ -2,13 +2,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
+
 <html>
 <head>
    <title>Barker Music</title>
    <meta charset="utf-8">
    <script type="text/javascript">
-   	$(function(){
-   		$("td.chucheoneu").click(function(){
+   	/* $(function(){
+   		$("tr.chucheoneu").click(function(){
    			//alert("aaa");
    			if($(this).parent().next().css("display")=="none"){
    				$(this).parent().next().css("display","");
@@ -16,12 +19,23 @@
    				$(this).parent().next().css("display","none");
    			}
    		});
-   	});
+   	}); */
    	
+   	$(function(){
+   		$("tr.chucheoneu").click(function(){
+   			//alert("aaa");
+   			if($(this).next().css("display")=="none"){
+   				$(this).next().css("display","");
+   			}else{
+   				$(this).next().css("display","none");
+   			}
+   		});
+   	});
    	
    </script>
 </head>
 <body>
+
 <div class="container">
    <h2></h2>
    <p></p>
@@ -40,22 +54,25 @@
       </thead>
        <tbody>
           <c:forEach var="chucheonbbs" items="${clist}" varStatus="i">
-          <tr>
+          <tr class="chucheoneu" style="cursor: pointer;">
              <td align="center">${i.count}</td>
-             <td class="chucheoneu"  align="center" style="cursor: pointer;">${chucheonbbs.chucheoneu}</td>
+             <td align="center">${chucheonbbs.chucheoneu}</td>
              <td align="center">${chucheonbbs.artlist}</td>
              <td align="center">${chucheonbbs.title}</td>          
           </tr>
-         
+          <c:set var="str1" value="${chucheonbbs.yourll}"></c:set>
+          <c:set var="splitStr" value="${fn:split(str1,',')}"></c:set>
+                  
           <tr style="display: none;" id="scontentsub" class="subshow" >
           	<td colspan="4" align="center">
-          	
-          	<iframe width="350" height="180" src="https://www.youtube.com/embed/${chucheonbbs.yourll}" frameborder="0" allowfullscreen></iframe>
-          	<br>
+          	<c:forEach var="str" items="${splitStr}">          	       	
+        	<div><iframe width="350" height="180" src="https://www.youtube.com/embed/${str}" frameborder="0" allowfullscreen></iframe>         	
+          	</div>
+          	         	  	  	
+          	</c:forEach>
           	${chucheonbbs.ccontent}
           	</td>
-          </tr>  
-                
+          </tr>           
           </c:forEach>
        </tbody>
     </table>

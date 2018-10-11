@@ -93,8 +93,15 @@ a:hover {
 
 </style>
 
-
 <script>
+    $(function(){
+    	$("#icon").click(function(){
+    		var s1=$("#music").attr("val1");
+    		  		
+    		$("#frm").submit();
+    	});
+    });
+
 	function chageLangSelect() {
 		var langSelect = document
 				.getElementById("example-enableCollapsibleOptGroups-enableClickableOptGroups-enableFiltering-includeSelectAllOption");
@@ -427,8 +434,8 @@ a:hover {
 
 		<%-- <a href="#" id="listicon"><img src="${root}/images/music.png" height="40" title="재생목록에 추가"></a>
 	<a href="#" id="icon"><img src="${root}/images/likes.png" height="40" title="추천게시판으로 보내기"></a> --%>
-		<a href="${root}/chucheonform.do"><button type="button" id="icon"
-				class="myButton" title="추천게시판으로 보내기">추천하기</button></a>
+		<button type="button" id="icon"
+				class="myButton" title="추천게시판으로 보내기">추천하기</button>
 		<button type="button" id="listicon" class="myButton" title="재생목록에 추가">리스트담기</button>
 		<table class="table table-hover">
 			<thead>
@@ -443,13 +450,14 @@ a:hover {
 				</tr>
 			</thead>
 			<tbody>
+			<form action="chucheonform.do" id="frm">
 				<c:forEach var="musicdata" begin="${startNum}" end="${endNum}"
 					items="${list}">
 					<tr>
 						<td><input type="checkbox" name="_selected_" id="music"
-							value="${musicdata.title}" val1="${musicdata.title}"
-							val2="${musicdata.artlist}" val3="${musicdata.yourll}"
-							var4="${musicdata.musicid }" /></td> 
+							value="${musicdata.musicid}" val1="${musicdata.title}"
+							val2="${musicdata.artlist}" val3="${musicdata.yourll}"/>
+							</td> 
 						
 						<td class="timelist" align="center">${no}</td>
 						<c:set var="no" value="${no-1}" />
@@ -473,6 +481,7 @@ a:hover {
 								${musicdata.gasa}</div></td>
 					</tr>
 				</c:forEach>
+				</form>
 			</tbody>
 		</table>
 		<!-- 페이징 -->

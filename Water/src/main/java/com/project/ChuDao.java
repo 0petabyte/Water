@@ -37,7 +37,12 @@ public class ChuDao {
 	
 	public void cinsert(ChuCheonBBSDto cdto)
 	{
+		if(cdto.getMusicid()==null){
+			return;
+		}else{
+			
 		mongoTemp.insert(cdto);
+		}
 	}
 	
 	

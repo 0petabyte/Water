@@ -32,11 +32,18 @@ public class ChuCheonController {
    }*/
    
    @RequestMapping("/chucheonform.do")
-   public ModelAndView chucheon(HttpServletRequest request)
+   public ModelAndView chucheon(@RequestParam(value="_selected_",required=true) List<String> _selected_)
    {
       ModelAndView model = new ModelAndView();
       
-      request.getParameterValues("_selected_");
+      UserDto []dtos=new UserDto[_selected_.size()];
+      for(int i=0;i<_selected_.size();i++){
+    	  String musicid=_selected_.get(i);
+    	  System.out.println("뮤직아이디:"+i+"번째 "+musicid);
+    	  dtos[i]=dao.getSearchMusicid(musicid);
+    	  
+      }
+      model.addObject("dtos", dtos);
       
       
       model.setViewName("/1/content/chucheonform");
