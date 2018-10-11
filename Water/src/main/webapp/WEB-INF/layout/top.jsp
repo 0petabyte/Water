@@ -111,7 +111,7 @@
 </head>
 <body>
 <div style="margin-bottom:0" id="headerbox">
-	<img src="${root}/images/logo2.png" id="logo">
+	<a href="${root}/main.do"><img src="${root}/images/logo2.png" id="logo"></a>
 	<!-- <p id="tit">Barker Music</p>
 	<p id="subtit">시대의명곡을 무료로즐기자!</p>  -->
 </div>
