@@ -258,7 +258,7 @@
                                             <div class="col-sm-3 col-xs-12">
                                                 <div class="single_counter_item">
                                                     <i class="icon icon-thumbs-up"></i>
-                                                    <h2 class="statistic-counter">${musicdata_realtime.musicid}</h2>
+                                                    <h2 class="statistic-counter">${musicdata_realtime.likecount}</h2>
                                                     <h4 class="">좋아요</h4>
                                                 </div>
                                             </div>
@@ -267,9 +267,9 @@
                                         <div class="single_counter">
                                             <div class="col-sm-3 col-xs-12">
                                                 <div class="single_counter_item">
-                                                    <i class="icon icon-business-3"></i>
-                                                    <h2 class="statistic-counter">281</h2>
-                                                    <h4 class="">유투부 VIEWS</h4>  
+                                                    <i class="icon icon-thumbs-down"></i>
+                                                    <h2 class="statistic-counter">${musicdata_realtime.dislikecount}</h2>
+                                                    <h4 class="">싫어요</h4>  
                                                 </div>
                                             </div>
                                         </div> 
@@ -288,9 +288,9 @@
                                         <div class="single_counter">
                                             <div class="col-sm-3 col-xs-12">
                                                 <div class="single_counter_item">
-                                                    <i class="icon icon-cup"></i>
-                                                    <h2 class="statistic-counter">178</h2>
-                                                    <h4 class="">앨범 발매량</h4>
+                                                    <i class="icon icon-telescope"></i>
+                                                    <h2 class="statistic-counter">${musicdata_realtime.viewCount}</h2>
+                                                    <h4 class="">Views</h4>
 
                                                 </div>
                                             </div> 

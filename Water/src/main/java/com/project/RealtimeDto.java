@@ -17,9 +17,30 @@ public class RealtimeDto {
 	private String yourll;
 	private String musicid;
 	private String artcnt;
+	private String likecount;
+	private String dislikecount;
+	private String viewCount;
 	
 	
 	
+	public String getLikecount() {
+		return likecount;
+	}
+	public void setLikecount(String likecount) {
+		this.likecount = likecount;
+	}
+	public String getDislikecount() {
+		return dislikecount;
+	}
+	public void setDislikecount(String dislikecount) {
+		this.dislikecount = dislikecount;
+	}
+	public String getViewCount() {
+		return viewCount;
+	}
+	public void setViewCount(String viewCount) {
+		this.viewCount = viewCount;
+	}
 	public String getArtcnt() {
 		return artcnt;
 	}
