@@ -133,16 +133,15 @@
 				<li class="menulist"><a href="${root}/response.do" style="color:#52616a;">실시간차트반응</a></li>
 				<li class="menulist"><a href="${root}/chucheon.do" style="color:#52616a;">추천노래</a></li>
 				<li class="menulist"><a href="${root}/error.do" style="color:#52616a;">오류신고</a></li>
-				<li class="menulist"><a href="${root}/test.do" style="color:#52616a;">test</a></li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
 				<c:if test="${sessionScope.loginok=='yes'}">
 					<li class="menulist"><a href="${root}/logout.do" style="color: #52616a;">${sessionScope.UserName}님 어서오세욧</a></li>					
 				</c:if>
+				<c:if test="${sessionScope.loginok=='yes'}">
 				<li class="menulist"><a href="#" id="playlist" style="color: #52616a;">PlayList</a></li>
-				<li class="menulist"><a href="#" style="color: #52616a;"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-				
+				</c:if>
 				<c:if test="${sessionScope.loginok=='yes'}">
 					<li class="menulist"><a href="${root}/logout.do" style="color: #52616a;"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 				</c:if>

@@ -29,7 +29,7 @@ public class UserDao {
 	}
 
 	public List<UserDto> findList(String keyWord, String keyField, String yearchose, String sunwhiyear, 
-			String rankchose, String sunwhi, String jangre, String jangrechose, String nowurl)
+			String rankchose, String sunwhi, String jangre, String jangrechose, String nowurl, String sunwhire)
 	{
 		//방법 1 : 전체데이타를 목록으로 얻고자 할경우
 		//List<UserDto> list=mongoTemp.findAll(UserDto.class,"musicdata");
@@ -44,6 +44,7 @@ public class UserDao {
 		sunwhiyear="sunwhiyear";
 		sunwhi="sunwhi";
 		jangre="jangre";
+		sunwhire="sunwhire";
 
 
 
@@ -79,7 +80,7 @@ public class UserDao {
 
 				System.out.println("a는"+a);
 				query=new Query(new Criteria().andOperator(		
-						Criteria.where(sunwhi).is(rankchose.replaceAll(",", "|"))
+						Criteria.where(sunwhire).is(rankchose.replaceAll(",", "|"))
 						));	}
 
 
@@ -87,14 +88,27 @@ public class UserDao {
 			else {
 				System.out.println("b는"+a);
 				query=new Query(new Criteria().andOperator(		
-						Criteria.where(sunwhi).is(rankchose).regex(rankchose.replaceAll(",", "|"))
+						Criteria.where(sunwhire).is(rankchose).regex(rankchose.replaceAll(",", "|"))
 						));
 			}
 			}catch(NumberFormatException e){
-				if (rankchose != null)
-				query=new Query(new Criteria().andOperator(		
-						Criteria.where(sunwhi).is(rankchose).regex(rankchose.replaceAll(",", "|"))
+				System.out.println("Exception");
+				
+
+				query=new Query(new Criteria().orOperator(	
+/*						Criteria.where(sunwhi).is(rankchose.replaceAll(",", "|"))
+						));*/
+						
+						
+						Criteria.where(sunwhire).is(rankchose).regex(rankchose.replaceAll(",", "|"))
+						
 						));
+				
+					
+								
+							
+					
+						
 			}
 			
 
@@ -114,20 +128,24 @@ public class UserDao {
 		if (jangrechose != null && rankchose != null && yearchose == null)
 			query=new Query(new Criteria().andOperator(		
 					Criteria.where(jangre).is(jangrechose).regex(jangrechose.replaceAll(",", "|"),"i"),
-					Criteria.where(sunwhi).is(rankchose.replaceAll(",", "|"))));
+					Criteria.where(sunwhire).is(rankchose).regex(rankchose.replaceAll(",", "|"))));
 
 		if (jangrechose != null && rankchose != null && yearchose != null)
 			query=new Query(new Criteria().andOperator(		
 					Criteria.where(jangre).is(jangrechose).regex(jangrechose.replaceAll(",", "|"),"i"),
-					Criteria.where(sunwhi).is(rankchose.replaceAll(",", "|")),
+					Criteria.where(sunwhire).is(rankchose).regex(rankchose.replaceAll(",", "|")),
 					Criteria.where(sunwhiyear).is(yearchose).regex(yearchose.replaceAll(",", "|"),"i")));
 
-		if (jangrechose != null && yearchose != null)
+		if (jangrechose != null && yearchose != null && rankchose == null)
 			query=new Query(new Criteria().andOperator(		
 					Criteria.where(jangre).is(jangrechose).regex(jangrechose.replaceAll(",", "|"),"i"),
 					Criteria.where(sunwhiyear).is(yearchose).regex(yearchose.replaceAll(",", "|"),"i")));
 
 
+		if (jangrechose == null && yearchose != null && rankchose != null)
+			query=new Query(new Criteria().andOperator(		
+					Criteria.where(sunwhire).is(rankchose).regex(rankchose.replaceAll(",", "|")),
+					Criteria.where(sunwhiyear).is(yearchose).regex(yearchose.replaceAll(",", "|"),"i")));
 
 
 

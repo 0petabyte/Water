@@ -28,6 +28,10 @@ public class UserDto {
 	private String jangrechose;
 	private String artcnt;
 	private String nowurl;
+	private String sunwhire;
+	
+	
+	
 	
 	
 	
@@ -44,6 +48,12 @@ public class UserDto {
 	//몽고디비 Dto 09.19 16:00 지웅 --까지
 
 	
+	public String getSunwhire() {
+		return sunwhire;
+	}
+	public void setSunwhire(String sunwhire) {
+		this.sunwhire = sunwhire;
+	}
 	public String getNowurl() {
 		return nowurl;
 	}

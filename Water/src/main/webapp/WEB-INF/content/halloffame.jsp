@@ -11,7 +11,7 @@
 		<title>Time Music</title>
 		<c:set var="root" value="<%=request.getContextPath()%>" />
 		<link rel="stylesheet" type="text/css" href="${root}/css/hallstyle.css">
-		<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Stylish|Sunflower:300|Yeon+Sung" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Jua" rel="stylesheet">
 		<link rel="shortcut icon" type="image/x-icon" href="//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
 		<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css'>
 		<script>
@@ -30,6 +30,18 @@
 		text-transform: uppercase;
 		font-family: 'Do Hyeon', sans-serif;
 		font-size: 60pt;
+		}
+		h2 { 
+		font-family: 'Do Hyeon', sans-serif; 
+		font-size: 30pt;
+		}
+		h4 {
+		font-family: 'Jua', sans-serif;
+		font-size: 20pt;
+		}
+		h5 {
+		font-family: 'Jua', sans-serif;
+		font-size: 17pt;
 		}
 		</style>
 	</head> 
@@ -84,78 +96,45 @@
 		<h2>2010년대 1위곡</h2>
 		<div class="carousel slide" id="myCarousel1">
 			<div class="carousel-inner">
+			<c:forEach var="musicdata_rank1list"  items="${list1}" varStatus="i">
+				<c:if test="${i.count eq 1}">
 				<div class="item active">
 					<ul class="thumbnails">
+				</c:if>
+					<c:if test="${i.count ge 1 and i.count le 4 }">
 						<li class="col-sm-3">
 							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/u2pFB1dCSo4"></iframe></div>
+								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/${musicdata_rank1list.yourll}"></iframe></div>
 								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
+									<h4>${musicdata_rank1list.sunwhiyear.substring(0,4)}년<%-- ${musicdata_rank1list.sunwhi}위 --%></h4>
+									<h5>${musicdata_rank1list.artlist}-${musicdata_rank1list.title}</h5>
 								</div>
 							</div>
 						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/RrvdjyIL0fA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-	                        </div>
-						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/TNWMZIf7eSg"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/3K38Fc1SV5c"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
+					</c:if>
+				<c:if test="${i.count eq 4}">
 					</ul>
 				</div><!-- /Slide1 -->
 				<div class="item">
 					<ul class="thumbnails">
+				</c:if>
+					<c:if test="${i.count gt 4}">
 						<li class="col-sm-3">
 							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/pok5yDw77uM"></iframe></div>
+								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/${musicdata_rank1list.yourll}"></iframe></div>
 								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
+									<h4>${musicdata_rank1list.sunwhiyear.substring(0,4)}년<%-- ${musicdata_rank1list.sunwhi}위 --%></h4>
+									<h5>${musicdata_rank1list.artlist}-${musicdata_rank1list.title}</h5>
 								</div>
 							</div>
 						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/aiHSVQy9xN8"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/Fm5iP0S1z9w"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
+					</c:if>
+			<c:if test="${i.count eq 8}">
 					</ul>
 				</div><!-- /Slide2 -->
 			</div>
+			</c:if>
+			</c:forEach>
 			<nav>
 				<ul class="control-box pager">
 					<li><a data-slide="prev" href="#myCarousel1" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
@@ -168,109 +147,62 @@
 		<h2>2000년대 1위곡</h2>
 		<div class="carousel slide" id="myCarousel2">
 			<div class="carousel-inner">
+				<c:forEach var="musicdata_rank1list"  items="${list2}" varStatus="i">
+				<c:if test="${i.count eq 1}">
 				<div class="item active">
 					<ul class="thumbnails">
+				</c:if>
+					<c:if test="${i.count ge 1 and i.count le 4 }">
 						<li class="col-sm-3">
 							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/Amq-qlqbjYA"></iframe></div>
+								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/${musicdata_rank1list.yourll}"></iframe></div>
 								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
+									<h4>${musicdata_rank1list.sunwhiyear.substring(0,4)}년<%-- ${musicdata_rank1list.sunwhi}위 --%></h4>
+									<h5>${musicdata_rank1list.artlist}-${musicdata_rank1list.title}</h5>
 								</div>
 							</div>
 						</li>
-						<li class="col-sm-3">	
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/y5MAgMVwfFs"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/9RUeTYiJCyA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
+					</c:if>
+				<c:if test="${i.count eq 4 }">
 					</ul>
 				</div><!-- /Slide1 -->
 				<div class="item">
 					<ul class="thumbnails">
+				</c:if>
+					<c:if test="${i.count ge 5 and i.count le 8 }">
 						<li class="col-sm-3">
 							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
+								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/${musicdata_rank1list.yourll}"></iframe></div>
 								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
+									<h4>${musicdata_rank1list.sunwhiyear.substring(0,4)}년<%-- ${musicdata_rank1list.sunwhi}위 --%></h4>
+									<h5>${musicdata_rank1list.artlist}-${musicdata_rank1list.title}</h5>
 								</div>
 							</div>
 						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
+					</c:if>
+				<c:if test="${i.count eq 8 }">
 					</ul>
 				</div><!-- /Slide2 --> 
 				<div class="item">
 					<ul class="thumbnails">
-						<li class="col-sm-3">	
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
+				</c:if>
+					<c:if test="${i.count gt 8}">
 						<li class="col-sm-3">
 							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
+								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/${musicdata_rank1list.yourll}"></iframe></div>
 								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
+									<h4>${musicdata_rank1list.sunwhiyear.substring(0,4)}년<%-- ${musicdata_rank1list.sunwhi}위 --%></h4>
+									<h5>${musicdata_rank1list.artlist}-${musicdata_rank1list.title}</h5>
 								</div>
 							</div>
 						</li>
+					</c:if>
+			<c:if test="${i.count eq 10}">
 					</ul>
 				</div><!-- /Slide3 --> 
 			</div>
+			</c:if>
+			</c:forEach>
 			<nav>
 				<ul class="control-box pager">
 					<li><a data-slide="prev" href="#myCarousel2" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
@@ -283,109 +215,62 @@
 		<h2>1990년대 1위곡</h2>
 		<div class="carousel slide" id="myCarousel3">
 			<div class="carousel-inner">
+				<c:forEach var="musicdata_rank1list"  items="${list3}" varStatus="i">
+				<c:if test="${i.count eq 1}">
 				<div class="item active">
 					<ul class="thumbnails">
+				</c:if>
+					<c:if test="${i.count ge 1 and i.count le 4 }">
 						<li class="col-sm-3">
 							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
+								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/${musicdata_rank1list.yourll}"></iframe></div>
 								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
+									<h4>${musicdata_rank1list.sunwhiyear.substring(0,4)}년<%-- ${musicdata_rank1list.sunwhi}위 --%></h4>
+									<h5>${musicdata_rank1list.artlist}-${musicdata_rank1list.title}</h5>
 								</div>
 							</div>
 						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-	                        </div>
-						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
+					</c:if>
+				<c:if test="${i.count eq 4 }">
 					</ul>
 				</div><!-- /Slide1 -->
 				<div class="item">
 					<ul class="thumbnails">
+				</c:if>
+					<c:if test="${i.count ge 5 and i.count le 8 }">
 						<li class="col-sm-3">
 							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
+								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/${musicdata_rank1list.yourll}"></iframe></div>
 								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
+									<h4>${musicdata_rank1list.sunwhiyear.substring(0,4)}년<%-- ${musicdata_rank1list.sunwhi}위 --%></h4>
+									<h5>${musicdata_rank1list.artlist}-${musicdata_rank1list.title}</h5>
 								</div>
 							</div>
 						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
+					</c:if>
+				<c:if test="${i.count eq 8 }">
 					</ul>
 				</div><!-- /Slide2 --> 
 				<div class="item">
 					<ul class="thumbnails">
-						<li class="col-sm-3">	
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
+				</c:if>
+					<c:if test="${i.count gt 8}">
 						<li class="col-sm-3">
 							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
+								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/${musicdata_rank1list.yourll}"></iframe></div>
 								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
+									<h4>${musicdata_rank1list.sunwhiyear.substring(0,4)}년<%-- ${musicdata_rank1list.sunwhi}위 --%></h4>
+									<h5>${musicdata_rank1list.artlist}-${musicdata_rank1list.title}</h5>
 								</div>
 							</div>
 						</li>
+					</c:if>
+			<c:if test="${i.count eq 10}">
 					</ul>
 				</div><!-- /Slide3 --> 
 			</div>
+			</c:if>
+			</c:forEach>
 			<nav>
 				<ul class="control-box pager">
 					<li><a data-slide="prev" href="#myCarousel3" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
@@ -398,109 +283,62 @@
 		<h2>1980년대 1위곡</h2>
 		<div class="carousel slide" id="myCarousel4">
 			<div class="carousel-inner">
+				<c:forEach var="musicdata_rank1list"  items="${list4}" varStatus="i">
+				<c:if test="${i.count eq 1}">
 				<div class="item active">
 					<ul class="thumbnails">
+				</c:if>
+					<c:if test="${i.count ge 1 and i.count le 4 }">
 						<li class="col-sm-3">
 							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
+								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/${musicdata_rank1list.yourll}"></iframe></div>
 								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
+									<h4>${musicdata_rank1list.sunwhiyear.substring(0,4)}년<%-- ${musicdata_rank1list.sunwhi}위 --%></h4>
+									<h5>${musicdata_rank1list.artlist}-${musicdata_rank1list.title}</h5>
 								</div>
 							</div>
 						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-	                        </div>
-						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
+					</c:if>
+				<c:if test="${i.count eq 4 }">
 					</ul>
 				</div><!-- /Slide1 -->
 				<div class="item">
 					<ul class="thumbnails">
+				</c:if>
+					<c:if test="${i.count ge 5 and i.count le 8 }">
 						<li class="col-sm-3">
 							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
+								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/${musicdata_rank1list.yourll}"></iframe></div>
 								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
+									<h4>${musicdata_rank1list.sunwhiyear.substring(0,4)}년<%-- ${musicdata_rank1list.sunwhi}위 --%></h4>
+									<h5>${musicdata_rank1list.artlist}-${musicdata_rank1list.title}</h5>
 								</div>
 							</div>
 						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
+					</c:if>
+				<c:if test="${i.count eq 8 }">
 					</ul>
 				</div><!-- /Slide2 --> 
 				<div class="item">
 					<ul class="thumbnails">
-						<li class="col-sm-3">	
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
+				</c:if>
+					<c:if test="${i.count gt 8}">
 						<li class="col-sm-3">
 							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
+								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/${musicdata_rank1list.yourll}"></iframe></div>
 								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
+									<h4>${musicdata_rank1list.sunwhiyear.substring(0,4)}년<%-- ${musicdata_rank1list.sunwhi}위 --%></h4>
+									<h5>${musicdata_rank1list.artlist}-${musicdata_rank1list.title}</h5>
 								</div>
 							</div>
 						</li>
+					</c:if>
+			<c:if test="${i.count eq 9}">
 					</ul>
 				</div><!-- /Slide3 --> 
 			</div>
+			</c:if>
+			</c:forEach>
 			<nav>
 				<ul class="control-box pager">
 					<li><a data-slide="prev" href="#myCarousel4" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
@@ -513,109 +351,62 @@
 		<h2>1970년대 1위곡</h2>
 		<div class="carousel slide" id="myCarousel5">
 			<div class="carousel-inner">
+				<c:forEach var="musicdata_rank1list"  items="${list5}" varStatus="i">
+				<c:if test="${i.count eq 1}">
 				<div class="item active">
 					<ul class="thumbnails">
+				</c:if>
+					<c:if test="${i.count ge 1 and i.count le 4 }">
 						<li class="col-sm-3">
 							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
+								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/${musicdata_rank1list.yourll}"></iframe></div>
 								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
+									<h4>${musicdata_rank1list.sunwhiyear.substring(0,4)}년<%-- ${musicdata_rank1list.sunwhi}위 --%></h4>
+									<h5>${musicdata_rank1list.artlist}-${musicdata_rank1list.title}</h5>
 								</div>
 							</div>
 						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-	                        </div>
-						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
+					</c:if>
+				<c:if test="${i.count eq 4 }">
 					</ul>
 				</div><!-- /Slide1 -->
 				<div class="item">
 					<ul class="thumbnails">
+				</c:if>
+					<c:if test="${i.count ge 5 and i.count le 8 }">
 						<li class="col-sm-3">
 							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
+								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/${musicdata_rank1list.yourll}"></iframe></div>
 								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
+									<h4>${musicdata_rank1list.sunwhiyear.substring(0,4)}년<%-- ${musicdata_rank1list.sunwhi}위 --%></h4>
+									<h5>${musicdata_rank1list.artlist}-${musicdata_rank1list.title}</h5>
 								</div>
 							</div>
 						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
+					</c:if>
+				<c:if test="${i.count eq 8 }">
 					</ul>
 				</div><!-- /Slide2 --> 
 				<div class="item">
 					<ul class="thumbnails">
-						<li class="col-sm-3">	
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
+				</c:if>
+					<c:if test="${i.count gt 8}">
 						<li class="col-sm-3">
 							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
+								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/${musicdata_rank1list.yourll}"></iframe></div>
 								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
+									<h4>${musicdata_rank1list.sunwhiyear.substring(0,4)}년<%-- ${musicdata_rank1list.sunwhi}위 --%></h4>
+									<h5>${musicdata_rank1list.artlist}-${musicdata_rank1list.title}</h5>
 								</div>
 							</div>
 						</li>
+					</c:if>
+			<c:if test="${i.count eq 10}">
 					</ul>
 				</div><!-- /Slide3 --> 
 			</div>
+			</c:if>
+			</c:forEach>
 			<nav>
 				<ul class="control-box pager">
 					<li><a data-slide="prev" href="#myCarousel5" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
@@ -628,83 +419,44 @@
 		<h2>1960년대 1위곡</h2>
 		<div class="carousel slide" id="myCarousel6">
 			<div class="carousel-inner">
+			<c:forEach var="musicdata_rank1list"  items="${list6}" varStatus="i">
+				<c:if test="${i.count eq 1}">
 				<div class="item active">
 					<ul class="thumbnails">
+				</c:if>
+					<c:if test="${i.count ge 1 and i.count le 4 }">
 						<li class="col-sm-3">
 							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
+								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/${musicdata_rank1list.yourll}"></iframe></div>
 								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
+									<h4>${musicdata_rank1list.sunwhiyear.substring(0,4)}년<%-- ${musicdata_rank1list.sunwhi}위 --%></h4>
+									<h5>${musicdata_rank1list.artlist}-${musicdata_rank1list.title}</h5>
 								</div>
 							</div>
 						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-	                        </div>
-						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
+					</c:if>
+			<c:if test="${i.count eq 4}">
 					</ul>
 				</div><!-- /Slide1 -->
-				<div class="item">
-					<ul class="thumbnails">
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
-						<li class="col-sm-3">
-							<div class="fff">
-								<div class="thumbnail"><iframe width='230' src="https://www.youtube.com/embed/wEQpfil0IYA"></iframe></div>
-								<div class="caption">
-									<h4>Praesent commodo</h4>
-									<p>Nullam Condimentum Nibh Etiam Sem</p>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div><!-- /Slide2 -->
 			</div>
-			<nav>
+			</c:if>
+			</c:forEach>
+			<!-- <nav>
 				<ul class="control-box pager">
 					<li><a data-slide="prev" href="#myCarousel6" class=""><i class="glyphicon glyphicon-chevron-left"></i></a></li>
 					<li><a data-slide="next" href="#myCarousel6" class=""><i class="glyphicon glyphicon-chevron-right"></i></a></li>
 				</ul>
-			</nav><!-- /.control-box -->                
+			</nav>/.control-box    -->             
 		</div><!-- /#myCarousel -->
-		
 	</div><!-- /.col-xs-12 -->
 </div><!-- /.container -->
     
     
-    <!-- 테스트 -->
-    		<c:forEach var="musicdata_rank1list" items="${list}" varStatus="i">
-    		<h5>${i.count}가수: ${musicdata_rank1list.artlist}제목:  ${musicdata_rank1list.title} 년도: ${musicdata_rank1list.sunwhiyear }
-    		</h5></c:forEach>
+    <!-- 테스트 --><%-- <c:forEach var="musicdata_rank1list"  items="${list1}" varStatus="i">
+    		<h5>${i.count}가수: ${musicdata_rank1list.artlist}제목:  ${musicdata_rank1list.title} 년도: ${musicdata_rank1list.sunwhiyear }</h5>
+    		<c:if test="${i.count%4==0}">
+    			<br><br>
+    		</c:if>
+    		</c:forEach> --%>
+    		
 </html>
