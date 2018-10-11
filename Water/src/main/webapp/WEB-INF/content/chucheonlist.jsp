@@ -53,7 +53,7 @@
          </tr>
       </thead>
        <tbody>
-          <c:forEach var="chucheonbbs" items="${clist}" varStatus="i">
+          <c:forEach var="chucheonbbs" items="${clist}" varStatus="i" begin="${startNum}" end="${endNum}">
           <tr class="chucheoneu" style="cursor: pointer;">
              <td align="center">${i.count}</td>
              <td align="center">${chucheonbbs.chucheoneu}</td>
@@ -76,6 +76,30 @@
           </c:forEach>
        </tbody>
     </table>
+    
+    <!-- 페이징 -->   
+	    <table style="margin: 0 auto;">
+	   	<tr>
+	   		<td align="center">
+	   			<ul class="pagination">
+	   			<c:if test="${startPage>1}">
+	   				 <li><a href="chucheonlist.do?pageNum=${startPage-1}">이전</a></li>   				 
+	   			</c:if>
+	   			<c:forEach var="pg" begin="${startPage}" end="${endPage}">
+	   				<c:if test="${currentPage==pg}">
+	   					<li><a href="chucheonlist.do?pageNum=${pg}" style="color:red;">${pg}</a></li>
+	   				</c:if>
+	   				<c:if test="${currentPage!=pg}">
+	   					<li><a href="chucheonlist.do?pageNum=${pg}" style="color:black;">${pg}</a></li>
+	   				</c:if>
+	   			</c:forEach>
+	   			<c:if test="${endPage<totalPage}">
+	   				<li><a href="chucheonlist.do?pageNum=${endPage+1}">다음</a></li>   
+	   			</c:if>
+	   			</ul>
+	   		</td>
+	   	</tr>
+	   </table>
     
    
 </div>

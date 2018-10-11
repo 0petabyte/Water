@@ -109,13 +109,13 @@ public class LoginController {
         String UserName = profile.getDisplayName();
         
         session.setAttribute("user_uid", UserUid);
-        session.setAttribute("UserName", UserName);
+        session.setAttribute("user_name", UserName);
         
       
-        /*UserDto1 dto = new UserDto1();
+        UserDto1 dto = new UserDto1();
         dto.setUser_name(UserName);
         dto.setUser_uid(UserUid);
-        dao.insertuser(dto);*/
+        dao.insertuser(dto);
         
         System.out.println("User Uid : " + profile.getId());
         System.out.println("User Name : " + profile.getDisplayName());
