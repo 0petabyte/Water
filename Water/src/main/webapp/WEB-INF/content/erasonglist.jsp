@@ -95,7 +95,7 @@ h2 {
 <script>
     $(function(){
     	$("#icon").click(function(){
-    		var s1=$("#music").attr("val1");
+    		/* var s1=$("#music").attr("val1"); */
     		  		
     		$("#frm").submit();
     	});
@@ -418,8 +418,8 @@ h2 {
 
 		<%-- <a href="#" id="listicon"><img src="${root}/images/music.png" height="40" title="재생목록에 추가"></a>
 	<a href="#" id="icon"><img src="${root}/images/likes.png" height="40" title="추천게시판으로 보내기"></a> --%>
-		<a href="${root}/chucheonform.do"><button type="button" id="icon"
-				class="myButton" title="추천게시판으로 보내기">추천하기</button></a>
+		<button type="button" id="icon"
+				class="myButton" title="추천게시판으로 보내기">추천하기</button>
 		<button type="button" id="listicon" class="myButton" title="재생목록에 추가">리스트담기</button>
 
 		<table class="table table-hover">
