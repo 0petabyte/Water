@@ -192,9 +192,9 @@ h2 {
 			</script>
 
 
-
+<!-- 
 			<form name="_selected_all1_" method="get" action="main.do"
-				onsubmit="return check()"></form>
+				onsubmit="return check()"></form> -->
 		</div>
 
 
@@ -279,14 +279,14 @@ h2 {
 											<%
 												for (int i = 1; i <= 10; i++) {
 											%>
-											<option value="<%="0"+i%>"><%=i%></option>
+											<option value="<%="s"+i+"s"%>"><%=i%></option>
 											<%
 												}
 											%>
 										</optgroup>
 										<optgroup label="11~20">
 											<%
-												for (int i = 10; i <= 20; i++) {
+												for (int i = 11; i <= 20; i++) {
 											%>
 											<option value="<%=i%>"><%=i%></option>
 											<%
@@ -379,6 +379,7 @@ h2 {
 										<option value="Hip-hop">Hip-hop</option>
 										<option value="Soul">Soul</option>
 										<option value="Korean Movie">KoreanMovie</option>
+										<option value="Blues">Blues</option>
 								</select>
 								</span> <br>
 
