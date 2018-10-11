@@ -74,11 +74,10 @@
 	</style>
 	<c:set var="root" value="<%=request.getContextPath()%>" />
 	<script>
-		
-		  function reloadFrame(iframe, src) {
-		        iframe.src = src;
-		    }
-		</script>
+	function reloadFrame(iframe, src) {
+		iframe.src = src;
+	}
+	</script>
 </head>
 <body>
 	<br>
@@ -98,20 +97,20 @@
     	<li><input type="button" value="9위" onclick="reloadFrame(document.getElementById('myFrame'), '${root}/9.html')"></li>
     	<li><input type="button" value="10위" onclick="reloadFrame(document.getElementById('myFrame'), '${root}/10.html')"></li>
 	</ul> --%>
-<div class="container">
-  <a class="btn btn-1" onclick="reloadFrame(document.getElementById('myFrame'), '${root}/myword1.html')">1위</a>
-  <a class="btn btn-2" onclick="reloadFrame(document.getElementById('myFrame'), '${root}/test1122.htm')">2위</a>
-  <a class="btn btn-3" onclick="reloadFrame(document.getElementById('myFrame'), '${root}/3.html')">3위</a> 
-  <a class="btn btn-4" onclick="reloadFrame(document.getElementById('myFrame'), '${root}/4.html')">4위</a> 
-  <a class="btn btn-5" onclick="reloadFrame(document.getElementById('myFrame'), '${root}/5.html')">5위</a>
-</div>
-<div class="container">
-  <a class="btn btn-1" onclick="reloadFrame(document.getElementById('myFrame'), '${root}/6.html')">6위</a>
-  <a class="btn btn-2" onclick="reloadFrame(document.getElementById('myFrame'), '${root}/7.html')">7위</a>
-  <a class="btn btn-3" onclick="reloadFrame(document.getElementById('myFrame'), '${root}/8.html')">8위</a> 
-  <a class="btn btn-4" onclick="reloadFrame(document.getElementById('myFrame'), '${root}/9.html')">9위</a> 
-  <a class="btn btn-5" onclick="reloadFrame(document.getElementById('myFrame'), '${root}/10.html')">10위</a>
-</div>
+	<div class="container">
+		<a class="btn btn-1" onclick="reloadFrame(document.getElementById('myFrame'), '${root}/myword1.html')">1위</a>
+		<a class="btn btn-2" onclick="reloadFrame(document.getElementById('myFrame'), '${root}/test1122.htm')">2위</a>
+		<a class="btn btn-3" onclick="reloadFrame(document.getElementById('myFrame'), '${root}/3.html')">3위</a> 
+		<a class="btn btn-4" onclick="reloadFrame(document.getElementById('myFrame'), '${root}/4.html')">4위</a> 
+		<a class="btn btn-5" onclick="reloadFrame(document.getElementById('myFrame'), '${root}/5.html')">5위</a>
+	</div>
+	<div class="container">
+		<a class="btn btn-1" onclick="reloadFrame(document.getElementById('myFrame'), '${root}/6.html')">6위</a>
+		<a class="btn btn-2" onclick="reloadFrame(document.getElementById('myFrame'), '${root}/7.html')">7위</a>
+		<a class="btn btn-3" onclick="reloadFrame(document.getElementById('myFrame'), '${root}/8.html')">8위</a> 
+		<a class="btn btn-4" onclick="reloadFrame(document.getElementById('myFrame'), '${root}/9.html')">9위</a> 
+		<a class="btn btn-5" onclick="reloadFrame(document.getElementById('myFrame'), '${root}/10.html')">10위</a>
+	</div>
 
 </body>
 </html>
