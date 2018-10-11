@@ -7,8 +7,8 @@
 <title>Time Music</title>
 <meta charset="utf-8">
 <c:set var="root" value="<%=request.getContextPath()%>" />
-<link rel="stylesheet" href="${root}/dist/css/bootstrap-multiselect.css"
-	type="text/css">
+<link rel="stylesheet" href="${root}/dist/css/bootstrap-multiselect.css" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Jua" rel="stylesheet">
 <script type="text/javascript" src="dist/js/bootstrap-multiselect.js"></script>
 <script type="text/javascript">
 	$(function() {
@@ -37,46 +37,41 @@
 <style>
 .myButton {
 	float: right;
-	margin-left: 10px;
-	-moz-box-shadow: inset 0px 0px 0px -50px #535961;
-	-webkit-box-shadow: inset 0px 0px 0px -50px #535961;
-	box-shadow: inset 0px 0px 0px -50px #535961;
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #615c61
-		), color-stop(1, #3b323b));
-	background: -moz-linear-gradient(top, #615c61 5%, #3b323b 100%);
-	background: -webkit-linear-gradient(top, #615c61 5%, #3b323b 100%);
-	background: -o-linear-gradient(top, #615c61 5%, #3b323b 100%);
-	background: -ms-linear-gradient(top, #615c61 5%, #3b323b 100%);
-	background: linear-gradient(to bottom, #615c61 5%, #3b323b 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#615c61',
-		endColorstr='#3b323b', GradientType=0);
-	background-color: #615c61;
-	-moz-border-radius: 6px;
-	-webkit-border-radius: 6px;
-	border-radius: 6px;
-	display: inline-block;
-	cursor: pointer;
-	color: #ffffff;
-	font-size: 13px;
-	padding: 10px 12px;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #151b21), color-stop(1, #545557));
+	background:-moz-linear-gradient(top, #151b21 5%, #545557 100%);
+	background:-webkit-linear-gradient(top, #151b21 5%, #545557 100%);
+	background:-o-linear-gradient(top, #151b21 5%, #545557 100%);
+	background:-ms-linear-gradient(top, #151b21 5%, #545557 100%);
+	background:linear-gradient(to bottom, #151b21 5%, #545557 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#151b21', endColorstr='#545557',GradientType=0);
+	background-color:#151b21;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:7px 19px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #000000;
 }
-
 .myButton:hover {
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #3b323b
-		), color-stop(1, #615c61));
-	background: -moz-linear-gradient(top, #3b323b 5%, #615c61 100%);
-	background: -webkit-linear-gradient(top, #3b323b 5%, #615c61 100%);
-	background: -o-linear-gradient(top, #3b323b 5%, #615c61 100%);
-	background: -ms-linear-gradient(top, #3b323b 5%, #615c61 100%);
-	background: linear-gradient(to bottom, #3b323b 5%, #615c61 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3b323b',
-		endColorstr='#615c61', GradientType=0);
-	background-color: #3b323b;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #545557), color-stop(1, #151b21));
+	background:-moz-linear-gradient(top, #545557 5%, #151b21 100%);
+	background:-webkit-linear-gradient(top, #545557 5%, #151b21 100%);
+	background:-o-linear-gradient(top, #545557 5%, #151b21 100%);
+	background:-ms-linear-gradient(top, #545557 5%, #151b21 100%);
+	background:linear-gradient(to bottom, #545557 5%, #151b21 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#545557', endColorstr='#151b21',GradientType=0);
+	background-color:#545557;
 }
-
 .myButton:active {
-	position: relative;
-	top: 1px;
+	position:relative;
+	top:1px;
 }
 a {	text-decoration: none; color: black;}
 
@@ -91,6 +86,10 @@ a:hover {
 	color: red;
 }
 
+h2 { 
+	font-family: 'Do Hyeon', sans-serif; 
+	font-size: 40pt;
+}
 </style>
 
 <script>
@@ -135,19 +134,12 @@ a:hover {
 
 
 <body>
-
-
-
-
-
-
-
-
 	<div class="container">
-		<h2>시대의 명곡 리스트</h2>
+		<br>
+		<h2>시대별 차트</h2>
 		<p>
-			원하시는 곡 라인을 클릭시 Youtube 영상이 보이게 됩니다(음원출처:youtube)<br> 검색어를
-			입력하지않을시 선택메뉴의 조건으로 전체곡대상 검색됩니다.
+			원하시는 곡 라인을 클릭 시 YouTube 영상이 보이게 됩니다. (음원 출처 : https://www.youtube.com)<br>
+			검색어를 입력하지 않을 시 선택 메뉴의 조건으로 전체 곡 대상 검색됩니다.
 		</p>
 
 		<div class="example">
@@ -210,10 +202,6 @@ a:hover {
 		<div class="container">
 			<form name="search" method="get" action="main.do"
 				onsubmit="return check()">
-
-
-
-
 
 
 				<div class="row">
@@ -411,7 +399,7 @@ a:hover {
 								<option value="gasa">가사</option>
 								<option value="sunwhi">랭킹</option>
 						</select>
-						<td><input type="hidden" name="search_param" value="all"
+						<td width=350px;><input type="hidden" name="search_param" value="all"
 							id="search_param"> <input type="text"
 							style="weight: 70%;" class="form-control" name="keyWord"
 							placeholder="검색어를 입력해주세요." onkeyup="enterkey()">
@@ -422,21 +410,18 @@ a:hover {
 								onclick="searchbutton_click();">
 								<span id="search_concept" class="glyphicon glyphicon-search"></span>
 							</button>
-
 						</td>
 					</tr>
 				</table>
 		</form>
 		</div>
 
-
-
-
 		<%-- <a href="#" id="listicon"><img src="${root}/images/music.png" height="40" title="재생목록에 추가"></a>
 	<a href="#" id="icon"><img src="${root}/images/likes.png" height="40" title="추천게시판으로 보내기"></a> --%>
-		<button type="button" id="icon"
-				class="myButton" title="추천게시판으로 보내기">추천하기</button>
+		<a href="${root}/chucheonform.do"><button type="button" id="icon"
+				class="myButton" title="추천게시판으로 보내기">추천하기</button></a>
 		<button type="button" id="listicon" class="myButton" title="재생목록에 추가">리스트담기</button>
+
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -514,6 +499,3 @@ a:hover {
 	</div>
 </body>
 </html>
-
-
-

@@ -78,7 +78,7 @@ public class UserDao {
 			String b = "1";
 			if (a <= 10) {
 
-				System.out.println("a는"+a);
+				/*System.out.println("a는"+a);*/
 				query=new Query(new Criteria().andOperator(		
 						Criteria.where(sunwhire).is(rankchose.replaceAll(",", "|"))
 						));	}
@@ -86,13 +86,13 @@ public class UserDao {
 
 			
 			else {
-				System.out.println("b는"+a);
+				/*System.out.println("b는"+a);*/
 				query=new Query(new Criteria().andOperator(		
 						Criteria.where(sunwhire).is(rankchose).regex(rankchose.replaceAll(",", "|"))
 						));
 			}
 			}catch(NumberFormatException e){
-				System.out.println("Exception");
+				/*System.out.println("Exception");*/
 				
 
 				query=new Query(new Criteria().orOperator(	
@@ -116,14 +116,14 @@ public class UserDao {
 
 		}
 
-		System.out.println(rankchose);
+		/*System.out.println(rankchose);*/
 
 		if (jangrechose != null && rankchose == null && yearchose == null )
 			query=new Query(new Criteria().andOperator(		
 					Criteria.where(jangre).is(jangrechose).regex(jangrechose.replaceAll(",", "|"),"i")
 					));
 
-		System.out.println(jangrechose);
+		/*System.out.println(jangrechose);*/
 
 		if (jangrechose != null && rankchose != null && yearchose == null)
 			query=new Query(new Criteria().andOperator(		
