@@ -9,6 +9,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title>Welcome</title>
 		<style type="text/css">
 			
@@ -20,8 +21,35 @@
 				});
 			});
 		</script>
+		<meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+
+        <link rel="stylesheet" href="assets/css/iconfont.css">
+        <link rel="stylesheet" href="assets/css/slick/slick.css">
+        <link rel="stylesheet" href="assets/css/slick/slick-theme.css">
+        <link rel="stylesheet" href="assets/css/stylesheet.css">
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/jquery.fancybox.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        <!--        <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css">-->
+
+
+        <!--For Plugins external css-->
+        <link rel="stylesheet" href="assets/css/plugins.css" />
+
+        <!--Theme custom css -->
+        <link rel="stylesheet" href="assets/css/style.css">
+
+        <!--Theme Responsive css-->
+        <link rel="stylesheet" href="assets/css/responsive.css" />
+
+        <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 	</head> 
-	<body>
+	<body data-spy="scroll" data-target=".navbar-collapse">
 	<br><br>
 		<table class="table table-hover" style="width: 700px; margin: 0 auto;">
 			<caption><b>게시글확인</b></caption>
@@ -66,37 +94,59 @@
 			
 			<!-- 댓글 폼 -->
 			<tr>
-				<td align="left">
+				<td align="center">
 					<form action="answer.do" method="post" class="form-inline">
 						<div class="form-group">
-							<input type="text" name="awriter" style="width: 130px;"
-								placeholder="작성자">
-							<input type="text" name="acontent" style="width: 500px;"
+							<input type="text" name="awriter" style="width: 130px; height: 30px;"
+								placeholder="작성자">&nbsp;
+							<input type="text" name="acontent" style="width: 350px;height: 30px;"
 								placeholder="댓글쓰기">
 							<!-- 댓글은 원글번호,페이지번호를 히든으로 같이줘야함 -->
 							<input type="hidden" name="e_num" value="${dto.e_num}">
 							<input type="hidden" name="pageNum" value="${pageNum}">
-							
-							<input type="submit" value="저장" class="btn btn-xs btn-default">
+							&nbsp;&nbsp;
+							<input type="submit" value="저장" class="btn-sm"style="width: 80px;">
 						</div>
 					</form>
 				</td>
 			</tr>
 			<tr>
-				<td align="right">
-					<input type="button" class="btn btn-sm btn-info"
+				<td align="center">
+					<input type="button" class="btn btn-lg"
 						value="글쓰기" onclick="location.href='writeform.do'">
-					<input type="button" class="btn btn-sm btn-success"
+					<input type="button" class="btn btn-lg"
 						value="수정" 
 						onclick="location.href='updateform.do?e_num=${dto.e_num}&pageNum=${pageNum}'">
-					<input type="button" class="btn btn-sm btn-warning"
+					<input type="button" class="btn btn-lg"
 						value="삭제" 
 						onclick="location.href='delete.do?e_num=${dto.e_num}&pageNum=${pageNum}'">
-					<input type="button" class="btn btn-sm btn-danger"
+					<input type="button" class="btn btn-lg"
 						value="목록" 
 						onclick="location.href='error.do?pageNum=${pageNum}'">
 				</td>
 			</tr>
 		</table>
+		<!-- START SCROLL TO TOP  -->
+
+        <div class="scrollup">
+            <a href="#"><i class="fa fa-chevron-up"></i></a>
+        </div>
+
+        <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+        <script src="assets/js/vendor/bootstrap.min.js"></script>
+
+        <script src="assets/js/jquery.magnific-popup.js"></script>
+        <script src="assets/js/jquery.mixitup.min.js"></script>
+        <script src="assets/js/jquery.easing.1.3.js"></script>
+        <script src="assets/js/jquery.masonry.min.js"></script>
+
+        <!--slick slide js -->
+        <script src="assets/css/slick/slick.js"></script>
+        <script src="assets/css/slick/slick.min.js"></script>
+
+
+        <script src="assets/js/plugins.js"></script>
+        <script src="assets/js/main.js"></script>
+		
 	</body>
 </html>

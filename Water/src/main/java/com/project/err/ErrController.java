@@ -33,12 +33,12 @@ public class ErrController {
 		model.setViewName("/1/content/errboard");
 		return model;
 	}*/
-	//글쓰기폼
+	/*//글쓰기폼
 	@RequestMapping("/writeform.do")
 	public String form()
 	{
 		return "/1/content/writeform";
-	}
+	}*/
 	//글쓰기
 	@RequestMapping("/write.do")
 	public String write(@ModelAttribute ErrDto dto,HttpServletRequest request)
@@ -57,7 +57,7 @@ public class ErrController {
 		return "redirect:error.do";
 	}
 	
-	@RequestMapping("/writeform2.do")
+	@RequestMapping("/writeform.do")
 	public String test()
 	{
 		return "/1/content/errwriteform";
@@ -182,7 +182,7 @@ public class ErrController {
 	{
 		ModelAndView model = new ModelAndView();
 		ErrDto dto=edao.updateForm(e_num);
-		model.setViewName("/1/content/updateform");
+		model.setViewName("/1/content/errupdateform");
 		model.addObject("dto",dto);
 		return model;
 	}

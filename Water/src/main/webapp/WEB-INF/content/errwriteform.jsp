@@ -14,6 +14,14 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Bino html5 free Template</title>
+        <script type="text/javascript">
+			$(function(){
+				$("#btnadd").click(function(){
+					var s="<input type='file' class='form-control' style='width:300px;' name='imgfile'>";
+					$("#imgarea").append(s);
+				});
+			});
+		</script>	
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -96,38 +104,34 @@
 
                                     <div class="col-sm-6">
                                         <div class="single_contant_left padding-top-90 padding-bottom-90">
-                                            <form action="#" id="formid">
+                                            <form action="write.do" id="formid" method="post" enctype="multipart/form-data">
                                                 <div class="col-lg-8 col-md-8 col-sm-10 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">
 
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <div class="form-group">
-                                                                <input type="text" class="form-control" name="name" placeholder="First Name" required="">
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                  
 
 
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <div class="form-group">
-                                                                <input type="email" class="form-control" name="email" placeholder="Email" required="">
+                                                                <input type="text" class="form-control" name="ewriter" placeholder="Name" required="">
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-12">
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                                                                <input type="text" class="form-control" name="etitle" placeholder="Subject" required="">
                                                             </div>
                                                         </div>
                                                     </div>
-
-
                                                     <div class="form-group">
-                                                        <textarea class="form-control" name="message" rows="7" placeholder="Message"></textarea>
+                                                        <textarea class="form-control" name="econtent" rows="7" placeholder="Message"></textarea>
                                                     </div>
+                                                    <div class="">
+															<input type="button" id="btnadd" value="Image Add" class="btn btn-lg">
+															<div id="imgarea"></div>
+													</div>
 
                                                     <div class="">
-                                                        <input type="submit" value="SEND MESSAGE" class="btn btn-lg">
+                                                        <input type="submit" value="SEND MESSAGE" class="form-control btn btn-lg"style="height: 60px;">
                                                     </div>
                                                 </div> 
                                             </form>
