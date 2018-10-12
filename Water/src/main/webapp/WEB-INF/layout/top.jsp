@@ -24,43 +24,38 @@
 				var selnum=document.getElementsByName("_selected_");
 				//alert(selnum.length);
 				var cnt=0;
-				/* for(i=0;i<selnum.length;i++){
-					if (selnum[i].checked){
-						cnt++;
-						var title=$(selnum[i]).val();
-						//alert("재생목록에 "+title+" 이(가) 추가되었습니다.");
-						//$("#mylist ul").append("<li>"+title+"</li>");
-						$("#tbl_tbody").append("<tr><td><input type='checkbox' name='selected'/></td><td>"+title+"</td></tr>");
-					}
-					
-				} */
+				
+				var t="";
+				var a="";
+				var y="";
 				for(i=0;i<selnum.length;i++){
 					if (selnum[i].checked){
 						cnt++;
-						title=$(selnum[i]).attr('val1');
-						artist=$(selnum[i]).attr('val2');
-						youurl=$(selnum[i]).attr('val3');
-						var str1="<tr><td><input type='checkbox' name='selected'/></td><td class='songlst'>"+artist
+						var title=$(selnum[i]).attr('val1');
+						var artist=$(selnum[i]).attr('val2');
+						var youurl=$(selnum[i]).attr('val3');
+						t+=title+",";
+						a+=artist+",";
+						y+=youurl+",";
+					/* var str1="<tr><td><input type='checkbox' name='selected'/></td><td class='songlst'>"+artist
 							+" - "+title+"<br><iframe width='100' height='56' src='https://www.youtube.com/embed/"
 							+youurl+"' frameborder='0' allowfullscreen></iframe></td></tr>";
-						$("#tbl_tbody").append(str1);
-						
-						/* $("#tbl_tbody").append("<tr><td><input type='checkbox' name='selected'/></td><td>"+artist+" - "+title+"</td></tr>");
-						$("#tbl_tbody").append("<br><iframe width='100' height='56' src='https://www.youtube.com/embed/"+youurl+"' frameborder='0' allowfullscreen></iframe>"); */
-						
+						$("#tbl_tbody").append(str1); */
 					}
 					
 				}
+				t=t.substring(0,t.length-1);
+				a=a.substring(0,a.length-1);
+				y=y.substring(0,y.length-1);
 				
 				if(cnt==0){
 					alert("선택된 노래가 없습니다.");
 				}else {
 					alert("재생목록에 "+cnt+" 곡이 추가되었습니다.");
 				}
-				/* if($("#music").is(":checked"))
-					$("#mylist ul").append("<li>list</li>"); */
-					
-				/* alert("재생목록에 1곡 추가되었습니다."); */
+				
+				var userid="${sessionScope.user_name}";
+				window.location.href="addlist.do?title="+t+"&artist="+a+"&youurl="+y+"&userid="+userid;
 			}
 			
 		});
