@@ -7,6 +7,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class ChuCheonBBSDto {
    @Id
    
+   private String _id;
+   private String dat_num;
    private String id;
    private String title;
    private String artlist;
@@ -14,14 +16,32 @@ public class ChuCheonBBSDto {
    private String chucheoneu;
    private String ccontent;
    private String yourll;
+   private int acnt;
    
-   
-   
+ 
+   public int getAcnt() {
+	return acnt;
+}
+public void setAcnt(int acnt) {
+	this.acnt = acnt;
+}
+public String get_id() {
+	return _id;
+   }
+   public void set_id(String _id) {
+	   this._id = _id;
+   }
+   public String getDat_num() {
+	return dat_num;
+   }
+   public void setDat_num(String dat_num) {
+	   this.dat_num = dat_num;
+   }
    public String getYourll() {
-	  return yourll;
+	   return yourll;
    }
    public void setYourll(String yourll) {
-	  this.yourll = yourll;
+	   this.yourll = yourll;
    }
    public String getCcontent() {
       return ccontent;

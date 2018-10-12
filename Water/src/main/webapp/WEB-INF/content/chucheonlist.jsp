@@ -56,7 +56,8 @@
           <c:forEach var="chucheonbbs" items="${clist}" varStatus="i" begin="${startNum}" end="${endNum}">
           <tr class="chucheoneu" style="cursor: pointer;">
              <td align="center">${i.count}</td>
-             <td align="center">${chucheonbbs.chucheoneu}</td>
+             
+             <td align="center">${chucheonbbs.chucheoneu}<span style="color: red;">(${chucheonbbs.acnt})</span></td>
              <td align="center">${chucheonbbs.artlist}</td>
              <td align="center">${chucheonbbs.title}</td>          
           </tr>
@@ -71,6 +72,27 @@
           	         	  	  	
           	</c:forEach>
           	${chucheonbbs.ccontent}
+          
+          	<form action="reple.do" method="post">         	
+          	<input type="hidden" name="dat_num" value="${chucheonbbs._id}">
+          	<div>
+          	<c:if test="${sessionScope.loginok=='yes'}">
+          	<input type="text" name="dat_name" value="${sessionScope.user_name}" style="width: 90px">
+          	</c:if>
+          	<c:if test="${sessionScope.loginok==null}">
+          	<input type="text" name="dat_name" style="width: 90px">
+          	</c:if>		
+          	<input type="text" name="dat_content" style="width: 300px">
+          	<input type="submit" value="댓글달기" class="btn btn-sm btn-warning">
+          	</div>
+          	</form>
+          	<c:forEach var="reple" items="${datlist}" varStatus="i">
+          		<div>          			
+				<c:if test="${chucheonbbs._id==reple.dat_num}">				
+				${reple.dat_name} : ${reple.dat_content}
+				</c:if>								      		
+         		</div>
+          	</c:forEach>
           	</td>
           </tr>           
           </c:forEach>

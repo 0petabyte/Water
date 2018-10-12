@@ -31,6 +31,13 @@ public class ChuCheonController {
       return model;
    }*/
    
+   @RequestMapping("/reple.do")
+   public String datinsert(@ModelAttribute ChuCheonDatDto datdto)
+   {
+	   dao.reinsert(datdto);
+	   return "redirect:chucheonlist.do";
+   }
+   
    @RequestMapping("/chucheonform.do")
    public ModelAndView chucheon(@RequestParam(value="_selected_",required=true) List<String> _selected_)
    {
@@ -43,7 +50,6 @@ public class ChuCheonController {
     	  dtos[i]=dao.getSearchMusicid(musicid);
     	  
       }
-      
       
       model.addObject("dtos", dtos);
       model.setViewName("/1/content/chucheonform");
@@ -59,11 +65,25 @@ public class ChuCheonController {
       return "redirect:chucheonlist.do";
    }
    
+   /*@RequestMapping("/replelist.do")
+   public ModelAndView replelist()
+   {
+	   ModelAndView model = new ModelAndView();
+	   List<ChuCheonDatDto> datlist = dao.finddatList();
+	   System.out.println("호출 되냐?");
+	   model.addObject("datcount",datlist.size());
+	   model.addObject("datlist", datlist);
+	   model.setViewName("/1/content/chucheonlist");
+	   
+	   return model;
+   }*/
+   
    @RequestMapping("/chucheonlist.do")
    public ModelAndView chucheonlist(@RequestParam(value="pageNum",defaultValue="1") int currentPage)
    {
       ModelAndView model=new ModelAndView();
       List<ChuCheonBBSDto> clist= dao.findcList();
+      List<ChuCheonDatDto> datlist = dao.finddatList();
       
 	  	//페이징처리
 		//페이징에 처리에 필요한 변수들
@@ -102,6 +122,19 @@ public class ChuCheonController {
 		//각 페이지의 시작 번호
 		int no=totalCount-(currentPage-1)*perPage;
 				
+		for(int i=0;i<clist.size();i++)
+		{
+			int n=0;
+			ChuCheonBBSDto dto=clist.get(i);
+			for(int j=0;j<datlist.size();j++)
+			{
+				
+				ChuCheonDatDto ddto=datlist.get(j);
+				if(dto.get_id().equals(ddto.getDat_num()))
+					dto.setAcnt(++n);
+			}
+			System.out.println("acnt:"+dto.getAcnt());
+		}
 		//request 에 담을 값들
 		
 		model.addObject("totalCount",totalCount);
@@ -115,10 +148,14 @@ public class ChuCheonController {
          
       model.addObject("clist",clist);
       model.addObject("count",clist.size());
+      model.addObject("datcount",datlist.size());
+	  model.addObject("datlist", datlist);
       model.setViewName("/1/content/chucheonlist");
       
       return model;
       
    }
+   
+
 
 }

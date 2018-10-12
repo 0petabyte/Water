@@ -18,7 +18,7 @@
          <c:forEach var="dtos" items="${dtos}">
             <tr>
                <input type="hidden" name="musicid"  value="${dtos.musicid}">
-               <input type="hidden" name="yourll"  value="${dtos.yourll}">              
+               <input type="hidden" name="yourll"  value="${dtos.yourll}">                         
             </tr>
             
             <tr>
@@ -43,7 +43,7 @@
             <tr>
                <th style="width:400px;">상세추천이유</th>
                <td>
-                  <input type="text" name="ccontent">
+                  <input type="text" name="ccontent">                
                </td>
             </tr>
             
