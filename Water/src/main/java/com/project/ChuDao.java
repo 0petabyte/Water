@@ -11,6 +11,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
+
 import org.springframework.data.domain.Sort;
 
 
@@ -34,10 +35,18 @@ public class ChuDao {
 		return clist;
 	}
 	
+	public List<ChuCheonDatDto> finddatList()
+	{
+		List<ChuCheonDatDto> datlist = mongoTemp.findAll(ChuCheonDatDto.class,"chucheondat");
+		
+		return datlist;
+	}
+	
 	
 	public void cinsert(ChuCheonBBSDto cdto)
 	{
 		System.out.println("call:"+cdto.getTitle());
+		
 		if(cdto.getTitle()==null||cdto.getTitle().equals("")||cdto.getTitle().length()<1){
 			return;
 		}else{
@@ -46,12 +55,29 @@ public class ChuDao {
 		}
 	}
 	
+	public void reinsert(ChuCheonDatDto datdto)
+	{
+		mongoTemp.insert(datdto);
+	}
+	
+	//삭제 메서드
+	public void deletedat(String _id)
+	{
+		Query query=new Query(Criteria.where("_id").is(_id));
+		mongoTemp.remove(query,ChuCheonDatDto.class);
+	}
 	
 	
 	public UserDto getSearchMusicid(String musicid)
 	{
 		Query query=new Query(Criteria.where("musicid").is(musicid));
 		return mongoTemp.findOne(query, UserDto.class);
+	}
+	
+	public ChuCheonBBSDto getSearch_id(String _id)
+	{
+		Query query=new Query(Criteria.where("_id").is(_id));
+		return mongoTemp.findOne(query, ChuCheonBBSDto.class);
 	}
 	
 }
