@@ -37,7 +37,8 @@ public class ChuDao {
 	
 	public void cinsert(ChuCheonBBSDto cdto)
 	{
-		if(cdto.getMusicid()==null){
+		System.out.println("call:"+cdto.getTitle());
+		if(cdto.getTitle()==null||cdto.getTitle().equals("")||cdto.getTitle().length()<1){
 			return;
 		}else{
 			
