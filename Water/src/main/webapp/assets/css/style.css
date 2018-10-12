@@ -111,7 +111,7 @@ input[type="color"],
 .uneditable-input {
     outline: none;
 }
-
+/* 
 .form-control {
     display: inline-block;
     height: 38px;
@@ -131,15 +131,15 @@ input[type="color"],
     border-bottom: 2px solid #ddd;
     nonSelectedText: '원하는 메뉴123를 선택해주세요';
 }
-/*.form-control:focus {
+.form-control:focus {
     border-color: #bcefeb;
-}*/
+}
 .form-control:focus {
     border-color: #bcefeb;
     outline: 0;
     -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,.075),0 0 0px rgba(102,175,233,.6);
     box-shadow: inset 0 0px 0px rgba(0,0,0,.075),0 0 0px rgba(102,175,233,.6);
-}
+} */
 h1,
 h2,
 h3 {
@@ -615,7 +615,7 @@ input::-ms-input-placeholder {
     box-shadow: 0 0px 0px 
 }
 
-/*.dropdown-menu .navbar-form .form-group input[type="text"]{
+.dropdown-menu .navbar-form .form-group input[type="text"]{
     background-color:rgba(34, 61, 97, 0.68);
     border: 1px solid #e74c3c;
     color:#e74c3c;
@@ -627,7 +627,7 @@ input::-ms-input-placeholder {
 }
 .dropdown-menu .navbar-form {
     margin-right: -30px;
-}*/
+}
 
 .scrooldown{
     position: absolute;

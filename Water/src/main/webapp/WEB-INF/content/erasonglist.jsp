@@ -90,13 +90,21 @@ h2 {
 	font-family: 'Do Hyeon', sans-serif; 
 	font-size: 40pt;
 }
+
+	@media(max-width: 500px) { 
+		
+		#albummo {display: none; }
+	}
+
+
+
 </style>
 
 <script>
     $(function(){
     	$("#icon").click(function(){
     		/* var s1=$("#music").attr("val1"); */
-    		  		
+    		$("#frm").attr("action", "chucheonform.do")
     		$("#frm").submit();
     	});
     });
@@ -133,18 +141,27 @@ h2 {
 </script>
 
 
+</head>
+
 <body>
 	<div class="container">
 		<br>
 		<h2>시대별 차트</h2>
 		<p>
-			원하시는 곡 라인을 클릭 시 YouTube 영상이 보이게 됩니다. (음원 출처 : https://www.youtube.com)<br>
+			원하시는 곡 라인을 클릭 시 YouTube 영상이 보이게 됩니다. (음원 출처 :YOUTUBE)<br>
 			검색어를 입력하지 않을 시 선택 메뉴의 조건으로 전체 곡 대상 검색됩니다.
 		</p>
 
 		<div class="example">
+		
 			<script type="text/javascript">
-				$(document).ready(function() {
+			
+			$(document).ready(function(){
+				
+			var windowWidth = $( window ).width();
+			
+			 if(windowWidth > 500) {
+				
 					$('#yearchose').multiselect({
 
 						enableClickableOptGroups : true,
@@ -152,15 +169,40 @@ h2 {
 						enableFiltering : true,
 						includeSelectAllOption : true,
 						collapseOptGroupsByDefault : true,
-						buttonWidth : '300px',
+						buttonWidth : '300px', 
 						nonSelectedText : "원하는 년도를 선택해주세요",
 
 					});
-				});
+				
+			 } 
+			 else {
+					 
+						$('#yearchose').multiselect({
+
+							enableClickableOptGroups : true,
+							enableCollapsibleOptGroups : true,
+							enableFiltering : true,
+							includeSelectAllOption : true,
+							collapseOptGroupsByDefault : true,
+							buttonWidth : '100px', 
+							nonSelectedText : "년도",
+
+						});
+				
+			 
+			 }});
+			
 			</script>
 
+
 			<script type="text/javascript">
-				$(document).ready(function() {
+			
+			$(document).ready(function(){
+				
+			var windowWidth = $( window ).width();
+			
+			 if(windowWidth > 500) {
+				
 					$('#rankchose').multiselect({
 
 						enableClickableOptGroups : true,
@@ -168,15 +210,41 @@ h2 {
 						enableFiltering : true,
 						includeSelectAllOption : true,
 						collapseOptGroupsByDefault : true,
-						buttonWidth : '300px',
-						nonSelectedText : "원하는 랭킹을 선택해주세요",
+						buttonWidth : '300px', 
+						nonSelectedText : "원하는 랭킹를 선택해주세요",
 
 					});
-				});
-			</script>
+				
+			 } 
+			 else {
+					 
+						$('#rankchose').multiselect({
+
+							enableClickableOptGroups : true,
+							enableCollapsibleOptGroups : true,
+							enableFiltering : true,
+							includeSelectAllOption : true,
+							collapseOptGroupsByDefault : true,
+							buttonWidth : '100px', 
+							nonSelectedText : "랭킹",
+
+						});
+				
+			 
+			 }});
+
+		
+
+</script>
 
 			<script type="text/javascript">
-				$(document).ready(function() {
+			
+			$(document).ready(function(){
+				
+			var windowWidth = $( window ).width();
+			
+			 if(windowWidth > 500) {
+				
 					$('#jangrechose').multiselect({
 
 						enableClickableOptGroups : true,
@@ -184,12 +252,35 @@ h2 {
 						enableFiltering : true,
 						includeSelectAllOption : true,
 						collapseOptGroupsByDefault : true,
-						buttonWidth : '300px',
+						buttonWidth : '300px', 
 						nonSelectedText : "원하는 장르를 선택해주세요",
 
 					});
-				});
-			</script>
+				
+			 } 
+			 else {
+					 
+						$('#jangrechose').multiselect({
+
+							enableClickableOptGroups : true,
+							enableCollapsibleOptGroups : true,
+							enableFiltering : true,
+							includeSelectAllOption : true,
+							collapseOptGroupsByDefault : true,
+							buttonWidth : '100px', 
+							nonSelectedText : "장르",
+
+						});
+				
+			 
+			 }});
+
+
+
+
+</script>
+
+
 
 
 <!-- 
@@ -203,13 +294,12 @@ h2 {
 			<form name="search" method="get" action="main.do"
 				onsubmit="return check()">
 
+					
+				<table>
+				<tr>
+				<td>
+					
 
-				<div class="row">
-					<div class="col-xs-1 col-xs-offset-1">
-						<div class="input-group">
-
-							<div class="form-group"></div>
-							<div class="input-group-btn search-panel">
 
 								<select id="yearchose" multiple="multiple" name="yearchose"
 									class="form-control">
@@ -270,7 +360,8 @@ h2 {
 											}
 										%>
 									</optgroup>
-								</select> <span> <select id="rankchose" multiple="multiple"
+									</select></td><td>
+								<select id="rankchose" multiple="multiple"
 									name="rankchose" class="form-control">
 
 
@@ -365,13 +456,14 @@ h2 {
 												}
 											%>
 										</optgroup>
+	</select>
+</td><td>
 
-
-
-								</select>
-								</span> <span> <select id="jangrechose" multiple="multiple"
-									name="jangrechose" class="form-control">
+							
+								 <select id="jangrechose" multiple="multiple"
+									name="jangrechose" class="form-control" >
 										<option value="Ballad">Ballad</option>
+										
 										<option value="Rock">Rock</option>
 										<option value="Adult Contemporary">Adult Contemporary</option>
 										<option value="Folk">Folk</option>
@@ -381,14 +473,17 @@ h2 {
 										<option value="Korean Movie">KoreanMovie</option>
 										<option value="Blues">Blues</option>
 								</select>
-								</span> <br>
+							 <br>
 
 
-							</div>
-						</div>
+						
+						
 
-					</div>
-				</div>
+
+</td></tr>
+
+					</table>
+				
 				<br>
 				<table>
 					<tr>
@@ -399,11 +494,14 @@ h2 {
 								<option value="sunwhiyear">년도</option>
 								<option value="gasa">가사</option>
 								<option value="sunwhi">랭킹</option>
-						</select>
+						</select></td>
+												
+						
 						<td width=350px;><input type="hidden" name="search_param" value="all"
 							id="search_param"> <input type="text"
 							style="weight: 70%;" class="form-control" name="keyWord"
 							placeholder="검색어를 입력해주세요." onkeyup="enterkey()">
+							</td>
 						<td>
 
 							<button data-toggle="dropdown" id="searchbutton"
@@ -432,11 +530,11 @@ h2 {
 					<th style="text-align: center;">Singer</th>
 					<th style="text-align: center;">Genre</th>
 					<th style="text-align: center;">Ranking</th>
-					<th style="text-align: center;">Album</th>
+					<th style="text-align: center;" id="albummo">Album</th>
 				</tr>
 			</thead>
 			<tbody>
-			<form action="chucheonform.do" id="frm">
+			<form action="a" id="frm">
 				<c:forEach var="musicdata" begin="${startNum}" end="${endNum}"
 					items="${list}">
 					<tr>
@@ -453,7 +551,7 @@ h2 {
 						<td class="timelist" align="center">${musicdata.artlist}</td>
 						<td class="timelist" align="center">${musicdata.jangre}</td>
 						<td class="timelist" align="center">${musicdata.sunwhiyear.substring(0,4)}년${musicdata.sunwhi}순위</td>
-						<td class="timelist" align="center"><a
+						<td class="timelist" align="center" id="albummo"><a
 							href="${musicdata.musicidurl}"> ${musicdata.album}</a></td>
 					</tr>
 					<tr style="display: none;" id="scontentsub" class="subshow">

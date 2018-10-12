@@ -428,10 +428,10 @@
             filterBehavior: 'text',
             includeFilterClearBtn: true,
             preventInputChangeEvent: false,
-            nonSelectedText: '원하는 메뉴를 선택해주세요',
+            /*nonSelectedText: '원하는 메뉴를 선택해주세요',*/
             nSelectedText: 'selected',
             allSelectedText: 'All selected',
-            numberDisplayed: 10,
+            numberDisplayed: 3,
             disableIfEmpty: false,
             disabledText: '',
             delimiterText: ', ',

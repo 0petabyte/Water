@@ -234,17 +234,26 @@
                                     </div>
                                     <p>타이틀 : ${musicdata_realtime.title}<br>
                                     앨범명: ${musicdata_realtime.album}<br>
-                                    장르 :  ${musicdata_realtime.jangre}</p>
+                                    장르 :  ${musicdata_realtime.jangre}<br>
+                                                                      </p>
+                                   <%--  <p>가사 : ${musicdata_realtime.gasa}</p> --%>
+                                    						 
+
+
 
                                     <a href="" class="btn btn-lg">가사보기</a>
                                 </div>
+
                             </div>
                         </div>
                     </div><!--End of row -->
+                                                
                 </div><!--End of container -->
+<!--                                 <table><tr>
+								<td height="100" val rowspan="2" align="center"></td></tr></table> -->
             </section><!--End of history -->
-            
-            
+
+
                         <!-- Counter Section --> 
             <section id="counter" class="counter">
                 <div class="video_overlay">
