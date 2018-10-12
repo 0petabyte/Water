@@ -108,14 +108,6 @@ h2 {
     		$("#frm").submit();
     	});
     });
-    $(function(){
-		$("#listicon").click(function(){
-			/* $("#frm").attr("action", "aaa.do");
-			title=$("#frm").attr("action"); */
-			alert("title");
-			/* $("#frm").submit(); */
-		)};
-	});
 
 	function chageLangSelect() {
 		var langSelect = document
