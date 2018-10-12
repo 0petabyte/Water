@@ -13,10 +13,12 @@
 		<typeAlias type="com.project.err.ErrDto" alias="edto"/>
 		<typeAlias type="com.project.err.AnswerDto" alias="adto"/>
 		<typeAlias type="com.project.login.UserDto1" alias="udto"/>
+		<typeAlias type="com.project.playlist.PlayListDto" alias="pdto"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="com/project/err/ErrSql.xml"/>
 		<mapper resource="com/project/login/user.xml"/>
+		<mapper resource="com/project/playlist/playlist.xml"/>
 	</mappers>
 	
 </configuration>

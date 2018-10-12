@@ -96,10 +96,18 @@ h2 {
     $(function(){
     	$("#icon").click(function(){
     		/* var s1=$("#music").attr("val1"); */
-    		  		
+    		$("#frm").attr("action", "chucheonform.do")
     		$("#frm").submit();
     	});
     });
+    $(function(){
+		$("#listicon").click(function(){
+			/* $("#frm").attr("action", "aaa.do");
+			title=$("#frm").attr("action"); */
+			alert("title");
+			/* $("#frm").submit(); */
+		)};
+	});
 
 	function chageLangSelect() {
 		var langSelect = document
@@ -436,7 +444,7 @@ h2 {
 				</tr>
 			</thead>
 			<tbody>
-			<form action="chucheonform.do" id="frm">
+			<form action="a" id="frm">
 				<c:forEach var="musicdata" begin="${startNum}" end="${endNum}"
 					items="${list}">
 					<tr>
