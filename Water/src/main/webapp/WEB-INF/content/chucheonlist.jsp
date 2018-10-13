@@ -69,7 +69,7 @@
                   
           <tr style="display: none;" id="scontentsub" class="subshow" >
           	<td colspan="2" align="center">
-          	<div style="width: 370px">${chucheonbbs.artlist} : ${chucheonbbs.title}</div>          	
+          	<div style="width: 370px"></div>          	
           	<c:forEach var="str" items="${splitStr}">         	       	
         	<div>
         	<iframe width="350" height="180" src="https://www.youtube.com/embed/${str}" frameborder="0" allowfullscreen></iframe>         	
@@ -83,19 +83,19 @@
           	
           	<div style="width: 370px">
           	<c:if test="${sessionScope.loginok=='yes'}">
-          	<input type="text" name="dat_name" value="${sessionScope.user_name}" required="required" style="width: 90px">
+          	<input type="text" name="dat_name" value="${sessionScope.user_name}" required="required" style="width: 90px" placeholder="작성자">
           	</c:if>
           	<c:if test="${sessionScope.loginok==null}">
-          	<input type="text" name="dat_name" required="required" style="width: 80px">
+          	<input type="text" name="dat_name" required="required" style="width: 80px" placeholder="작성자">
           	</c:if>		
-          	<input type="text" name="dat_content" required="required" style="width: 250px">
+          	<input type="text" name="dat_content" required="required" style="width: 250px" placeholder="댓글을 입력하세요">
           	<input type="submit" value="댓글달기" class="btn btn-sm btn-warning">
           	</div>
           	</form>
           	<c:forEach var="reple" items="${datlist}" varStatus="i">
-          		<div style="width: 370px; padding-left: 40px; padding-top: 5px; text-align: left;">          			
+          		<div style="width: 370px; padding-left: 40px; text-align: left; background-color: #EAEAEA;">          			
 				<c:if test="${chucheonbbs._id==reple.dat_num}">				
-				${reple.dat_name} : ${reple.dat_content}
+				${reple.dat_name} : ${reple.dat_content}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<c:if test="${sessionScope.user_name==reple.dat_name}">
 				<a href="${root}/chudelete.do?_id=${reple._id}">댓글 삭제</a>				
 				</c:if>
