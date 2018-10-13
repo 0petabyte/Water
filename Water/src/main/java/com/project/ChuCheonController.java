@@ -50,12 +50,13 @@ public class ChuCheonController {
    {
       ModelAndView model = new ModelAndView();
       
+      
       UserDto []dtos=new UserDto[_selected_.size()];
+      
       for(int i=0;i<_selected_.size();i++){
     	  String musicid=_selected_.get(i);
     	  System.out.println("뮤직아이디:"+i+"번째 "+musicid);
-    	  dtos[i]=dao.getSearchMusicid(musicid);
-    	  
+    	  dtos[i]=dao.getSearchMusicid(musicid);  
       }
       
       model.addObject("dtos", dtos);

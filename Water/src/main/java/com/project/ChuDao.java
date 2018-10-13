@@ -63,7 +63,7 @@ public class ChuDao {
 		mongoTemp.insert(datdto);
 	}
 	
-	//삭제 메서드
+	//댓글 삭제 메서드
 	public void deletedat(String _id)
 	{
 		Query query=new Query(Criteria.where("_id").is(_id));
