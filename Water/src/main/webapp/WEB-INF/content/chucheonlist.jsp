@@ -9,6 +9,7 @@
 <head>
    <title>Barker Music</title>
    <meta charset="utf-8">
+   <c:set var="root" value="<%=request.getContextPath()%>" />
    <script type="text/javascript">
    	/* $(function(){
    		$("tr.chucheoneu").click(function(){
@@ -48,8 +49,7 @@
          <tr>
             <th style="text-align: center;">No</th>
             <th style="text-align: center;">추천이유</th>
-            <th style="text-align: center;">가수명</th>
-            <th style="text-align: center;">타이틀</th>
+           
          </tr>
       </thead>
        <tbody>
@@ -58,39 +58,49 @@
              <td align="center">${i.count}</td>
              
              <td align="center">${chucheonbbs.chucheoneu}<span style="color: red;">(${chucheonbbs.acnt})</span></td>
-             <td align="center">${chucheonbbs.artlist}</td>
-             <td align="center">${chucheonbbs.title}</td>          
+                     
           </tr>
           <c:set var="str1" value="${chucheonbbs.yourll}"></c:set>
           <c:set var="splitStr" value="${fn:split(str1,',')}"></c:set>
+          <c:set var="str2" value="${chucheonbbs.artlist}"></c:set>
+          <c:set var="splitStr2" value="${fn:split(str2,',')}"></c:set>
+          <c:set var="str3" value="${chucheonbbs.title}"></c:set>
+          <c:set var="splitStr3" value="${fn:split(str3,',')}"></c:set>
                   
           <tr style="display: none;" id="scontentsub" class="subshow" >
-          	<td colspan="4" align="center">
-          	<c:forEach var="str" items="${splitStr}">          	       	
-        	<div><iframe width="350" height="180" src="https://www.youtube.com/embed/${str}" frameborder="0" allowfullscreen></iframe>         	
-          	</div>
-          	         	  	  	
+          	<td colspan="2" align="center">
+          	<div style="width: 370px">${chucheonbbs.artlist} : ${chucheonbbs.title}</div>          	
+          	<c:forEach var="str" items="${splitStr}">         	       	
+        	<div>
+        	<iframe width="350" height="180" src="https://www.youtube.com/embed/${str}" frameborder="0" allowfullscreen></iframe>         	
+          	</div>          	       	         	  	  	
           	</c:forEach>
-          	${chucheonbbs.ccontent}
+          	
+          	<div style="width: 370px; font-size: 15pt;">${chucheonbbs.ccontent}</div>
           
           	<form action="reple.do" method="post">         	
           	<input type="hidden" name="dat_num" value="${chucheonbbs._id}">
-          	<div>
+          	
+          	<div style="width: 370px">
           	<c:if test="${sessionScope.loginok=='yes'}">
-          	<input type="text" name="dat_name" value="${sessionScope.user_name}" style="width: 90px">
+          	<input type="text" name="dat_name" value="${sessionScope.user_name}" required="required" style="width: 90px">
           	</c:if>
           	<c:if test="${sessionScope.loginok==null}">
-          	<input type="text" name="dat_name" style="width: 90px">
+          	<input type="text" name="dat_name" required="required" style="width: 80px">
           	</c:if>		
-          	<input type="text" name="dat_content" style="width: 300px">
+          	<input type="text" name="dat_content" required="required" style="width: 250px">
           	<input type="submit" value="댓글달기" class="btn btn-sm btn-warning">
           	</div>
           	</form>
           	<c:forEach var="reple" items="${datlist}" varStatus="i">
-          		<div>          			
+          		<div style="width: 370px; padding-left: 40px; padding-top: 5px; text-align: left;">          			
 				<c:if test="${chucheonbbs._id==reple.dat_num}">				
 				${reple.dat_name} : ${reple.dat_content}
-				</c:if>								      		
+				<c:if test="${sessionScope.user_name==reple.dat_name}">
+				<a href="${root}/chudelete.do?_id=${reple._id}">댓글 삭제</a>				
+				</c:if>
+				</c:if>
+																      		
          		</div>
           	</c:forEach>
           	</td>

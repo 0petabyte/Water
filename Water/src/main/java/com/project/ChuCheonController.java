@@ -38,6 +38,13 @@ public class ChuCheonController {
 	   return "redirect:chucheonlist.do";
    }
    
+   @RequestMapping("/chudelete.do")
+	public String delete(@RequestParam String _id)
+	{
+		dao.deletedat(_id);
+		return "redirect:chucheonlist.do";
+	}
+   
    @RequestMapping("/chucheonform.do")
    public ModelAndView chucheon(@RequestParam(value="_selected_",required=true) List<String> _selected_)
    {
@@ -121,7 +128,8 @@ public class ChuCheonController {
 	
 		//각 페이지의 시작 번호
 		int no=totalCount-(currentPage-1)*perPage;
-				
+		
+		//댓글 카운트
 		for(int i=0;i<clist.size();i++)
 		{
 			int n=0;
@@ -135,6 +143,7 @@ public class ChuCheonController {
 			}
 			System.out.println("acnt:"+dto.getAcnt());
 		}
+		
 		//request 에 담을 값들
 		
 		model.addObject("totalCount",totalCount);

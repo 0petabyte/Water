@@ -13,7 +13,7 @@
    <body>
    	
       <form action="chucheon.do" method="post">
-         <table class="table table-bordered" style="width: 300px; margin: 0 auto;">
+         <table class="table table-bordered" style="width: 410px; margin: 0 auto;">
          <caption>추천하기</caption>
          <c:forEach var="dtos" items="${dtos}">
             <tr>
