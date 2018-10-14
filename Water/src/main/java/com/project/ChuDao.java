@@ -26,11 +26,14 @@ public class ChuDao {
 		mongoTemp.dropCollection(UserDao.class);
 	}
 		
+	
 	public List<ChuCheonBBSDto> findcList()
 	{	
 		
 		
 		List<ChuCheonBBSDto> clist = mongoTemp.findAll(ChuCheonBBSDto.class,"chucheonbbs");
+		Query query = new Query();
+		query.with(new Sort(new Sort.Order[] { new Sort.Order(Sort.Direction.DESC, "_id") }));
 		
 		return clist;
 	}
@@ -60,7 +63,7 @@ public class ChuDao {
 		mongoTemp.insert(datdto);
 	}
 	
-	//삭제 메서드
+	//댓글 삭제 메서드
 	public void deletedat(String _id)
 	{
 		Query query=new Query(Criteria.where("_id").is(_id));

@@ -1,11 +1,18 @@
 package com.project.playlist;
 
 public class PlayListDto {
+	private int pnum;
 	private String userid;
 	private String artist;
 	private String title;
 	private String youurl;
 	
+	public int getPnum() {
+		return pnum;
+	}
+	public void setPnum(int pnum) {
+		this.pnum = pnum;
+	}
 	public String getUserid() {
 		return userid;
 	}
