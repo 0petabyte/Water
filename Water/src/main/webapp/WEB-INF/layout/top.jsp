@@ -168,10 +168,22 @@
       				</tr>
       			</thead>
       			<tbody id="tbl_tbody" style="overflow-y:auto;">
+      			<form action="selectlist.do" id="plistform">
+      			<input type="hidden" name="userid" value="${sessionScope.user_name}">
+      			<c:forEach var="plist" items="${plist}" varStatus="i">
+      				<%-- <tr>
+      					<td><input type="checkbox" name="_selected_" id="music" value="${musicdata.title}"/></td>
+      					<td>ㄴㄻㅇㄹㅈㄷㄹ</td>
+      				</tr> --%>
       				<tr>
-      					<%-- <td><input type="checkbox" name="_selected_" id="music" value="${musicdata.title}"/></td>
-      					<td>ㄴㄻㅇㄹㅈㄷㄹ</td> --%>
-      				</tr>
+      				<td><input type='checkbox' name='selected'/></td>
+      				<td class='songlst'>
+      				${plist.artist} - ${plist.title}<br>
+      				<iframe width='100' height='56' src='https://www.youtube.com/embed/${plist.youurl}' frameborder='0' allowfullscreen></iframe>
+					</td>
+					</tr>
+      			</c:forEach>
+      			</form>
       			</tbody>
       		</table>
       	</div>

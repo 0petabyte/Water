@@ -1,5 +1,7 @@
 package com.project.playlist;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.StringTokenizer;
 
 import org.openqa.selenium.remote.server.handler.GetElementAttribute;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.err.ErrDao;
@@ -50,21 +53,50 @@ public class PlayListController {
 	    	dto.setYouurl(url);
 	    	pdao.insertplist(dto);
 	    }
-	    dto.setUserid("aaa");
-    	dto.setArtist("abba");
-    	dto.setTitle("adsfa");
-    	dto.setYouurl("abbdfa");
-    	pdao.insertplist(dto);
 		return "redirect:main.do";
 	}
 
-	
-	/*@RequestMapping(value="addlist.do", method=RequestMethod.GET)
-	public ModelAndView insertlist(@RequestParam String test) {
+	/*@RequestMapping("selectlist.do")
+	public ModelAndView selectlist(@RequestParam String userid) {
+		String user=userid;
+		System.out.println(user);
 		ModelAndView model=new ModelAndView();
+		List<PlayListDto> list=pdao.getPlist();
+		return model;
+	}*/
+	
+	@RequestMapping(value="selectlist.do", method= RequestMethod.GET)
+	public ModelAndView selectlist(@RequestParam String userid) {
+		String user=userid;
+		System.out.println(user);
+		List<PlayListDto> plist=pdao.selectplist(user);
+		for(PlayListDto dto:plist) {
+			String artist=dto.getArtist();
+			String title=dto.getTitle();
+			String youurl=dto.getYouurl();
+		}
+		ModelAndView model=new ModelAndView();
+		model.addObject("plist", plist);
+		model.setViewName("/1/layout/top");
+		return model;
+	}
+	
+	/*@RequestMapping(value="selectlist.do", method= RequestMethod.GET)
+	@ResponseBody
+	public ModelAndView selectlist(@RequestParam String userid) {
+		String user=userid;
+		System.out.println(user);
+		HashMap<String, Object> hashmap=new HashMap<String, Object>();
 		
-		System.out.println("출력:"+test);
-		
+		List<PlayListDto> plist=pdao.selectplist(user);
+		for(PlayListDto dto:plist) {
+			String artist=dto.getArtist();
+			String title=dto.getTitle();
+			String youurl=dto.getYouurl();
+		}
+		ModelAndView model=new ModelAndView();
+		model.addObject("plist", plist);
+		model.setViewName("/1/layout/top");
 		return model;
 	}*/
 }
