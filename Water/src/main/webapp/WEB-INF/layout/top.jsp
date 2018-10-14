@@ -34,9 +34,9 @@
 						var title=$(selnum[i]).attr('val1');
 						var artist=$(selnum[i]).attr('val2');
 						var youurl=$(selnum[i]).attr('val3');
-						t+=title+",";
-						a+=artist+",";
-						y+=youurl+",";
+						t+=title+">";
+						a+=artist+">";
+						y+=youurl+">";
 					/* var str1="<tr><td><input type='checkbox' name='selected'/></td><td class='songlst'>"+artist
 							+" - "+title+"<br><iframe width='100' height='56' src='https://www.youtube.com/embed/"
 							+youurl+"' frameborder='0' allowfullscreen></iframe></td></tr>";
@@ -47,6 +47,8 @@
 				t=t.substring(0,t.length-1);
 				a=a.substring(0,a.length-1);
 				y=y.substring(0,y.length-1);
+				t=t.replace(/&/,",")
+				a=a.replace(/&/,",")
 				
 				if(cnt==0){
 					alert("선택된 노래가 없습니다.");
