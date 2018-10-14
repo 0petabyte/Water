@@ -27,8 +27,8 @@
 	<bean id="googleConnectionFactory"
 	  class="org.springframework.social.google.connect.GoogleConnectionFactory">
 	  <constructor-arg
-	    value="118932650742-chc2uea9ko7trqi6sqi3b94el562o432.apps.googleusercontent.com" />
-	  <constructor-arg value="eG15I2oJH5ADy-7k-AwiJmVW" />
+	    value="951143660722-4f9chmp443b8lrl9don2hdhvt6k6636r.apps.googleusercontent.com" />
+	  <constructor-arg value="oQz3z8OIsVnRtWIFOPL475Z8" />
 	</bean>
 	
 	<!-- 승인된 자바스크립트 원본과 승인된 리디렉션 URI -->
@@ -37,7 +37,8 @@
 	  <property name="scope"
 	    value="https://www.googleapis.com/auth/plus.login" />
 	  <property name="redirectUri"
-	    value="http://localhost:8044/Water/googleSignIn.do" />
+	  	    value="http://localhost:8044/Water/googleSignIn.do" />
+<!-- 	    value="http://ethkorea.co.kr/googleSignIn.do" /> -->
 	</bean>
 	
 	<!-- 파일 업로드 -->

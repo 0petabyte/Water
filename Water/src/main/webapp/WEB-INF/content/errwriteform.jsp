@@ -11,6 +11,16 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
     <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127375665-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-127375665-1');
+</script>
+    
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Bino html5 free Template</title>
@@ -84,8 +94,8 @@
                                                         <div class="single_contact_info">
                                                             <div class="single_info_text">
                                                                 <h3>CALL US</h3>
-                                                                <h4>+ 82 168 109 1425</h4>
-                                                                <h4>+ 0216809142</h4>
+                                                                <h4>+ 82 *** *** ****</h4>
+                                                                <h4>+ 02 *** ****</h4>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -93,7 +103,7 @@
                                                         <div class="single_contact_info">
                                                             <div class="single_info_text">
                                                                 <h3>EMAIL US</h3>
-                                                                <h4>service@타임뮤직.kr</h4>
+                                                                <h4>0petabyte@gmail.com</h4>
                                                             </div>
                                                         </div>
                                                     </div>

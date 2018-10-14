@@ -29,7 +29,7 @@ public class UserDao {
 	}
 
 	public List<UserDto> findList(String keyWord, String keyField, String yearchose, String sunwhiyear, 
-			String rankchose, String sunwhi, String jangre, String jangrechose, String nowurl, String sunwhire)
+			String rankchose, String sunwhi, String jangre, String jangrechose, String nowurl, String sunwhire,String sunwhirere)
 	{
 		//방법 1 : 전체데이타를 목록으로 얻고자 할경우
 		//List<UserDto> list=mongoTemp.findAll(UserDto.class,"musicdata");
@@ -45,6 +45,9 @@ public class UserDao {
 		sunwhi="sunwhi";
 		jangre="jangre";
 		sunwhire="sunwhire";
+		sunwhirere="sunwhirere";
+		
+		
 		
 
 
@@ -64,11 +67,11 @@ public class UserDao {
 		else
 			query=new Query(Criteria.where(keyField).regex(keyWord,"i"));
 
-		if (yearchose != null && rankchose == null && jangrechose == null)
+		if (yearchose != null && rankchose == null && jangrechose == null) {
 			query=new Query(new Criteria().andOperator(		
 					Criteria.where(sunwhiyear).is(yearchose).regex(yearchose.replaceAll(",", "|"),"i")
-					));
-
+					)).with(new Sort(new Sort.Order[] { new Sort.Order(Sort.Direction.ASC, "sunwhirere") }));
+		}
 		System.out.println(yearchose);
 
 /*		if (rankchose != null && jangrechose == null && yearchose == null) {
@@ -117,45 +120,41 @@ public class UserDao {
 		}*/
 
 		/*System.out.println(rankchose);*/
-		System.out.println("rank"+rankchose);
-		System.out.println("sunwhire"+sunwhire);
-		
-		System.out.println("sun"+sunwhi);
 		if (jangrechose == null && rankchose != null && yearchose == null )
 			
 			query=new Query(new Criteria().andOperator(		
 					Criteria.where(sunwhire).is(rankchose).regex(rankchose.replaceAll(",", "|"),"i")
-					));
+					)).with(new Sort(new Sort.Order[] { new Sort.Order(Sort.Direction.ASC, "sunwhirere") }));
 		
 
 		if (jangrechose != null && rankchose == null && yearchose == null )
 			query=new Query(new Criteria().andOperator(		
 					Criteria.where(jangre).is(jangrechose).regex(jangrechose.replaceAll(",", "|"),"i")
-					));
+					)).with(new Sort(new Sort.Order[] { new Sort.Order(Sort.Direction.ASC, "sunwhirere") }));
 
 		/*System.out.println(jangrechose);*/
 
 		if (jangrechose != null && rankchose != null && yearchose == null)
 			query=new Query(new Criteria().andOperator(		
 					Criteria.where(jangre).is(jangrechose).regex(jangrechose.replaceAll(",", "|"),"i"),
-					Criteria.where(sunwhire).is(rankchose).regex(rankchose.replaceAll(",", "|"))));
+					Criteria.where(sunwhire).is(rankchose).regex(rankchose.replaceAll(",", "|")))).with(new Sort(new Sort.Order[] { new Sort.Order(Sort.Direction.ASC, "sunwhirere") }));
 
 		if (jangrechose != null && rankchose != null && yearchose != null)
 			query=new Query(new Criteria().andOperator(		
 					Criteria.where(jangre).is(jangrechose).regex(jangrechose.replaceAll(",", "|"),"i"),
 					Criteria.where(sunwhire).is(rankchose).regex(rankchose.replaceAll(",", "|")),
-					Criteria.where(sunwhiyear).is(yearchose).regex(yearchose.replaceAll(",", "|"),"i")));
+					Criteria.where(sunwhiyear).is(yearchose).regex(yearchose.replaceAll(",", "|"),"i"))).with(new Sort(new Sort.Order[] { new Sort.Order(Sort.Direction.ASC, "sunwhirere") }));
 
 		if (jangrechose != null && yearchose != null && rankchose == null)
 			query=new Query(new Criteria().andOperator(		
 					Criteria.where(jangre).is(jangrechose).regex(jangrechose.replaceAll(",", "|"),"i"),
-					Criteria.where(sunwhiyear).is(yearchose).regex(yearchose.replaceAll(",", "|"),"i")));
+					Criteria.where(sunwhiyear).is(yearchose).regex(yearchose.replaceAll(",", "|"),"i"))).with(new Sort(new Sort.Order[] { new Sort.Order(Sort.Direction.ASC, "sunwhirere") }));
 
 
 		if (jangrechose == null && yearchose != null && rankchose != null)
 			query=new Query(new Criteria().andOperator(		
 					Criteria.where(sunwhire).is(rankchose).regex(rankchose.replaceAll(",", "|")),
-					Criteria.where(sunwhiyear).is(yearchose).regex(yearchose.replaceAll(",", "|"),"i")));
+					Criteria.where(sunwhiyear).is(yearchose).regex(yearchose.replaceAll(",", "|"),"i"))).with(new Sort(new Sort.Order[] { new Sort.Order(Sort.Direction.ASC, "sunwhirere") }));
 
 
 

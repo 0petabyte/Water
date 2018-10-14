@@ -30,11 +30,11 @@ public class ListController {
 	@RequestMapping(value="/main.do")
 	public ModelAndView list(@RequestParam(value="pageNum",defaultValue="1") int currentPage, String keyWord, String keyField, 
 			String yearchose, String sunwhiyear,String rankchose, String sunwhi, String jangre, String jangrechose, String nowurl,
-			String sunwhire,HttpServletRequest request) 
+			String sunwhire, String sunwhirere, HttpServletRequest request) 
 
 	{
 		ModelAndView model=new ModelAndView();
-		List<UserDto> list=dao.findList(keyWord, keyField, yearchose, sunwhiyear, rankchose, sunwhi, jangre, jangrechose, nowurl,sunwhire);
+		List<UserDto> list=dao.findList(keyWord, keyField, yearchose, sunwhiyear, rankchose, sunwhi, jangre, jangrechose, nowurl,sunwhire,sunwhirere);
 		
 
 
@@ -42,6 +42,7 @@ public class ListController {
 
 		//페이징처리
 		//페이징에 처리에 필요한 변수들
+		
 		int perPage=20; //한페이지당 보여지는 게시글의 갯수
 		int totalCount=0; //총 개시글의 개수
 		int totalPage;//총페이지수
@@ -128,6 +129,13 @@ public class ListController {
 		return model;
 		
 	}
+	
+	
+	@RequestMapping("/toptest.do")
+	public String test()
+	{
+		return "/1/content/Maintoptest";
+	} 
 	
 }
 
