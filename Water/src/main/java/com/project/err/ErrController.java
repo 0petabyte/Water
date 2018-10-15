@@ -44,7 +44,7 @@ public class ErrController {
 	public String write(@ModelAttribute ErrDto dto,HttpServletRequest request)
 	{
 		//업로드되는 프로젝트내부의 save 폴더의 실제경로 구하기
-		String path=request.getSession().getServletContext().getRealPath("/save");
+		String path=request.getSession().getServletContext().getRealPath("save/");
 		System.out.println("path:"+path);
 		
 		SpringFileWriter writer=new SpringFileWriter();
@@ -145,13 +145,13 @@ public class ErrController {
 		
 		//이미지가 실제 save 경로에 있는지 체크하기
 		Vector<String> flist=new Vector<String>();
-		String path=request.getSession().getServletContext().getRealPath("/save");
+		String path=request.getSession().getServletContext().getRealPath("save/");
 		if(!dto.getImgname().equals("none"))
 		{
 			String []imgfiles=dto.getImgname().split(":");
 			for(String img:imgfiles)
 			{
-				File f=new File(path+"\\"+img);
+				File f=new File(path+"/"+img);
 				if(f.exists())
 					flist.add("yes");
 				else

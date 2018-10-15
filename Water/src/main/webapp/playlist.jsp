@@ -9,7 +9,7 @@
     pageEncoding="UTF-8"%>
 <playlist>
 <%
-	String url="jdbc:oracle:thin:@jiung.net:27998:XE";
+	String url="jdbc:oracle:thin:@192.168.0.106:8044:XE";
 	String user="barker";
 	String password="1234";
 	

@@ -36,9 +36,9 @@
 	  class="org.springframework.social.oauth2.OAuth2Parameters">
 	  <property name="scope"
 	    value="https://www.googleapis.com/auth/plus.login" />
-	  <property name="redirectUri"
-	  	    value="http://localhost:8044/Water/googleSignIn.do" />
-<!-- 	    value="http://ethkorea.co.kr/googleSignIn.do" /> -->
+	  <property name="redirectUri" value="http://ethkorea.co.kr/googleSignIn.do" />
+<!-- 	  	    value="http://localhost:8044/Water/googleSignIn.do" /> -->
+	    
 	</bean>
 	
 	<!-- 파일 업로드 -->

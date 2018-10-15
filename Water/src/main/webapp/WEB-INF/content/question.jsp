@@ -26,6 +26,19 @@
 
     <!-- Custom styles for this template -->
     <link href="ques/css/agency.min.css" rel="stylesheet">
+	<!-- 게시글 클릭시 보이게 -->
+<script type="text/javascript">
+	$(function() {
+		$("td.timelist").click(function() {
+			//alert("aaa");
+			if ($(this).parent().next().css("display") == "none") {
+				$(this).parent().next().css("display", "");
+			} else {
+				$(this).parent().next().css("display", "none");
+			}
+		});
+	});
+</script>
 	
 	
 	<script type="text/javascript">
@@ -192,14 +205,12 @@
 					<tr>
 						<td class="timelist" align="center">${no}</td>
 						<c:set var="no" value="${no-1}" />
-						<td class="timelist" align="center"><a
-							href="https://www.youtube.com/watch?v=${musicdata.yourll}">${musicdata.title}</a>
+						<td class="timelist" align="center">${musicdata.title}</a>
 						</td>
 						<td class="timelist" align="center">${musicdata.artlist}</td>
 						<td class="timelist" align="center">${musicdata.jangre}</td>
 						<td class="timelist" align="center">${musicdata.sunwhiyear.substring(0,4)}년${musicdata.sunwhi}위</td>
-						<td class="timelist" align="center"><a
-							href="${musicdata.musicidurl}"> ${musicdata.album}</a></td>
+						<td class="timelist" align="center">${musicdata.album}</td>
 					</tr>
 					<tr style="display: none;" id="scontentsub" class="subshow">
 						<td colspan="4" align="center"><iframe width="280"
@@ -207,9 +218,15 @@
 								src="https://www.youtube.com/embed/${musicdata.yourll}"
 								frameborder="0" allowfullscreen></iframe></td>
 
-						<td height="100" val colspan="4" align="center"><div
+						<td height="100" val colspan="5" align="center"><div
 								style="overflow-y: scroll; height: 100%; width: 100%">
-								${musicdata.gasa}</div></td>
+								<br>저작권 문제로 가사 지원을 중단합니다.<br>
+						해당 가사에 저작권이 있는 음원 사이트 Melon을 링크합니다.<br>
+						<br>
+						<a href="https://www.melon.com/song/detail.htm?songId=${musicdata.musicid}" target="_blank">Melon 에서 가사보기</a>
+						<br>
+						<br>
+						<a href="https://www.youtube.com/watch?v=${musicdata.yourll}" target="_blank">해당영상 YOUTUBE 로 가기</a></div></td>
 					</tr>
 				</c:forEach>
 			</tbody>
