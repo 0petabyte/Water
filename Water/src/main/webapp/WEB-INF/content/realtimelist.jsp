@@ -26,6 +26,7 @@
         <title>실시간 차트</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Jua" rel="stylesheet">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 
@@ -57,11 +58,18 @@
         
         
     </head>
-    
+    <style>
+    #tit { 
+		font-family: 'Do Hyeon', sans-serif; 
+		font-size: 40pt;
+		color: black;
+	}
+    </style>
     
     
     <body data-spy="scroll" data-target=".navbar-collapse">
-
+    	<br><br>
+		<h2 id="tit">실시간 차트</h2>
 
 		<table class="table table-hover">
 <!-- 		<thead>

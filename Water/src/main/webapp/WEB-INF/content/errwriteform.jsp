@@ -31,7 +31,8 @@
 					$("#imgarea").append(s);
 				});
 			});
-		</script>	
+		</script>
+		<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Jua" rel="stylesheet">	
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -59,6 +60,12 @@
         <link rel="stylesheet" href="assets/css/responsive.css" />
 
         <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <style>
+	    #tit { 
+			font-family: 'Do Hyeon', sans-serif; 
+			font-size: 40pt;
+		}
+	    </style>
     </head>
     <body data-spy="scroll" data-target=".navbar-collapse">
 
@@ -71,7 +78,7 @@
                         <div class="col-sm-12">
                             <div class="contact_contant sections">
                                 <div class="head_title text-center">
-                                    <h2>오류 신고 게시판 입니다.</h2>
+                                    <h2 id="tit">오류 신고</h2>
                                     <div class="subtitle">
                                         노래의 곡과 영상이 매치하지 않거나 타임뮤직 이용시 불편사항을 접수해주시면 반영토록 하겠습니다.  
                                     </div>
