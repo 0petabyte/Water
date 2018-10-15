@@ -133,7 +133,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <textarea class="form-control" name="econtent" rows="7" placeholder="Message"></textarea>
+                                                        <textarea class="form-control" name="econtent" rows="5" placeholder="Message"></textarea>
                                                     </div>
                                                     <div class="">
 															<input type="button" id="btnadd" value="Image Add" class="btn btn-lg">
@@ -143,6 +143,10 @@
                                                     <div class="">
                                                         <input type="submit" value="SEND MESSAGE" class="form-control btn btn-lg"style="height: 60px;">
                                                     </div>
+                                                    <div class="">
+															<input type="button" id="btnlist" value="To List" class="btn btn-lg"style="height: 20px;"
+															onclick="location.href='error.do?pageNum=${pageNum}'">
+													</div>
                                                 </div> 
                                             </form>
                                         </div>
