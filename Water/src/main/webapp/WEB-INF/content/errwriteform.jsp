@@ -78,7 +78,7 @@
                         <div class="col-sm-12">
                             <div class="contact_contant sections">
                                 <div class="head_title text-center">
-                                    <h2>오류 신고 게시판 입니다.</h2>
+                                    <h2 id="tit">오류 신고</h2>
                                     <div class="subtitle">
                                         노래의 곡과 영상이 매치하지 않거나 타임뮤직 이용시 불편사항을 접수해주시면 반영토록 하겠습니다.  
                                     </div>

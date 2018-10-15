@@ -70,7 +70,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">정보입력</h2>
+            <h2 class="section-heading text-uppercase">나의곡찾기</h2>
             <h3 class="section-subheading text-muted">--</h3>
           </div>
         </div>
@@ -93,7 +93,7 @@
                 <div class="clearfix"></div>
                 <div class="col-lg-12 text-center">
                   <div id="success"></div>
-                  <button id="btn" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+                  <button id="btn" class="btn btn-primary btn-xl text-uppercase" type="submit">Search</button>
                 </div>
               </div>
             </form>
