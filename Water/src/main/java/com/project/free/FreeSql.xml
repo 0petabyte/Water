@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="free">
+	<select id="selectAllOffree" resultType="fdto">
+		select * from free order by f_num desc
+	</select>
+	<insert id="insertBoard" parameterType="fdto">
+		insert into free values (seq_free.nextval,#{fwriter},#{ftitle},
+		#{fcontent},sysdate)
+	</insert>
+	<select id="totalcountoffree" resultType="int">
+		select count(*) from free
+	</select>
+	<select id="selectpagingoffree" parameterType="HashMap" resultType="fdto">
+		<![CDATA[
+			select a.* from (select ROWNUM as RNUM,b.* from 
+			(select * from free order by f_num desc)b)a 
+			where a.RNUM>=#{start} and a.RNUM<=#{end}
+		]]>
+	</select> 
+	<select id="selectOneoffree" parameterType="int" resultType="fdto">
+		select * from free where f_num=#{f_num} 
+	</select>
+	<delete id="delete" parameterType="int">
+		DELETE FROM free WHERE f_num = #{f_num}	
+	</delete>
+	<select id="updateForm" resultType="fdto" parameterType="int">
+		SELECT * FROM free WHERE f_num = #{f_num}
+	</select>
+	<update id="update" parameterType="fdto">
+		UPDATE free SET ftitle=#{ftitle}, fcontent=#{fcontent} WHERE f_num=#{f_num}
+	</update>
+	<!-- 댓글 -->
+	<insert id="insertanswer" parameterType="fadto">
+		insert into f_answer values (seq_free.nextval,#{f_num},#{fawriter},#{facontent},sysdate)
+	</insert>
+	<select id="answerlistByNum" parameterType="int" resultType="fadto">
+		select * from f_answer where f_num=#{f_num} order by fa_num desc
+	</select>
+</mapper>

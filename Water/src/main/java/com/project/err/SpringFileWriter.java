@@ -28,7 +28,7 @@ public class SpringFileWriter {
 					String fname=time+"_"+originalname;
 					filenames+=fname+":";
 					fos=new 
-							FileOutputStream(path+"\\"+fname);
+							FileOutputStream(path+"/"+fname);
 					fos.write(fileData);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block

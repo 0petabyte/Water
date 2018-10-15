@@ -49,7 +49,7 @@
             
             <tr>
                <td colspan="2" align="center">
-                  <input type="submit" value="mongodb추천완료" class="btn btn-sm btn-warning">
+                  <input type="submit" value="추천완료" class="btn btn-sm btn-warning">
                   <input type="button" value="목록으로" class="btn btn-sm btn-success" onclick="location.href='main.do'">
                </td>
             </tr>

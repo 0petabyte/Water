@@ -117,8 +117,21 @@ h2 {
     $(function(){
     	$("#icon").click(function(){
     		/* var s1=$("#music").attr("val1"); */
-    		$("#frm").attr("action", "chucheonform.do")
-    		$("#frm").submit();
+    		/* var check=document.getElementsByTagName("_selected_");
+    		alert(check.length); */
+    		var n=0;
+    		for(var i=0;i<frm._selected_.length;i++){
+    			if(frm._selected_[i].checked){
+    				n++;
+    			}
+    		}
+    		//alert(n);
+    		if(n==0){
+    			alert("원하시는 곡의 체크박스를 선택해주세요");
+    		}else{
+    			$("#frm").attr("action", "chucheonform.do")
+    			$("#frm").submit();
+    		}
     	});
     });
 
@@ -549,7 +562,7 @@ h2 {
 				</tr>
 			</thead>
 			<tbody>
-			<form action="a" id="frm">
+			<form action="a" id="frm" name="frm">
 				<c:forEach var="musicdata" begin="${startNum}" end="${endNum}"
 					items="${list}">
 					<tr>

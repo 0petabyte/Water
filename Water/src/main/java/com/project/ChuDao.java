@@ -31,9 +31,10 @@ public class ChuDao {
 	{	
 		
 		
-		List<ChuCheonBBSDto> clist = mongoTemp.findAll(ChuCheonBBSDto.class,"chucheonbbs");
+		
 		Query query = new Query();
 		query.with(new Sort(new Sort.Order[] { new Sort.Order(Sort.Direction.DESC, "_id") }));
+		List<ChuCheonBBSDto> clist = this.mongoTemp.find(query, ChuCheonBBSDto.class);
 		
 		return clist;
 	}

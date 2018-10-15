@@ -9,6 +9,8 @@
 <head>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127375665-1"></script>
+<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Jua" rel="stylesheet">
+       
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -44,12 +46,20 @@
    	});
    	
    </script>
+   <style>
+    #tit { 
+		font-family: 'Do Hyeon', sans-serif; 
+		font-size: 40pt;
+		color: black;
+	}
+    </style>
 </head>
 <body>
 
 <div class="container">
-   <h2></h2>
-   <p></p>
+	<br>
+	<h2 id="tit">추천 게시판</h2>
+	<br>
    
     	<b>총<span style="color: red;">${count}</span>개 가 있습니다</b>
 

@@ -9,13 +9,51 @@
 	<link rel="stylesheet" type="text/css" href="${root}/css/topstyle.css">
 	<!-- <script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script> -->
 	<script type="text/javascript">
+	
+	/*재생리스트 불러오기*/
 	$(function(){
 		$("#playlist").click(function(){
 			$("#mylist").slideToggle('fast');
+			$("#plist").empty();
+			$.get("playlist.jsp", function(data){
+				var s="<table id='lst'><colgroup><col width='20px'><col width='300px'></colgroup>";
+				s+="<thead id='tbl_thead'><tr><td><input type='checkbox' name='selected_all'></td><td class='songlst'><input type='button' value='삭제' id='del'></td></tr></thead>";
+      			s+="<tbody id='tbl_tbody' style='overflow-y:auto;'>";
+				
+				$(data).find("plist").each(function(){
+					var a=$(this);
+					var pnum, artist, title, youurl;
+					var str="";
+					//데이터 읽어서 str 추가하기
+					pnum=a.find("pnum").text();
+					artist=a.find("artist").text();
+					title=a.find("title").text();
+					youurl=a.find("youurl").text();
+					
+					s+="<tr><td><input type='checkbox' name='selected'/></td><td class='songlst'>"+artist
+					+" - "+title+"<br><iframe width='100' height='56' src='https://www.youtube.com/embed/"
+					+youurl+"' frameborder='0' allowfullscreen></iframe></td></tr>";
+				});
+				
+				s+="</tbody></table>";
+				$("#plist").append(s);
+				
+				/*재생리스트 selectbox*/
+				$('input[name=selected_all]').on('change', function(){
+					$('input[name=selected]').prop('checked', this.checked);
+				});
+				
+				$("#del").click(function(){
+					alert("준비중..");
+				});
+				
+				
+			});
+			
 		});
 	});
 	
-	/*재생리스트*/
+	/*재생리스트 추가*/
 	$(function(){
 		$("#listicon").click(function(){
 			if ("<%=session.getAttribute("loginok")%>"!="yes") {
@@ -60,12 +98,6 @@
 				window.location.href="addlist.do?title="+t+"&artist="+a+"&youurl="+y+"&userid="+userid;
 			}
 			
-		});
-	});
-	/*재생리스트 selectbox*/
-	$(function(){
-		$('input[name=selected_all]').on('change', function(){
-			$('input[name=selected]').prop('checked', this.checked);
 		});
 	});
 	
@@ -135,7 +167,7 @@
 				<li class="menulist"><a href="${root}/response.do" style="color:#52616a;">실시간차트반응</a></li>
 				<li class="menulist"><a href="${root}/chucheon.do" style="color:#52616a;">추천노래</a></li>
 				<li class="menulist"><a href="${root}/writeform.do" style="color:#52616a;">오류신고</a></li>
-				<li class="menulist"><a href="${root}/question.do" style="color:#52616a;">질문</a></li>
+				<li class="menulist"><a href="${root}/question.do" style="color:#52616a;">나의곡찾기</a></li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
@@ -158,34 +190,8 @@
 </nav>
 	<div id="mylist" style="display: none; position: absolute; ">
 		<p><b>${sessionScope.user_name}님 재생목록</b></p>
-		<div style="height: 550px; overflow-y: auto;">
-			<table id="lst">
-      			<colgroup><col width="20px"><col width="300px"></colgroup>
-      			<thead id="tbl_thead">
-      				<tr>
-      					<td><input type="checkbox" name="selected_all"></td>
-      					<td class="songlst"><input type="button" value="삭제"></td>
-      				</tr>
-      			</thead>
-      			<tbody id="tbl_tbody" style="overflow-y:auto;">
-      			<form action="selectlist.do" id="plistform">
-      			<input type="hidden" name="userid" value="${sessionScope.user_name}">
-      			<c:forEach var="plist" items="${plist}" varStatus="i">
-      				<%-- <tr>
-      					<td><input type="checkbox" name="_selected_" id="music" value="${musicdata.title}"/></td>
-      					<td>ㄴㄻㅇㄹㅈㄷㄹ</td>
-      				</tr> --%>
-      				<tr>
-      				<td><input type='checkbox' name='selected'/></td>
-      				<td class='songlst'>
-      				${plist.artist} - ${plist.title}<br>
-      				<iframe width='100' height='56' src='https://www.youtube.com/embed/${plist.youurl}' frameborder='0' allowfullscreen></iframe>
-					</td>
-					</tr>
-      			</c:forEach>
-      			</form>
-      			</tbody>
-      		</table>
+		<div style="height: 550px; overflow-y: auto;" id="plist">
+
       	</div>
 	</div>
 </body>
