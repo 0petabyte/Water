@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="insertplist" parameterType="pdto">
 	insert into playlist values (seq_pnum.nextval,#{userid, jdbcType=VARCHAR},#{artist, jdbcType=VARCHAR},#{title, jdbcType=VARCHAR},#{youurl, jdbcType=VARCHAR})
 	</insert>
-	<select id="selectplist" parameterType="string" resultType="pdto">
+	<!-- <select id="selectplist" parameterType="string" resultType="pdto">
 	select * from playlist where userid=#{userid}
-	</select>
+	</select> -->
 </mapper>

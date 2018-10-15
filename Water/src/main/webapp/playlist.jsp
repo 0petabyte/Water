@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
-<%-- <%@page import="myinfo.db.DbConnect"%> --%>
 <%@ page language="java" contentType="text/xml; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <playlist>
-<%!
-	String url="jdbc:oracle:thin:@192.168.70.53:1521:xe";
-	String user="stu01";
-	String password="a1234";
+<%
+	String url="jdbc:oracle:thin:@jiung.net:27998:XE";
+	String user="barker";
+	String password="1234";
 	
 	
 		try {
@@ -52,14 +52,18 @@
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
-			db.dbClose(rs, pstmt, conn);
+			try{
+				if(rs!=null)
+					rs.close();
+				if(pstmt!=null)
+					pstmt.close();
+				if(conn!=null)
+					conn.close();
+			}catch(SQLException e){}
 		}
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-	
-	
-
 %>
 </playlist>
