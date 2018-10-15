@@ -31,7 +31,8 @@
 					$("#imgarea").append(s);
 				});
 			});
-		</script>	
+		</script>
+		<link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Jua" rel="stylesheet">	
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -59,6 +60,12 @@
         <link rel="stylesheet" href="assets/css/responsive.css" />
 
         <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <style>
+	    #tit { 
+			font-family: 'Do Hyeon', sans-serif; 
+			font-size: 40pt;
+		}
+	    </style>
     </head>
     <body data-spy="scroll" data-target=".navbar-collapse">
 
