@@ -28,7 +28,7 @@
 	}
 	
 	h2 { 
-		font-family: 'Jua', sans-serif;
+		font-family: 'Do Hyeon', sans-serif; 
 		font-size: 40pt;
 	}
 	.container {

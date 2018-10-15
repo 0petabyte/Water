@@ -64,23 +64,7 @@ public class PlayListController {
 		List<PlayListDto> list=pdao.getPlist();
 		return model;
 	}*/
-	
-	@RequestMapping(value="selectlist.do", method= RequestMethod.GET)
-	public ModelAndView selectlist(@RequestParam String userid) {
-		String user=userid;
-		System.out.println(user);
-		List<PlayListDto> plist=pdao.selectplist(user);
-		for(PlayListDto dto:plist) {
-			String artist=dto.getArtist();
-			String title=dto.getTitle();
-			String youurl=dto.getYouurl();
-		}
-		ModelAndView model=new ModelAndView();
-		model.addObject("plist", plist);
-		model.setViewName("/1/layout/top");
-		return model;
-	}
-	
+
 	/*@RequestMapping(value="selectlist.do", method= RequestMethod.GET)
 	@ResponseBody
 	public ModelAndView selectlist(@RequestParam String userid) {
@@ -98,5 +82,19 @@ public class PlayListController {
 		model.addObject("plist", plist);
 		model.setViewName("/1/layout/top");
 		return model;
+	}*/
+	
+	/*@RequestMapping(value="selectlist.do", method= RequestMethod.GET)
+	public List<PlayListDto> selectlist(@RequestParam String userid) {
+		String user=userid;
+		System.out.println(user);
+		List<PlayListDto> plist=pdao.selectplist(user);
+		for(PlayListDto dto:plist) {
+			String artist=dto.getArtist();
+			String title=dto.getTitle();
+			String youurl=dto.getYouurl();
+		}
+		
+		return plist;
 	}*/
 }

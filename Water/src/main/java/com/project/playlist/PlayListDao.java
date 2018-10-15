@@ -11,8 +11,8 @@ public class PlayListDao extends SqlSessionDaoSupport{
 		getSqlSession().insert("playlist.insertplist", dto);
 	}
 	
-	public List<PlayListDto> selectplist(String user) {
+	/*public List<PlayListDto> selectplist(String user) {
 		List<PlayListDto> plist=getSqlSession().selectList("selectplist",user);
 		return plist;
-	}
+	}*/
 }
