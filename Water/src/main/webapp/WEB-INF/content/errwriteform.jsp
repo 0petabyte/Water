@@ -151,7 +151,7 @@
                                                         <input type="submit" value="SEND MESSAGE" class="form-control btn btn-lg"style="height: 60px;">
                                                     </div>
                                                     <div class="">
-															<input type="button" id="btnlist" value="To List" class="btn btn-lg"style="height: 20px;"
+															<input type="button" id="btnlist" value="To List" class="btn btn-lg"style="height: 50px;"
 															onclick="location.href='error.do?pageNum=${pageNum}'">
 													</div>
                                                 </div> 
