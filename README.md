@@ -8,4 +8,4 @@ https://spenqug-my.sharepoint.com/:p:/g/personal/myoffice2479_14_a1p_me/EZlQGhH4
 
 사이트 녹화영상
 
-<iframe width = "560" height="315" src="https://www.youtube.com/watch?v=TzNDmdsbzGM&feature=emb_logo" frameborder="0" allowfullscreen></iframe>
+[![Video Label](http://img.youtube.com/vi/uLR1RNqJ1Mw/0.jpg)](https://youtu.be/uLR1RNqJ1Mw?t=0s)
